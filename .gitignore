@@ -1,18 +1,3 @@
-# Ignore everything on Desktop by default to keep git clean
+# Ignore absolutely everything to keep workspace clean
 *
-
-# Allow specific projects
-!troubleshooter/
-!INFOGRAFIKEN GRAVITY/
-
-# Ignore common large folders within allowed projects
-**/node_modules/
-**/.venv/
-**/__pycache__/
-*.mp3
-*.mp4
-*.zip
-*.lnk
-*.JPG
-*.png
-*.webp
+!.gitignore
