@@ -1,0 +1,19 @@
+# SAARVICE Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://saarvice.de/sitemap.xml
+
+# LLM & AI Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

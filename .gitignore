@@ -1,3 +1,6 @@
-# Ignore absolutely everything to keep workspace clean
-*
-!.gitignore
+node_modules/
+.probe/
+*.bak
+.DS_Store
+Thumbs.db
+__pycache__/

@@ -1,0 +1,22 @@
+{
+  "name": "SAARVICE — Hauptsach gudd. Awwer annersch.",
+  "short_name": "SAARVICE",
+  "description": "Saarländische Imbisskultur trifft französische Bistro-Ästhetik. Der digitale Stammtisch-Pass & Drop-Radar.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d0c0a",
+  "theme_color": "#e3b23c",
+  "lang": "de-DE",
+  "icons": [
+    {
+      "src": "assets/images/logo_stamp.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
