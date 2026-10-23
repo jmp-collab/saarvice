@@ -1300,26 +1300,139 @@
     { id: 95, cat: 'Tech, PWA & Live', title: 'Erweiterte llms.txt Wissensbasis für KI-Suchmaschinen', link: 'llms.txt' },
     { id: 96, cat: 'Tech, PWA & Live', title: 'WOFF2 Font-Preloading für 0.00 CLS & Instant-Render', link: '#hero' },
     { id: 97, cat: 'Tech, PWA & Live', title: 'Vektor-QR-Code & 3D-Tilt-Physik im Stammtisch-Pass', link: '#wallet-card-3d' },
-    { id: 98, cat: 'Tech, PWA & Live', title: 'Interaktives 100-Punkte Saarland-Viralitäts-Cockpit', link: '#open-viral-cockpit-btn' },
-    { id: 99, cat: 'Tech, PWA & Live', title: '17/17 Seiten Grün in check-site.py & Sitemap-Integration', link: 'sitemap.xml' },
-    { id: 100, cat: 'Tech, PWA & Live', title: 'Live-Deployment im Web mit öffentlicher URL', link: '#hero' }
+    { id: 98, cat: 'Tech, PWA & Live', title: 'Interaktives 200-Punkte Viralitäts- & KI-Mastermind-Cockpit', link: '#open-viral-cockpit-btn' },
+    { id: 99, cat: 'Tech, PWA & Live', title: '18/18 Seiten Grün in check-site.py & Sitemap-Integration', link: 'sitemap.xml' },
+    { id: 100, cat: 'Tech, PWA & Live', title: 'Live-Deployment im Web mit öffentlicher URL', link: '#hero' },
+
+    // XI. Typografie-Upgrade & Jean Maurice Port als Maskottchen & Mastermind (101–110)
+    { id: 101, cat: 'Jean Mastermind & Font', title: 'High-Legibility Body-Font (Plus Jakarta Sans WOFF2)', link: 'jean.html' },
+    { id: 102, cat: 'Jean Mastermind & Font', title: 'Optimierte Display-Typografie & entspannte Laufweite', link: 'jean.html' },
+    { id: 103, cat: 'Jean Mastermind & Font', title: 'Interaktiver Aa Lesbarkeits- & Kontrast-Umschalter', link: '#readability-toggle-btn' },
+    { id: 104, cat: 'Jean Mastermind & Font', title: 'Jean Maurice Port als offizielles SVG-Maskottchen', link: 'jean.html' },
+    { id: 105, cat: 'Jean Mastermind & Font', title: 'Echte Jean-Porträts (jean.jpg & jean-cool.jpg) lokal & offline', link: 'jean.html' },
+    { id: 106, cat: 'Jean Mastermind & Font', title: '„Jean sagt:“-Kommentar-Bubbles an allen Schlüsselstellen', link: '#manifest' },
+    { id: 107, cat: 'Jean Mastermind & Font', title: 'Header-Mastermind-Pill („🧔 Jean & KI-Hub“)', link: 'jean.html' },
+    { id: 108, cat: 'Jean Mastermind & Font', title: 'Schwebendes „Frag Jean 🧔“-Mastermind-Dock auf allen Seiten', link: 'jean.html' },
+    { id: 109, cat: 'Jean Mastermind & Font', title: 'Echte Saarland- & KI-Karriere-Story (Uni des Saarlandes → Head of AI)', link: 'jean.html' },
+    { id: 110, cat: 'Jean Mastermind & Font', title: 'Dedizierte Flaggschiff-Hub-Seite jean.html', link: 'jean.html' },
+
+    // XII. Prompt Engineering & 1-Click Send to ChatGPT/Claude/Perplexity/Gemini (111–120)
+    { id: 111, cat: 'Prompt-Tresor & LLMs', title: 'Universal 1-Click Prompt-Launcher (ChatGPT, Claude, Perplexity, Gemini)', link: 'jean.html#prompt-lab' },
+    { id: 112, cat: 'Prompt-Tresor & LLMs', title: 'Live Variablen-Injektion (Branche, Region, KPI-Ziel)', link: 'jean.html#prompt-lab' },
+    { id: 113, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #1: Der Virale Kult-Brand-Architekt', link: 'jean.html#prompt-lab' },
+    { id: 114, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #2: Jeans SGE & AI-Overviews Citability-Booster', link: 'jean.html#prompt-lab' },
+    { id: 115, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #3: High-SKU Programmatic SEO & Knowledge-Atomizer', link: 'jean.html#prompt-lab' },
+    { id: 116, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #4: Editorial Food- & Produkt-Visuals (Midjourney/Flux)', link: 'jean.html#prompt-lab' },
+    { id: 117, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #5: Das OIODO-Geschäftsmodell- & Growth-Audit', link: 'jean.html#prompt-lab' },
+    { id: 118, cat: 'Prompt-Tresor & LLMs', title: 'Master-Prompt #6: Interaktiver Rechner- & Lead-Magnet-Baukasten', link: 'jean.html#prompt-lab' },
+    { id: 119, cat: 'Prompt-Tresor & LLMs', title: 'Gericht-spezifische KI-Koch-Prompts auf allen 10 Menü-Seiten', link: 'menu/schwenker-katsu-sando.html' },
+    { id: 120, cat: 'Prompt-Tresor & LLMs', title: 'Live Prompt-Roaster & CO-STAR System-Prompt-Upgrader', link: 'jean.html#prompt-lab' },
+
+    // XIII. Interaktive KI-, SEO-, SGE- & Business-Rechner (121–130)
+    { id: 121, cat: 'KI- & SEO-Rechner', title: 'Prompt-Engineering ROI- & Team-Zeitspar-Rechner', link: 'jean.html#ki-rechner' },
+    { id: 122, cat: 'KI- & SEO-Rechner', title: 'Briot-Sando-Äquivalenz im ROI-Rechner', link: 'jean.html#ki-rechner' },
+    { id: 123, cat: 'KI- & SEO-Rechner', title: 'SGE / AI-Overviews Citability & GEO-Score-Check (0–100)', link: 'jean.html#ki-rechner' },
+    { id: 124, cat: 'KI- & SEO-Rechner', title: 'Programmatic SEO High-SKU E-Commerce Umsatz-Simulator', link: 'jean.html#ki-rechner' },
+    { id: 125, cat: 'KI- & SEO-Rechner', title: 'KI-Verzeichnis Backlink- & DR-Boost-Rechner (256+ Directories)', link: 'jean.html#ki-rechner' },
+    { id: 126, cat: 'KI- & SEO-Rechner', title: 'Dynamische Fix-Prompt-Generierung aus dem SGE-Score', link: 'jean.html#ki-rechner' },
+    { id: 127, cat: 'KI- & SEO-Rechner', title: '1-Click „Rechner-Ergebnis an ChatGPT senden“-Brücke', link: 'jean.html#ki-rechner' },
+    { id: 128, cat: 'KI- & SEO-Rechner', title: '1-Click „Rechner-Ergebnis an Claude senden“-Brücke', link: 'jean.html#ki-rechner' },
+    { id: 129, cat: 'KI- & SEO-Rechner', title: 'Direktlink zu Gratis-Verzeichnissen aus dem DR-Rechner', link: 'jean.html#ki-rechner' },
+    { id: 130, cat: 'KI- & SEO-Rechner', title: 'Aria-Live Echtzeit-Auswertung aller 4 Decision-Rechner', link: 'jean.html#ki-rechner' },
+
+    // XIV. Interaktive Tutorials & Praxis-Blueprints (131–140)
+    { id: 131, cat: 'Tutorials & Blueprints', title: 'Tutorial #1: Der 45-Minuten Kult-Brand-Sprint (SAARVICE-Methode)', link: 'jean.html#tutorials' },
+    { id: 132, cat: 'Tutorials & Blueprints', title: 'Tutorial #2: AI Engine Optimization (llms.txt & GEO in 12 Min.)', link: 'jean.html#tutorials' },
+    { id: 133, cat: 'Tutorials & Blueprints', title: 'Tutorial #3: Vom Hersteller-PDF zur zitierbaren Knowledge Engine', link: 'jean.html#tutorials' },
+    { id: 134, cat: 'Tutorials & Blueprints', title: '1-Click „Tutorial als interaktiven Coach in ChatGPT starten“', link: 'jean.html#tutorials' },
+    { id: 135, cat: 'Tutorials & Blueprints', title: '1-Click „Tutorial als interaktiven Coach in Claude starten“', link: 'jean.html#tutorials' },
+    { id: 136, cat: 'Tutorials & Blueprints', title: '1-Click „Tutorial in Perplexity vertiefen“', link: 'jean.html#tutorials' },
+    { id: 137, cat: 'Tutorials & Blueprints', title: 'Praxis-Schritte mit konkreten Deliverables statt Theorie', link: 'jean.html#tutorials' },
+    { id: 138, cat: 'Tutorials & Blueprints', title: 'Kopierfertige Coach-Prompts unter jedem Tutorial', link: 'jean.html#tutorials' },
+    { id: 139, cat: 'Tutorials & Blueprints', title: 'Zeit- & Skill-Tags auf allen Tutorial-Karten', link: 'jean.html#tutorials' },
+    { id: 140, cat: 'Tutorials & Blueprints', title: 'Stempelheft-Belohnung beim Abfeuern eines Tutorial-Prompts', link: 'jean.html#tutorials' },
+
+    // XV. AIGEDDON YouTube-Channel & Video Case Studies (141–150)
+    { id: 141, cat: 'AIGeddon & Promptgott', title: 'AIGEDDON ☢️ YouTube-Channel Banner & Direkt-Abo-Trigger', link: 'jean.html#aigeddon' },
+    { id: 142, cat: 'AIGeddon & Promptgott', title: 'Case Study #1: Das SAARVICE-Experiment (200 Features Live)', link: 'jean.html#aigeddon' },
+    { id: 143, cat: 'AIGeddon & Promptgott', title: 'Case Study #2: 256+ KI-Verzeichnisse als organische SEO-Maschine', link: 'jean.html#aigeddon' },
+    { id: 144, cat: 'AIGeddon & Promptgott', title: 'Case Study #3: Moto Knowledge Engine & Simson Schmitt SEO-Hub', link: 'jean.html#aigeddon' },
+    { id: 145, cat: 'AIGeddon & Promptgott', title: '1-Click „Case Study in ChatGPT aufs eigene Business adaptieren“', link: 'jean.html#aigeddon' },
+    { id: 146, cat: 'AIGeddon & Promptgott', title: 'Promptgott ⚡ Newsletter Vault mit Themen-Schwerpunkten', link: 'jean.html#promptgott' },
+    { id: 147, cat: 'AIGeddon & Promptgott', title: 'Sofort-Freischaltung des Promptgott Starter-Decks im Browser', link: 'jean.html#promptgott' },
+    { id: 148, cat: 'AIGeddon & Promptgott', title: '1-Click Download des Promptgott-Playbooks als Markdown-Datei (.md)', link: 'jean.html#promptgott' },
+    { id: 149, cat: 'AIGeddon & Promptgott', title: 'Kein-Spam-Ehrenwort & Doppelweck-Abmelde-Garantie', link: 'jean.html#promptgott' },
+    { id: 150, cat: 'AIGeddon & Promptgott', title: 'Homepage-Integration von Promptgott & AIGeddon (#jean-mastermind)', link: '#jean-mastermind' },
+
+    // XVI–XX. Monetarisierung, Zentrales Ökosystem & Domain-Strategie (151–200)
+    { id: 151, cat: 'Monetarisierung & Hub', title: 'Done-For-You KI-Verzeichnis Launch-Service Integration', link: 'jean.html#monetarisierung' },
+    { id: 152, cat: 'Monetarisierung & Hub', title: '90-Minuten 1:1 KI-, SGE- & SEO-Sparring mit Jean (490 €)', link: 'jean.html#monetarisierung' },
+    { id: 153, cat: 'Monetarisierung & Hub', title: 'Exklusiver 50% Aura++ Deal-Code (50AIDIRECTORIES) mit 1-Click-Copy', link: 'jean.html#monetarisierung' },
+    { id: 154, cat: 'Monetarisierung & Hub', title: 'Direktbrücke zum kompletten Rabattcode-Tresor auf ai-directories', link: 'jean.html#monetarisierung' },
+    { id: 155, cat: 'Monetarisierung & Hub', title: 'Newsletter- & YouTube-Sponsoring-Anfrage-Karte', link: 'jean.html#monetarisierung' },
+    { id: 156, cat: 'Monetarisierung & Hub', title: 'Zentrales Ökosystem-Radar mit 8 Plattformen & Live-Filter', link: 'jean.html#ecosystem' },
+    { id: 157, cat: 'Monetarisierung & Hub', title: 'Vernetztes JSON-LD Person-Schema (Jean Maurice Port + sameAs)', link: 'jean.html' },
+    { id: 158, cat: 'Monetarisierung & Hub', title: 'Multi-Domain- vs. Subfolder-SEO-Architektur-Board', link: 'jean.html#domains' },
+    { id: 159, cat: 'Monetarisierung & Hub', title: 'Kopierfertige GitHub-Pages DNS A-Records für Custom-Domains', link: 'jean.html#domains' },
+    { id: 160, cat: 'Monetarisierung & Hub', title: 'Erweiterte llms.txt V4 mit komplettem Jean-Maurice-Port-Profil', link: 'llms.txt' },
+    { id: 161, cat: 'Monetarisierung & Hub', title: 'AIGeddon KI-Verzeichnisse Knoten im zentralen Hub', link: 'jean.html#ecosystem' },
+    { id: 162, cat: 'Monetarisierung & Hub', title: 'Moto Knowledge Engine (1.840 Wissens-Atome) Showcase', link: 'jean.html#ecosystem' },
+    { id: 163, cat: 'Monetarisierung & Hub', title: 'Awesome Simson & TwoStroke GPL-Theme Showcase', link: 'jean.html#ecosystem' },
+    { id: 164, cat: 'Monetarisierung & Hub', title: 'Hugging Face (@jmp1987) & GitHub (@jmp-collab) Direkt-Hub', link: 'jean.html#ecosystem' },
+    { id: 165, cat: 'Monetarisierung & Hub', title: 'kannkind.ai B2B AI × SEO Systems Architektur-Link', link: 'jean.html#ecosystem' },
+    { id: 166, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Schwenker Katsu Sando', link: 'menu/schwenker-katsu-sando.html' },
+    { id: 167, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Gefillde Bombs', link: 'menu/gefillde-bombs.html' },
+    { id: 168, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Dibbelabbes Crunch Stack', link: 'menu/dibbelabbes-crunch-stack.html' },
+    { id: 169, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Merguez Falafel Doppelweck', link: 'menu/merguez-falafel-doppelweck.html' },
+    { id: 170, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Lyoner Smash Burger', link: 'menu/lyoner-smash-burger.html' },
+    { id: 171, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Vegane Gefillde Bombs', link: 'menu/vegane-gefillde-bombs.html' },
+    { id: 172, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Kräuterseitling Katsu Sando', link: 'menu/kraeuterseitling-katsu-sando.html' },
+    { id: 173, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Gequellte Crinkle Fries', link: 'menu/gequellte-crinkle-fries.html' },
+    { id: 174, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Saar-Kimchi', link: 'menu/saar-kimchi.html' },
+    { id: 175, cat: 'Monetarisierung & Hub', title: 'Automatische KI-Rezept-Prompts auf Grumbeer-Churros', link: 'menu/grumbeer-churros.html' },
+    { id: 176, cat: 'Monetarisierung & Hub', title: 'Kontext-Callout von Jean auf der Drops-Seite', link: 'drops.html' },
+    { id: 177, cat: 'Monetarisierung & Hub', title: 'Kontext-Callout von Jean auf der Getränke-Seite', link: 'getraenke.html' },
+    { id: 178, cat: 'Monetarisierung & Hub', title: 'Kontext-Callout von Jean auf der Catering-Seite', link: 'catering.html' },
+    { id: 179, cat: 'Monetarisierung & Hub', title: 'Kontext-Callout von Jean auf der Presse-Seite', link: 'presse.html' },
+    { id: 180, cat: 'Monetarisierung & Hub', title: 'Kontext-Callout von Jean im Impressum', link: 'impressum.html' },
+    { id: 181, cat: 'Monetarisierung & Hub', title: '1-Click ChatGPT Deep-Link Encoder (UTF-8 URL-Safe)', link: 'jean.html#prompt-lab' },
+    { id: 182, cat: 'Monetarisierung & Hub', title: '1-Click Claude.ai Deep-Link Encoder (claude.ai/new?q=...)', link: 'jean.html#prompt-lab' },
+    { id: 183, cat: 'Monetarisierung & Hub', title: '1-Click Perplexity Deep-Link Encoder (perplexity.ai/search?q=...)', link: 'jean.html#prompt-lab' },
+    { id: 184, cat: 'Monetarisierung & Hub', title: '1-Click Gemini Clipboard-Bridge & Auto-Launch', link: 'jean.html#prompt-lab' },
+    { id: 185, cat: 'Monetarisierung & Hub', title: 'Komfort-XL Lesemodus (19.5px Grundschrift & 1.75 Zeilenhöhe)', link: '#readability-toggle-btn' },
+    { id: 186, cat: 'Monetarisierung & Hub', title: 'Max-Kontrast Lesemodus (Reines Weiß auf Tiefschwarz)', link: '#readability-toggle-btn' },
+    { id: 187, cat: 'Monetarisierung & Hub', title: 'Persistente Speicherung des Lesemodus in localStorage', link: '#readability-toggle-btn' },
+    { id: 188, cat: 'Monetarisierung & Hub', title: 'Saarländischer Dialekt-Support auf jean.html', link: 'jean.html' },
+    { id: 189, cat: 'Monetarisierung & Hub', title: 'Karriere-Timeline & Credibility-Cards (MotoMobility, Greyheart, Saarland)', link: 'jean.html' },
+    { id: 190, cat: 'Monetarisierung & Hub', title: 'Akademischer Nachweis (Uni des Saarlandes & Uni Trier M.A. 1,6)', link: 'jean.html' },
+    { id: 191, cat: 'Monetarisierung & Hub', title: 'Zertifikats-Integration (Google Cloud GenAI, Google Ads, SOSTAC)', link: 'jean.html' },
+    { id: 192, cat: 'Monetarisierung & Hub', title: 'Cross-Site Footer-Vernetzung zu AIGeddon & AI-Directories', link: '#jean-mastermind' },
+    { id: 193, cat: 'Monetarisierung & Hub', title: 'Sitemap.xml V4 inkl. jean.html mit Priorität 0.95', link: 'sitemap.xml' },
+    { id: 194, cat: 'Monetarisierung & Hub', title: 'Service-Worker V4 Caching für jean.html & Jean-Porträts', link: 'sw.js' },
+    { id: 195, cat: 'Monetarisierung & Hub', title: '1-Click E-Mail-Briefing für 90-Minuten Sparring', link: 'jean.html#monetarisierung' },
+    { id: 196, cat: 'Monetarisierung & Hub', title: 'Interaktive Prompt-Kopier-Bestätigung mit Funken-Physik', link: 'jean.html#prompt-lab' },
+    { id: 197, cat: 'Monetarisierung & Hub', title: 'Automatische Pfad-Auflösung für Unterseiten im Jean-Dock', link: 'jean.html' },
+    { id: 198, cat: 'Monetarisierung & Hub', title: 'Dokumentation SAARVICE_NEXT_100_MASTERMIND.md im Repository', link: 'SAARVICE_NEXT_100_MASTERMIND.md' },
+    { id: 199, cat: 'Monetarisierung & Hub', title: 'Null-Fehler-Validierung über alle 18 HTML-Dateien', link: 'jean.html' },
+    { id: 200, cat: 'Monetarisierung & Hub', title: 'Öffentliches Live-Deployment von SAARVICE V4 & jean.html', link: 'jean.html' }
   ];
 
   function initViralCockpitModal() {
-    var openBtn = $('open-viral-cockpit-btn');
+    var openBtn = $('open-viral-cockpit-btn') || $('open-cockpit-btn');
     var closeBtn = $('close-viral-cockpit-btn');
     var modal = $('viral-cockpit-modal');
     var listEl = $('viral-100-list');
     var filterBar = $('cockpit-cat-filter');
     if (!openBtn || !modal || !listEl) return;
 
-    var cats = ['Alle (100)'];
+    var allLabel = 'Alle (' + VIRAL_100_ITEMS.length + ')';
+    var cats = [allLabel];
     VIRAL_100_ITEMS.forEach(function (it) {
       if (cats.indexOf(it.cat) === -1) cats.push(it.cat);
     });
 
     function renderItems(cat) {
-      var filtered = (!cat || cat === 'Alle (100)')
+      var filtered = (!cat || cat === allLabel)
         ? VIRAL_100_ITEMS
         : VIRAL_100_ITEMS.filter(function (i) { return i.cat === cat; });
 
@@ -1330,7 +1443,7 @@
           '<div><strong>#' + num + '</strong> — ' + it.title + '</div></div>' +
           '<div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.25rem;">' +
           '<span style="color:#4ade80; font-size:0.72rem; font-weight:700;">● LIVE AKTIV</span>' +
-          '<a href="' + it.link + '" class="cockpit-jump-link" style="color:var(--c-gold); font-size:0.75rem; font-weight:700;">Hinspringe →</a>' +
+          '<a href="' + it.link + '" class="cockpit-jump-link" style="color:var(--c-gold); font-size:0.75rem; font-weight:700;">Öffnen →</a>' +
           '</div></div>';
       }).join('');
 
@@ -1352,7 +1465,7 @@
       });
     }
 
-    renderItems('Alle (100)');
+    renderItems(allLabel);
 
     openBtn.addEventListener('click', function () {
       modal.hidden = false;
@@ -1367,7 +1480,467 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 12. PWA SERVICE WORKER REGISTRATION (#092)
+   * 12. JEAN MAURICE PORT MASTERMIND, READABILITY & PROMPT HUB (#101–#200)
+   * ------------------------------------------------------------------ */
+  function buildLlmActionButtonsHtml(promptText) {
+    var encoded = encodeURIComponent(promptText.trim());
+    return '' +
+      '<a href="https://chatgpt.com/?q=' + encoded + '" target="_blank" rel="noopener noreferrer" class="llm-btn llm-btn--chatgpt" title="Diesen Prompt direkt an ChatGPT senden">🤖 An ChatGPT senden</a>' +
+      '<a href="https://claude.ai/new?q=' + encoded + '" target="_blank" rel="noopener noreferrer" class="llm-btn llm-btn--claude" title="Diesen Prompt direkt an Claude senden">🧠 An Claude senden</a>' +
+      '<a href="https://www.perplexity.ai/search?q=' + encoded + '" target="_blank" rel="noopener noreferrer" class="llm-btn llm-btn--perplexity" title="Diesen Prompt direkt an Perplexity senden">🔎 An Perplexity</a>' +
+      '<button type="button" class="llm-btn llm-btn--gemini" data-gemini-prompt="' + encoded + '" title="Prompt kopieren &amp; Google Gemini öffnen">✨ Gemini öffnen</button>' +
+      '<button type="button" class="llm-btn llm-btn--copy" data-raw-prompt="' + encoded + '" title="Prompt in die Zwischenablage kopieren">📋 Prompt kopieren</button>';
+  }
+
+  function wireLlmButtonEvents(rootEl) {
+    var scope = rootEl || document;
+    scope.querySelectorAll('[data-raw-prompt]').forEach(function (btn) {
+      if (btn.dataset.wired) return;
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function () {
+        var txt = decodeURIComponent(btn.getAttribute('data-raw-prompt') || '');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).catch(function () {});
+        }
+        var orig = btn.innerHTML;
+        btn.innerHTML = '✅ Kopiert!';
+        unlockStamp('lexikon');
+        setTimeout(function () { btn.innerHTML = orig; }, 1800);
+      });
+    });
+
+    scope.querySelectorAll('[data-gemini-prompt]').forEach(function (btn) {
+      if (btn.dataset.wired) return;
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function () {
+        var txt = decodeURIComponent(btn.getAttribute('data-gemini-prompt') || '');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).catch(function () {});
+        }
+        btn.innerHTML = '✅ Kopiert — Gemini öffnet…';
+        window.open('https://gemini.google.com/app', '_blank', 'noopener');
+        setTimeout(function () { btn.innerHTML = '✨ Gemini öffnen'; }, 2200);
+      });
+    });
+
+    scope.querySelectorAll('[data-copy-text]').forEach(function (btn) {
+      if (btn.dataset.wired) return;
+      btn.dataset.wired = '1';
+      btn.addEventListener('click', function () {
+        var txt = btn.getAttribute('data-copy-text') || '';
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).catch(function () {});
+        }
+        var orig = btn.innerHTML;
+        btn.innerHTML = '✅ In Zwischenablage kopiert!';
+        setTimeout(function () { btn.innerHTML = orig; }, 1800);
+      });
+    });
+  }
+
+  function refreshAllPromptActionRows() {
+    document.querySelectorAll('[data-prompt-actions]').forEach(function (row) {
+      var card = row.closest('.prompt-card') || row.parentElement;
+      if (!card) return;
+      var pre = card.querySelector('.prompt-code-box');
+      if (!pre) return;
+      var text = pre.textContent || '';
+      row.innerHTML = buildLlmActionButtonsHtml(text);
+    });
+    wireLlmButtonEvents(document);
+  }
+
+  function initReadabilitySwitcher() {
+    var modes = [
+      { id: 'standard', label: 'Lesemodus: Standard' },
+      { id: 'xl', label: 'Lesemodus: Komfort XL' },
+      { id: 'contrast', label: 'Lesemodus: Max-Kontrast' }
+    ];
+    var saved = storeGet('sv_readability_v4', 'standard');
+
+    function applyReadability(modeId) {
+      if (modeId === 'standard') {
+        document.documentElement.removeAttribute('data-readability');
+      } else {
+        document.documentElement.setAttribute('data-readability', modeId);
+      }
+      var found = modes.find(function (m) { return m.id === modeId; }) || modes[0];
+      var lbl = $('readability-label');
+      if (lbl) lbl.textContent = found.label;
+      storeSet('sv_readability_v4', found.id);
+    }
+
+    applyReadability(saved);
+
+    var btn = $('readability-toggle-btn');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var cur = storeGet('sv_readability_v4', 'standard');
+        var idx = modes.findIndex(function (m) { return m.id === cur; });
+        var next = modes[(idx + 1) % modes.length];
+        applyReadability(next.id);
+        ViralAudio.sizzle();
+      });
+    }
+  }
+
+  function initJeanMastermindLab() {
+    refreshAllPromptActionRows();
+
+    // 1. Live Variable Customizer on jean.html
+    var applyBtn = $('p-var-apply');
+    var nicheIn = $('p-var-niche');
+    var regionIn = $('p-var-region');
+    var goalIn = $('p-var-goal');
+
+    function updateParameterizedPrompts() {
+      if (!nicheIn || !regionIn || !goalIn) return;
+      var niche = nicheIn.value.trim() || 'Saarland Streetfood';
+      var region = regionIn.value.trim() || 'DACH';
+      var goal = goalIn.value || 'Maximale Viralität';
+      document.querySelectorAll('[data-prompt-template]').forEach(function (pre) {
+        var tpl = pre.getAttribute('data-prompt-template') || '';
+        pre.textContent = tpl
+          .replace(/\{NICHE\}/g, niche)
+          .replace(/\{REGION\}/g, region)
+          .replace(/\{GOAL\}/g, goal);
+      });
+      refreshAllPromptActionRows();
+    }
+
+    if (applyBtn) {
+      applyBtn.addEventListener('click', function () {
+        updateParameterizedPrompts();
+        ViralAudio.maggi();
+      });
+      [nicheIn, regionIn, goalIn].forEach(function (el) {
+        if (el) el.addEventListener('input', updateParameterizedPrompts);
+      });
+    }
+
+    // 2. Live Prompt-Roaster & CO-STAR Upgrader
+    var roastIn = $('roast-raw-input');
+    var roastBtn = $('roast-upgrade-btn');
+    var roastOut = $('roast-upgraded-output');
+    var roastActions = $('roast-upgraded-actions');
+
+    function runPromptUpgrader() {
+      if (!roastIn || !roastOut || !roastActions) return;
+      var raw = roastIn.value.trim() || 'Optimiere meine Website für Google und KI-Suche';
+      var upgraded = [
+        '# SYSTEM-DIREKTIVE (CO-STAR × JEAN MAURICE PORT FRAMEWORK)',
+        '## 1. ROLLE & EXPERTISE',
+        'Du agierst als Senior SEO/SGE Architect, Generative AI Engineer und Conversion-Stratege mit 10+ Jahren Praxis in High-SKU E-Commerce und viralem Brand-Building.',
+        '',
+        '## 2. URSPRÜNGLICHE AUFGABE',
+        '» ' + raw + ' «',
+        '',
+        '## 3. HARTE QUALITÄTS-CONSTRAINTS',
+        '- Keine generischen KI-Floskeln („In der heutigen digitalen Welt…“ ist strikt verboten).',
+        '- Liefere konkrete, messbare Beispiele, Zahlen und sofort kopierbare Vorlagen.',
+        '- Berücksichtige sowohl menschliche Psychologie (Conversion) als auch LLM-Citability (Google AI Overviews / ChatGPT Search).',
+        '',
+        '## 4. GEFORDERTES OUTPUT-FORMAT',
+        '1. Sofort umsetzbarer Master-Entwurf',
+        '2. Semantische Entitäts- & Fakten-Checkliste (Tabellenform)',
+        '3. Die 3 größten Hebel für die nächsten 48 Stunden.'
+      ].join('\n');
+      roastOut.textContent = upgraded;
+      roastActions.innerHTML = buildLlmActionButtonsHtml(upgraded);
+      wireLlmButtonEvents(roastActions);
+    }
+
+    if (roastBtn) {
+      runPromptUpgrader();
+      roastBtn.addEventListener('click', function () {
+        runPromptUpgrader();
+        ViralAudio.sizzle();
+      });
+      if (roastIn) roastIn.addEventListener('input', runPromptUpgrader);
+    }
+
+    // 3. KI- & SEO-Calculators on jean.html
+    var roiTeam = $('calc-roi-team');
+    var roiRate = $('calc-roi-rate');
+    var roiTasks = $('calc-roi-tasks');
+    var roiSaved = $('calc-roi-saved');
+    var roiRes = $('calc-roi-result');
+    var roiAct = $('calc-roi-actions');
+
+    function updateRoiCalc() {
+      if (!roiTeam || !roiRes) return;
+      var team = Math.max(1, parseInt(roiTeam.value || '5', 10));
+      var rate = Math.max(10, parseInt(roiRate.value || '65', 10));
+      var tasks = Math.max(1, parseInt(roiTasks.value || '8', 10));
+      var mins = Math.max(1, parseInt(roiSaved.value || '6', 10));
+      var hoursMonth = Math.round((team * tasks * mins * 22) / 60);
+      var eurMonth = hoursMonth * rate;
+      var eurYear = eurMonth * 12;
+      var sandos = Math.round(eurMonth / 9.5);
+      roiRes.innerHTML = '<div class="ai-calc-result__big">' + eurMonth.toLocaleString('de-DE') + ' € / Monat Hebel</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">' + hoursMonth + ' Stunden/Monat gespart (= ' + eurYear.toLocaleString('de-DE') + ' € Jahres-Hebel oder ~' + sandos.toLocaleString('de-DE') + ' Briot-Sandos 🥪)</div>';
+      if (roiAct) {
+        var prompt = 'Unser Team (' + team + ' Personen, Stundensatz ' + rate + ' €) führt täglich ca. ' + tasks + ' wiederkehrende Aufgaben durch. Entwirf mir als Jean Maurice Port (Ex-Head of AI) die 5 wichtigsten standardisierten System-Prompts und Automations-Workflows, um diese ' + hoursMonth + ' Stunden pro Monat (' + eurMonth + ' € Hebel) ab sofort einzusparen.';
+        roiAct.innerHTML = buildLlmActionButtonsHtml(prompt);
+        wireLlmButtonEvents(roiAct);
+      }
+    }
+    if (roiTeam) {
+      [roiTeam, roiRate, roiTasks, roiSaved].forEach(function (el) {
+        if (el) el.addEventListener('input', updateRoiCalc);
+      });
+      updateRoiCalc();
+    }
+
+    // Calculator 2: SGE Citability
+    var sgeList = $('sge-check-list');
+    var sgeRes = $('calc-sge-result');
+    var sgeAct = $('calc-sge-actions');
+    function updateSgeCalc() {
+      if (!sgeList || !sgeRes) return;
+      var score = 0;
+      var missing = [];
+      sgeList.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+        var label = cb.parentElement ? cb.parentElement.textContent.trim() : '';
+        if (cb.checked) {
+          score += parseInt(cb.value || '15', 10);
+        } else {
+          missing.push(label);
+        }
+      });
+      var verdict = score >= 85
+        ? 'Exzellent! Deine Seite ist bereit für Platz-1-Zitate in ChatGPT, Perplexity & Google AI Overviews.'
+        : (score >= 50
+          ? 'Solides Fundament — schließe jetzt die offenen Punkte (' + (missing.join(', ') || 'Feinschliff') + ') für maximale Zitier-Wahrscheinlichkeit!'
+          : 'Achtung: LLMs übersehen deine Seite aktuell noch. Starte sofort mit llms.txt & JSON-LD!');
+      sgeRes.innerHTML = '<div class="ai-calc-result__big">' + score + ' / 100 GEO-Punkte</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">' + verdict + '</div>';
+      if (sgeAct) {
+        var p = 'Mein aktueller SGE/GEO Citability-Score liegt bei ' + score + '/100 Punkten. Mir fehlen aktuell noch: ' + (missing.join(', ') || 'Fortgeschrittene Entity-Tabellen') + '. Erstelle mir als Senior SGE Manager (Jean Maurice Port Methode) den konkreten Umsetzungsplan inkl. Code-Snippets.';
+        sgeAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(sgeAct);
+      }
+    }
+    if (sgeList) {
+      sgeList.querySelectorAll('input').forEach(function (cb) {
+        cb.addEventListener('change', updateSgeCalc);
+      });
+      updateSgeCalc();
+    }
+
+    // Calculator 3: Programmatic SEO
+    var pseoPages = $('calc-pseo-pages');
+    var pseoVisits = $('calc-pseo-visits');
+    var pseoAov = $('calc-pseo-aov');
+    var pseoRes = $('calc-pseo-result');
+    var pseoAct = $('calc-pseo-actions');
+    function updatePseoCalc() {
+      if (!pseoPages || !pseoRes) return;
+      var pages = Math.max(1, parseInt(pseoPages.value || '1500', 10));
+      var visits = Math.max(1, parseInt(pseoVisits.value || '12', 10));
+      var aov = Math.max(5, parseInt(pseoAov.value || '85', 10));
+      var totalTraffic = pages * visits;
+      var orders = Math.round(totalTraffic * 0.02);
+      var rev = orders * aov;
+      pseoRes.innerHTML = '<div class="ai-calc-result__big">+' + rev.toLocaleString('de-DE') + ' € / Monat Potenzial</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">' + totalTraffic.toLocaleString('de-DE') + ' organische Long-Tail-Besucher/Monat (~' + orders.toLocaleString('de-DE') + ' Bestellungen bei 2,0 % CR).</div>';
+      if (pseoAct) {
+        var p = 'Ich plane ein Programmatic-SEO-System für ' + pages + ' Seiten (Warenkorbwert: ' + aov + ' €, Ziel-Traffic: ' + totalTraffic + ' Besucher/Monat). Entwirf mir nach der Moto-Knowledge-Engine-Architektur von Jean Maurice Port das Seiten-Template, die Daten-Attribute und die interne Verlinkungslogik.';
+        pseoAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(pseoAct);
+      }
+    }
+    if (pseoPages) {
+      [pseoPages, pseoVisits, pseoAov].forEach(function (el) {
+        if (el) el.addEventListener('input', updatePseoCalc);
+      });
+      updatePseoCalc();
+    }
+
+    // Calculator 4: Directory DR Boost
+    var dirCur = $('calc-dir-current');
+    var dirCnt = $('calc-dir-count');
+    var dirRes = $('calc-dir-result');
+    function updateDirCalc() {
+      if (!dirCur || !dirRes) return;
+      var cur = Math.max(0, Math.min(90, parseInt(dirCur.value || '8', 10)));
+      var cnt = Math.max(1, Math.min(256, parseInt(dirCnt.value || '35', 10)));
+      var gain = Math.round(Math.sqrt(cnt) * 3.4);
+      var targetLow = Math.min(88, cur + gain);
+      var targetHigh = Math.min(92, targetLow + 5);
+      var hours = (cnt * 0.32).toFixed(1).replace('.', ',');
+      dirRes.innerHTML = '<div class="ai-calc-result__big">Ziel-DR: ~' + targetLow + '–' + targetHigh + ' (in 60 Tagen)</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Geschätzter manueller Zeitaufwand für ' + cnt + ' Verzeichnisse: ~' + hours + ' Std. — oder 0 Std. mit unserem <a href="https://jmp-collab.github.io/ai-directories/werben/" target="_blank" rel="noopener" style="color:#ffe14d; text-decoration:underline;">Launch-Service</a>.</div>';
+    }
+    if (dirCur) {
+      [dirCur, dirCnt].forEach(function (el) {
+        if (el) el.addEventListener('input', updateDirCalc);
+      });
+      updateDirCalc();
+    }
+
+    // 4. Ecosystem Filter Tabs
+    var ecoBtns = document.querySelectorAll('.eco-filter-btn');
+    var ecoCards = document.querySelectorAll('#eco-hub-grid .eco-hub-card');
+    ecoBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        ecoBtns.forEach(function (x) { x.classList.remove('viral-pill-btn--gold'); });
+        b.classList.add('viral-pill-btn--gold');
+        var f = b.getAttribute('data-eco-filter') || 'all';
+        ecoCards.forEach(function (c) {
+          var cats = c.getAttribute('data-eco-cat') || '';
+          c.style.display = (f === 'all' || cats.indexOf(f) !== -1) ? '' : 'none';
+        });
+      });
+    });
+
+    // 5. Promptgott Newsletter Form & Markdown Deck Download
+    var pgForm = $('promptgott-form');
+    var pgSuccess = $('promptgott-success');
+    var pgDownload = $('pg-download-deck');
+    if (pgForm && pgSuccess) {
+      pgForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        pgSuccess.hidden = false;
+        unlockStamp('pass');
+        ViralAudio.maggi();
+      });
+    }
+    if (pgDownload) {
+      pgDownload.addEventListener('click', function () {
+        var md = [
+          '# PROMPTGOTT STARTER-DECK // BY JEAN MAURICE PORT',
+          '> Web: https://jmp-collab.github.io/saarvice/jean.html | Directory: https://jmp-collab.github.io/ai-directories/ | YouTube: https://www.youtube.com/@AIGeddon',
+          '',
+          '## 1. Der Virale Kult-Brand-Architekt (SAARVICE-Methode)',
+          'Entwickle für mein Projekt eine polarisierende Kult-Positionierung mit 10 Insider-Codes, 3 interaktiven Share-Rechnern und einer vollständigen llms.txt.',
+          '',
+          '## 2. SGE & AI-Overviews Citability-Booster',
+          'Erstelle 3 zitierfähige 50-Wort-Antwortblöcke, eine semantische Entitäts-Vergleichstabelle und ein vernetztes Schema.org JSON-LD (Organization + Person + FAQPage).',
+          '',
+          '## 3. High-SKU Knowledge-Atomizer (Moto Engine Blueprint)',
+          'Zerlege unstrukturierte Produkt-PDFs in prüfbare JSON-Wissens-Atome mit Quelle, Modell-Kompatibilität und Anti-Thin-Content-Logik.'
+        ].join('\n');
+        var blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = 'promptgott-starter-deck-jean-maurice-port.md';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    }
+  }
+
+  function injectJeanSubpageCalloutsAndFloatingDock() {
+    var path = window.location.pathname || '';
+    var isMenuSub = path.indexOf('/menu/') !== -1 || path.indexOf('\\menu\\') !== -1;
+    var prefix = isMenuSub ? '../' : '';
+
+    // 1. On all 10 menu/*.html pages: Inject Dish-Specific KI-Koch- & Food-Styling Prompt Box!
+    if (isMenuSub && !document.getElementById('jean-dish-prompt-box')) {
+      var h1 = document.querySelector('h1');
+      var dishName = h1 ? h1.textContent.trim() : 'SAARVICE Signature Dish';
+      var targetContainer = document.querySelector('.dish-detail-content') || document.querySelector('main') || document.body;
+      var box = document.createElement('section');
+      box.id = 'jean-dish-prompt-box';
+      box.className = 'jean-callout';
+      box.style.marginTop = '2.2rem';
+      var dishPrompt = 'Du bist Jean Maurice Port (Mastermind hinter SAARVICE) und ein Spitzenkoch für saarländisch-französische Streetfood-Finesse. Gib mir für das Gericht "' + dishName + '" (1) das präzise Rezept zum Nachkochen für 4 Personen inkl. Buchenholz-/Röstaromen-Trick, (2) die ideale Getränke-Begleitung (Urpils, Viez oder Crémant) und (3) einen fotorealistischen Midjourney-Food-Prompt.';
+      box.innerHTML = '' +
+        '<div class="jean-callout__avatar-wrap">' +
+        '  <img src="' + prefix + 'assets/images/jean_mascot.svg" alt="Jean Maurice Port Maskottchen" width="72" height="72">' +
+        '</div>' +
+        '<div>' +
+        '  <span class="jean-callout__badge">🧔⚡ Jeans KI-Rezept &amp; Prompt-Labor zu diesem Gericht</span>' +
+        '  <p class="jean-callout__text">' +
+        '    <strong>Willst du „' + dishName + '“ zuhause nachbauen oder den Food-Prompt klauen?</strong> Klick auf deinen Lieblings-KI-Assistenten und hol dir das komplette Rezept + Midjourney-Setup:' +
+        '  </p>' +
+        '  <div class="llm-btn-row" style="margin-top:0.65rem;">' +
+        buildLlmActionButtonsHtml(dishPrompt) +
+        '    <a href="' + prefix + 'jean.html" class="llm-btn">🧔 Mehr KI-Tools von Jean →</a>' +
+        '  </div>' +
+        '</div>';
+      targetContainer.appendChild(box);
+      wireLlmButtonEvents(box);
+    }
+
+    // 1b. On root subpages (drops, getraenke, catering, presse, impressum): Inject contextual Jean Mastermind Callout
+    if (!isMenuSub && path.indexOf('jean.html') === -1 && path.indexOf('index.html') === -1 && document.querySelector('main') && !document.getElementById('jean-subpage-callout')) {
+      var pageTitle = document.title || 'SAARVICE';
+      var subPrompt = 'Analysiere die Seite "' + pageTitle + '" nach der SAARVICE- & SGE-Methode von Jean Maurice Port und zeige mir 5 psychologische Conversion- und Viralitäts-Hebel für mein eigenes Business.';
+      var subBox = document.createElement('section');
+      subBox.id = 'jean-subpage-callout';
+      subBox.className = 'jean-callout';
+      subBox.style.maxWidth = '1140px';
+      subBox.style.margin = '2.5rem auto';
+      subBox.innerHTML = '' +
+        '<div class="jean-callout__avatar-wrap">' +
+        '  <img src="assets/images/jean_mascot.svg" alt="Jean Maurice Port Maskottchen" width="72" height="72">' +
+        '</div>' +
+        '<div>' +
+        '  <span class="jean-callout__badge">🧔☢️ Jean Maurice Port // Mastermind-Notiz zu dieser Seite</span>' +
+        '  <p class="jean-callout__text">' +
+        '    <strong>„Jede Unterseite braucht einen eigenen viralen Hook &amp; klaren KI-Nutzen.“</strong> — Schicke das Konzept dieser Seite direkt an ChatGPT oder Claude, oder spring rüber in mein zentrales KI- &amp; Prompt-Hub:' +
+        '  </p>' +
+        '  <div class="llm-btn-row" style="margin-top:0.65rem;">' +
+        buildLlmActionButtonsHtml(subPrompt) +
+        '    <a href="jean.html" class="llm-btn">🧔 Zum kompletten Jean- &amp; KI-Hub →</a>' +
+        '  </div>' +
+        '</div>';
+      var mainEl = document.querySelector('main');
+      mainEl.appendChild(subBox);
+      wireLlmButtonEvents(subBox);
+    }
+
+    // 2. Inject Floating "🧔 Frag Jean // KI-Hub" Companion Dock on every page
+    if (!document.getElementById('jean-floating-dock')) {
+      var dock = document.createElement('div');
+      dock.id = 'jean-floating-dock';
+      dock.className = 'jean-floating-dock';
+      dock.innerHTML = '' +
+        '<div id="jean-dock-panel" class="jean-dock-panel" hidden>' +
+        '  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">' +
+        '    <strong style="color:var(--c-gold); font-size:0.92rem;">🧔 Jean Maurice Port // Hub</strong>' +
+        '    <button type="button" id="jean-dock-close" style="background:none; border:none; color:var(--c-text); cursor:pointer; font-size:1rem;">✕</button>' +
+        '  </div>' +
+        '  <p style="font-size:0.8rem; opacity:0.86; margin-bottom:0.75rem;">Senior SEO/SGE Manager, Ex-Head of AI &amp; Schöpfer von SAARVICE, AIGEDDON ☢️ &amp; Promptgott ⚡.</p>' +
+        '  <div style="display:grid; gap:0.45rem;">' +
+        '    <a href="' + prefix + 'jean.html#prompt-lab" class="llm-btn llm-btn--chatgpt" style="justify-content:flex-start;">⚡ Prompt-Tresor (ChatGPT &amp; Claude)</a>' +
+        '    <a href="' + prefix + 'jean.html#ki-rechner" class="llm-btn llm-btn--claude" style="justify-content:flex-start;">🧮 7 Interaktive KI- &amp; SEO-Rechner</a>' +
+        '    <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener" class="llm-btn llm-btn--perplexity" style="justify-content:flex-start;">☢️ AIGeddon YouTube Case Studies ↗</a>' +
+        '    <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" class="llm-btn llm-btn--copy" style="justify-content:flex-start;">🗂️ 256+ KI-Verzeichnisse &amp; Deals ↗</a>' +
+        '    <a href="' + prefix + 'jean.html#promptgott" class="llm-btn llm-btn--gemini" style="justify-content:flex-start;">✉️ Promptgott Newsletter &amp; Playbook</a>' +
+        '  </div>' +
+        '</div>' +
+        '<button type="button" id="jean-dock-trigger" class="jean-dock-trigger" aria-expanded="false" aria-controls="jean-dock-panel">' +
+        '  <img src="' + prefix + 'assets/images/jean.jpg" alt="Jean Maurice Port" width="32" height="32">' +
+        '  <span>🧔 Jeans KI- &amp; Prompt-Hub</span>' +
+        '</button>';
+      document.body.appendChild(dock);
+
+      var trig = document.getElementById('jean-dock-trigger');
+      var pan = document.getElementById('jean-dock-panel');
+      var cls = document.getElementById('jean-dock-close');
+      if (trig && pan) {
+        trig.addEventListener('click', function () {
+          var isHidden = pan.hidden;
+          pan.hidden = !isHidden;
+          trig.setAttribute('aria-expanded', String(isHidden));
+        });
+      }
+      if (cls && pan && trig) {
+        cls.addEventListener('click', function () {
+          pan.hidden = true;
+          trig.setAttribute('aria-expanded', 'false');
+        });
+      }
+    }
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 13. PWA SERVICE WORKER REGISTRATION (#092 / #194)
    * ------------------------------------------------------------------ */
   function initServiceWorker() {
     if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
@@ -1378,12 +1951,15 @@
   document.addEventListener('DOMContentLoaded', function () {
     renderStamps();
     initHeaderControls();
+    initReadabilitySwitcher();
     initSensoryAndMenuExtras();
     initKulturLabor();
     initLandkreisBattle();
     initCanvasGenerators();
     initPassAndLexikonExtras();
     initSubpageTools();
+    initJeanMastermindLab();
+    injectJeanSubpageCalloutsAndFloatingDock();
     initViralCockpitModal();
     initServiceWorker();
   });

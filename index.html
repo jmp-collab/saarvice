@@ -151,6 +151,9 @@
         <span id="saar-weather-ticker" title="Im Saarland ist immer Schwenk-Wetter!">🌡️ Schwenk-Wetter-Index: <strong style="color: var(--c-gold);">100,0% (Buchenholz trocken)</strong></span>
       </div>
       <div class="viral-strip-right">
+        <button type="button" class="dialect-toggle-pill" id="readability-toggle-btn" title="Schriftgröße &amp; Kontrast für noch bessere Lesbarkeit umschalten">
+          Aa <span id="readability-label">Lesemodus: Standard</span>
+        </button>
         <button type="button" class="dialect-toggle-pill" id="dialect-toggle-btn" title="Zwischen Hochdeutsch und 100% Saarlännisch umschalten">
           🗣️ Modus: <span id="dialect-mode-label">Hochdeutsch</span>
         </button>
@@ -194,8 +197,9 @@
           <li><a href="drops.html" data-saar="Wo mir stehn">Die Drops</a></li>
           <li><a href="#kultur-labor" data-saar="Saar-Rechner">Saar-Labor</a></li>
           <li><a href="#landkreis-battle" data-saar="Kreis-Battle">Kreis-Battle</a></li>
-          <li><a href="#gemeinde" data-saar="Stammtisch">Die Gemeinde</a></li>
+          <li><a href="#jean-mastermind" data-saar="De Jean &amp; KI">Prompts &amp; KI</a></li>
           <li><a href="catering.html" data-saar="Für dei Feschd">Buchen</a></li>
+          <li><a href="jean.html" class="nav-jean-pill" title="Jean Maurice Port — Mastermind, Prompt-Tresor, AIGeddon &amp; 7 KI-Rechner">🧔 Jean &amp; KI-Hub</a></li>
         </ul>
       </nav>
     </div>
@@ -217,12 +221,13 @@
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
           <a href="#gemeinde" class="cta-button" id="hero-cta-btn" data-saar="Ab an de Stammtisch (Drop #001)">Beim nächsten Drop dabei sein</a>
           <a href="#viral-arena" class="cockpit-btn cockpit-btn-sec" id="hero-quiz-btn" style="padding: 1rem 1.8rem; display: inline-flex; align-items: center;">🪪 Schwenker-Führerschein mache</a>
+          <a href="jean.html#prompt-lab" class="cockpit-btn cockpit-btn-sec" style="padding: 1rem 1.6rem; display: inline-flex; align-items: center; border-color: #ffe14d; color: #ffe14d;">🧔⚡ Jeans Prompt-Tresor &amp; KI-Rechner</a>
         </div>
         <p class="hero-subtext" data-saar="De Gudd-Gess-Stammtisch kriegt die GPS-Koordinate 48 Stunne vorher uffs Handy.">Die Gudd-Gess-Gemeinde erfährt Ort und Datum von Drop #001 zuerst.</p>
       </div>
     </section>
 
-    <!-- Manifest Section -->
+    <!-- Manifest Section + Jean Mascot Welcome Callout -->
     <section class="manifest" id="manifest" aria-label="Unser Manifest">
       <div class="manifest-container">
         <p class="manifest-text" data-saar="Mir glaube net an Schickimicki-Fusion ohne Grund. Mir glaube an trockenes Buchenholz, gusseisernes Blech und ehrliche Geschmack, wo satt macht.">
@@ -235,6 +240,25 @@
           Mir sind nicht die Lauteste. Mir sind die, wo's gudd machen.
           <strong>Hauptsach gudd. Awwer annersch.</strong>
         </p>
+
+        <!-- Jean Maurice Port Mascot Callout #1 -->
+        <div class="jean-callout" style="margin-top: 2.5rem; text-align: left;">
+          <div class="jean-callout__avatar-wrap">
+            <img src="assets/images/jean_mascot.svg" alt="Jean Maurice Port Maskottchen mit Vollbart und Sonnenbrille" width="72" height="72">
+          </div>
+          <div>
+            <span class="jean-callout__badge">🧔☢️ Jean Maurice Port — Mastermind hinter SAARVICE</span>
+            <p class="jean-callout__text" data-saar="Moien! Ich bin de Jean (Uni vum Saarland, 5 Johr Geschäftsführer im Saarland, heut Senior SEO/SGE Manager &amp; Schöpfer vun AIGEDDON). Ja, de Bart is echt! Unn ja: SAARVICE is meine kulinarische Liebeserklärung ans Saarland UNN gleichzeitig e lebendes KI-, Prompt-Engineering- &amp; SEO-Showpiece!">
+              <strong>„Ja, das bin ich. Ja, der Bart ist echt.“</strong> — Ich bin <strong>Jean Maurice Port</strong> (Senior SEO/SGE Manager, Ex-Head of AI, 5 Jahre Geschäftsführer im Saarland &amp; Alumnus der Uni des Saarlandes). SAARVICE ist meine Liebeserklärung an die saarländische Esskultur — und gleichzeitig ein lebendes <strong>Prompt-Engineering-, SEO- &amp; Viralitäts-Experiment</strong>. Du kannst dir alle System-Prompts, KI-Rechner und Case Studies direkt hier abgreifen!
+            </p>
+            <div class="jean-callout__links">
+              <a href="jean.html" class="jean-mini-link">🧔 Über Jean &amp; 7 KI-Rechner →</a>
+              <a href="#jean-mastermind" class="jean-mini-link">⚡ Prompts an ChatGPT &amp; Claude senden ↓</a>
+              <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener" class="jean-mini-link">☢️ AIGeddon YouTube ↗</a>
+              <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" class="jean-mini-link">🗂️ 256+ KI-Verzeichnisse ↗</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1585,15 +1609,112 @@
       </div>
     </section>
 
+    <!-- JEAN MAURICE PORT MASTERMIND, PROMPT-ENGINEERING & AIGEDDON SECTION (#101–#200) -->
+    <section id="jean-mastermind" class="prompt-vault-section" aria-label="Jean Maurice Port — Mastermind, Prompt-Tresor &amp; AIGeddon">
+      <div style="max-width: var(--container-max); margin: 0 auto; padding: 0 1.5rem;">
+        <div class="aigeddon-banner" style="margin-top: 0;">
+          <div>
+            <span class="jean-callout__badge">🧔☢️ DER MASTERMIND HINTER SAARVICE // JEAN MAURICE PORT</span>
+            <h2 style="font-size: clamp(1.85rem, 3.8vw, 2.8rem); margin: 0.45rem 0 0.9rem;" data-saar="De Jean hinterm Schwenker: KI, Prompts &amp; AIGEDDON">
+              Warum ein Senior SEO/SGE Manager &amp; Ex-Head of AI eine saarländische Streetfood-Brand baut
+            </h2>
+            <p style="font-size: 1rem; margin-bottom: 0.9rem; opacity: 0.92;">
+              Moien! Ich bin <strong>Jean Maurice Port</strong> — Senior SEO/SGE Manager bei der MotoMobilityGroup, vorher Head of AI bei Greyheart Media und 5 Jahre Geschäftsführer im Saarland (Digital Media Transformers, studiert an der <strong>Uni des Saarlandes</strong> &amp; <strong>Uni Trier, M.A. 1,6</strong>).
+            </p>
+            <p style="font-size: 0.95rem; margin-bottom: 1.25rem; opacity: 0.85;">
+              <strong>SAARVICE</strong> ist mein lebendes Labor: Hier zeige ich, wie man mit modernen <strong>System-Prompts, Agentic Coding, Programmatic SEO und AEO (`llms.txt`)</strong> ein unvergessliches Brand-Ökosystem erschafft. Klick dich direkt in meine Prompts, KI-Rechner, den <strong>Promptgott Newsletter</strong> und meinen YouTube-Kanal <strong>AIGeddon ☢️</strong>!
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+              <a href="jean.html" class="cta-button" style="padding: 0.8rem 1.4rem; font-size: 0.92rem;">🧔 Zum kompletten Jean- &amp; KI-Hub (7 Rechner &amp; Prompts) →</a>
+              <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener" class="cockpit-btn cockpit-btn-sec" style="padding: 0.8rem 1.3rem;">☢️ AIGeddon YouTube abonnieren ↗</a>
+              <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" class="cockpit-btn cockpit-btn-sec" style="padding: 0.8rem 1.3rem;">🗂️ 256+ KI-Verzeichnisse ↗</a>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem;">
+            <div style="background: #141311; border: 2px solid var(--c-gold); border-radius: 10px; padding: 0.9rem; text-align: center;">
+              <img src="assets/images/jean.jpg" alt="Jean Maurice Port Portrait" width="140" height="140" loading="lazy" style="width: 110px; height: 110px; border-radius: 50%; margin: 0 auto 0.5rem; object-fit: cover; border: 2px solid #c4581f;">
+              <strong style="display: block; color: var(--c-gold); font-size: 0.88rem;">Jean Maurice Port</strong>
+              <span style="font-size: 0.75rem; opacity: 0.78;">Senior SEO/SGE &amp; AI Architect</span>
+            </div>
+            <div style="background: #141311; border: 2px solid #c4581f; border-radius: 10px; padding: 0.9rem; text-align: center;">
+              <img src="assets/images/jean_mascot.svg" alt="Jean Maurice Port SVG Maskottchen" width="110" height="130" loading="lazy" style="width: 92px; height: 110px; margin: 0 auto 0.5rem;">
+              <strong style="display: block; color: #ffe14d; font-size: 0.88rem;">Jeans Maskottchen</strong>
+              <span style="font-size: 0.75rem; opacity: 0.78;">„Mal sehen, ob das hält.“</span>
+            </div>
+            <div style="grid-column: 1 / -1; background: #141311; border: 1px solid var(--c-border); border-radius: 10px; padding: 0.85rem; display: flex; align-items: center; gap: 0.85rem;">
+              <img src="assets/images/jean-cool.jpg" alt="Jean Maurice Port mit Sonnenbrille im Lager" width="60" height="60" loading="lazy" style="width: 56px; height: 56px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+              <div style="font-size: 0.82rem;">
+                <strong style="color: var(--c-gold);">Deal des Tages aus meinem Hub:</strong> 50 % Rabatt bei Aura++ mit Code <code>50AIDIRECTORIES</code> — <a href="jean.html#monetarisierung" style="color: #ffe14d; text-decoration: underline;">alle Deals &amp; Consulting-Pakete →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instant 1-Click Send-to-ChatGPT / Claude / Perplexity Showcase on Homepage -->
+        <div class="prompt-grid" style="margin-top: 1.5rem;">
+          <article class="prompt-card">
+            <div>
+              <div class="prompt-card__meta">
+                <span>⚡ 1-CLICK PROMPT #01</span>
+                <span>SEND TO CHATGPT &amp; CLAUDE</span>
+              </div>
+              <h3 class="prompt-card__title">Der SAARVICE Kult-Brand &amp; Viralitäts-Prompt</h3>
+              <p class="prompt-card__desc">Schicke diesen System-Prompt mit 1 Klick direkt an ChatGPT, Claude oder Perplexity, um für dein eigenes Projekt eine virale Marken-Strategie zu bauen:</p>
+              <pre class="prompt-code-box">Du agierst als Jean Maurice Port (Senior SEO/SGE Manager, Ex-Head of AI &amp; Schöpfer von SAARVICE). Entwickle für mein Projekt ein virales Positionierungs-, Gamification- und SEO/GEO-Konzept mit 5 interaktiven Micro-Tools, einer vollständigen llms.txt und 10 kulturellen Insider-Hooks. Frag mich zuerst nach meiner Branche und Zielgruppe!</pre>
+            </div>
+            <div class="llm-btn-row" data-prompt-actions></div>
+          </article>
+
+          <article class="prompt-card">
+            <div>
+              <div class="prompt-card__meta">
+                <span>🔎 1-CLICK PROMPT #02</span>
+                <span>SGE / AI OVERVIEWS</span>
+              </div>
+              <h3 class="prompt-card__title">Jeans SGE &amp; AI-Overviews Citability-Audit</h3>
+              <p class="prompt-card__desc">Lass ChatGPT oder Claude deine Website nach Jeans SGE-Kriterien (Entitäts-Dichte, Zitier-Passagen, JSON-LD) auf Platz-1-Zitierfähigkeit prüfen:</p>
+              <pre class="prompt-code-box">Führe als Senior SGE &amp; Generative Engine Optimization (GEO) Architect nach dem System von Jean Maurice Port ein Citability-Audit für meine Website durch: Erstelle 3 zitierfähige 50-Wort-Antwortblöcke, eine Entitäts-Vergleichstabelle und ein vernetztes JSON-LD Schema. Frag mich zuerst nach meiner URL oder meinem Textentwurf!</pre>
+            </div>
+            <div class="llm-btn-row" data-prompt-actions></div>
+          </article>
+
+          <article class="prompt-card">
+            <div>
+              <div class="prompt-card__meta">
+                <span>✉️ PROMPTGOTT NEWSLETTER</span>
+                <span>+ 7 KI-RECHNER</span>
+              </div>
+              <h3 class="prompt-card__title">Der Promptgott Newsletter &amp; Alle 7 KI-Rechner</h3>
+              <p class="prompt-card__desc">Hol dir jeden Dienstag Jeans beste System-Prompts &amp; SGE-Workflows ins Postfach — oder teste direkt den Prompt-ROI-, pSEO- &amp; GEO-Score-Rechner:</p>
+              <div style="display: grid; gap: 0.55rem; margin-top: 0.65rem;">
+                <a href="jean.html#promptgott" class="llm-btn llm-btn--chatgpt" style="justify-content: flex-start; padding: 0.65rem 0.9rem;">⚡ Promptgott Newsletter abonnieren (+ Starter-Deck Download) →</a>
+                <a href="jean.html#ki-rechner" class="llm-btn llm-btn--claude" style="justify-content: flex-start; padding: 0.65rem 0.9rem;">🧮 Alle 7 KI-, ROI-, SGE- &amp; pSEO-Rechner öffnen →</a>
+                <a href="jean.html#tutorials" class="llm-btn llm-btn--perplexity" style="justify-content: flex-start; padding: 0.65rem 0.9rem;">📖 Interaktive Step-by-Step Tutorials starten →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-socials">
+        <a href="jean.html" style="color: var(--c-gold); font-weight: 700;">🧔 Über Jean Maurice Port (KI-Hub)</a>
+        <span>•</span>
+        <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener">☢️ YouTube @AIGeddon</a>
+        <span>•</span>
+        <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener">🗂️ 256+ KI-Verzeichnisse</a>
+        <span>•</span>
         <a href="https://instagram.com/saarvice" target="_blank" rel="noopener" id="instagram-link">Instagram @saarvice</a>
       </div>
       <div class="footer-links">
+        <a href="jean.html">Jean &amp; Prompts</a>
+        <span>|</span>
         <a href="drops.html">Drops</a>
         <span>|</span>
         <a href="getraenke.html">Getränke</a>
@@ -1606,7 +1727,7 @@
         <span>|</span>
         <a href="datenschutz.html" id="datenschutz-link">Datenschutz</a>
       </div>
-      <p class="footer-copy">© 2026 SAARVICE. Gebaut in Saarbrücken. Alle Rechte vorbehalten, gell?</p>
+      <p class="footer-copy">© 2026 SAARVICE × <a href="jean.html" style="text-decoration: underline; color: var(--c-gold);">Jean Maurice Port</a>. Gebaut mit Saarland-Herzblut, Prompt Engineering &amp; SGE-Power. Hauptsach gudd gess!</p>
     </div>
   </footer>
 
@@ -1627,19 +1748,19 @@
     </div>
   </div>
 
-  <!-- 100x Saarland-Viralitäts-Cockpit Modal (#098) -->
+  <!-- 200x Saarland-Viralitäts- & KI-Mastermind-Cockpit Modal (#098 / #194) -->
   <div class="viral-cockpit-modal" id="viral-cockpit-modal" role="dialog" aria-modal="true" aria-labelledby="viral-cockpit-title" hidden>
     <div class="viral-cockpit-dialog">
       <div class="viral-cockpit-header">
         <div>
-          <span class="category-tagline" style="margin-bottom:0.2rem;">KPI: Viralität unter Saarländern • 100/100 Aktiv</span>
-          <h2 id="viral-cockpit-title" style="font-family:var(--f-display); font-size:1.5rem; color:var(--c-gold); text-transform:uppercase;">🚀 Das 100-Punkte Saarland-Viralitäts-Cockpit</h2>
+          <span class="category-tagline" style="margin-bottom:0.2rem;">KPI: Saarland-Viralität × Jean Maurice Port KI-Hub • 200/200 Aktiv</span>
+          <h2 id="viral-cockpit-title" style="font-family:var(--f-display); font-size:1.5rem; color:var(--c-gold); text-transform:uppercase;">🚀 Das 200-Punkte Viralitäts- &amp; KI-Mastermind-Cockpit</h2>
         </div>
-        <button type="button" class="cockpit-btn cockpit-btn-sec" id="close-viral-cockpit-btn" style="padding: 0.45rem 0.9rem;">✕ Schließe</button>
+        <button type="button" class="cockpit-btn cockpit-btn-sec" id="close-viral-cockpit-btn" style="padding: 0.45rem 0.9rem;">✕ Schließen</button>
       </div>
       <div class="viral-cockpit-body">
         <p style="font-size: 0.9rem; color: rgba(242,234,218,0.8); margin-bottom: 1rem;">
-          Alle 100 genialen Viralitäts-Hebel sind live in diese Website eingebaut. Filtere nach Kategorie oder springe direkt zum jeweiligen Modul:
+          Alle 200 Hebel (001–100 Saarland-Viralität + 101–200 Jean Maurice Port Mastermind, Prompt-Engineering, AIGeddon &amp; Monetarisierung) sind live eingebaut:
         </p>
         <div class="viral-tabs" id="cockpit-cat-filter" style="justify-content: flex-start; margin-bottom: 1rem;"></div>
         <div class="viral-100-list" id="viral-100-list"></div>

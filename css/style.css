@@ -1,4 +1,22 @@
-/* Typography */
+/* Typography — V4 High-Readability Upgrade */
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url('../assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 @font-face {
   font-family: 'Archivo Black';
   font-style: normal;
@@ -36,18 +54,21 @@
   --c-bg: #0d0c0a;
   --c-gold: #e3b23c;
   --c-red: #d94f3d;
-  --c-text: #f2ead8;
-  --c-card-bg: #151412;
-  --c-border: rgba(242, 234, 216, 0.1);
-  --c-border-focus: rgba(227, 178, 60, 0.4);
+  --c-text: #f6f1e6;
+  --c-card-bg: #161512;
+  --c-border: rgba(246, 241, 230, 0.14);
+  --c-border-focus: rgba(227, 178, 60, 0.5);
   
-  --f-display: 'Archivo Black', sans-serif;
-  --f-body: 'Barlow Condensed', sans-serif;
+  --f-display: 'Plus Jakarta Sans', 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-heavy: 'Archivo Black', 'Plus Jakarta Sans', sans-serif;
+  --f-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-condensed: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif;
+  --f-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
   --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s ease;
   
-  --container-max: 1200px;
+  --container-max: 1220px;
 }
 
 /* Resets */
@@ -62,14 +83,45 @@ html {
   background-color: var(--c-bg);
   color: var(--c-text);
   font-family: var(--f-body);
-  font-size: 20px;
-  line-height: 1.5;
+  font-size: 17.5px;
+  line-height: 1.65;
+  letter-spacing: 0.008em;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+html[data-readability="xl"] {
+  font-size: 19.5px;
+  line-height: 1.75;
+  letter-spacing: 0.015em;
+}
+
+html[data-readability="contrast"] {
+  --c-bg: #050505;
+  --c-card-bg: #111111;
+  --c-text: #ffffff;
+  --c-gold: #ffd447;
+  --c-border: rgba(255, 255, 255, 0.28);
+  font-size: 18.5px;
+  line-height: 1.72;
+}
+
 body {
   overflow-x: hidden;
+  font-weight: 450;
+}
+
+h1, h2, h3, h4, .section-title, .dish-title {
+  font-family: var(--f-display);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.18;
+}
+
+p, li, dd, label {
+  font-family: var(--f-body);
+  line-height: 1.65;
 }
 
 a {
@@ -3330,5 +3382,519 @@ html[data-theme="grubengold"] {
     bottom: 1rem;
     right: 1rem;
     font-size: 0.72rem;
+  }
+}
+
+/* ==========================================================================
+   SAARVICE V4 — JEAN MAURICE PORT MASTERMIND, PROMPT HUB & AI ECOSYSTEM
+   ========================================================================== */
+
+/* 1. Jean Mascot Callouts & Speech Bubbles */
+.jean-callout {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(227, 178, 60, 0.11), rgba(196, 88, 31, 0.08));
+  border: 1px solid rgba(227, 178, 60, 0.42);
+  border-left: 4px solid #c4581f;
+  border-radius: 10px;
+  padding: 1.15rem 1.4rem;
+  margin: 1.75rem 0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+.jean-callout__avatar-wrap {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #141311;
+  border: 2px solid #e3b23c;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(196, 88, 31, 0.35);
+}
+
+.jean-callout__avatar-wrap img,
+.jean-callout__avatar-wrap svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jean-callout__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffe14d;
+  background: rgba(196, 88, 31, 0.25);
+  border: 1px solid rgba(255, 225, 77, 0.4);
+  padding: 0.18rem 0.55rem;
+  border-radius: 99px;
+  margin-bottom: 0.35rem;
+}
+
+.jean-callout__text {
+  font-size: 0.96rem;
+  line-height: 1.62;
+  color: var(--c-text);
+}
+
+.jean-callout__text strong {
+  color: var(--c-gold);
+}
+
+.jean-callout__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.jean-mini-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 6px;
+  background: rgba(246, 241, 230, 0.07);
+  border: 1px solid var(--c-border);
+  color: var(--c-gold);
+  transition: var(--transition-fast);
+}
+
+.jean-mini-link:hover {
+  background: var(--c-gold);
+  color: #0d0c0a;
+  border-color: var(--c-gold);
+}
+
+/* 2. Mastermind Header Pill & Floating Companion */
+.nav-jean-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 99px;
+  background: linear-gradient(135deg, rgba(196, 88, 31, 0.28), rgba(227, 178, 60, 0.2));
+  border: 1px solid #e3b23c;
+  color: #ffe14d !important;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.nav-jean-pill:hover {
+  background: #e3b23c;
+  color: #0d0c0a !important;
+}
+
+.jean-floating-dock {
+  position: fixed;
+  bottom: 4.3rem;
+  right: 1.5rem;
+  z-index: 195;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.jean-dock-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #1b1916, #281b12);
+  color: #f6f1e6;
+  border: 2px solid #e3b23c;
+  border-radius: 99px;
+  padding: 0.45rem 0.95rem 0.45rem 0.5rem;
+  font-family: var(--f-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.75);
+  transition: var(--transition-fast);
+}
+
+.jean-dock-trigger:hover {
+  transform: translateY(-2px);
+  border-color: #ffe14d;
+  box-shadow: 0 12px 32px rgba(227, 178, 60, 0.35);
+}
+
+.jean-dock-trigger img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid #e3b23c;
+  object-fit: cover;
+}
+
+.jean-dock-panel {
+  width: 330px;
+  background: #141311;
+  border: 1px solid #e3b23c;
+  border-radius: 12px;
+  padding: 1.1rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.88);
+  font-size: 0.85rem;
+}
+
+.jean-dock-panel[hidden] {
+  display: none !important;
+}
+
+/* 3. One-Click Prompt Engineering Cards & Send-to-LLM Buttons */
+.prompt-vault-section {
+  padding: 5.5rem 0;
+  border-top: 1px solid var(--c-border);
+  border-bottom: 1px solid var(--c-border);
+  background: radial-gradient(circle at 80% 10%, rgba(196, 88, 31, 0.12), transparent 55%), #100f0d;
+}
+
+.prompt-customizer-bar {
+  background: #181613;
+  border: 1px solid rgba(227, 178, 60, 0.35);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  align-items: end;
+}
+
+.prompt-customizer-bar label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--c-gold);
+  margin-bottom: 0.35rem;
+}
+
+.prompt-customizer-bar input,
+.prompt-customizer-bar select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  background: #0d0c0a;
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  color: var(--c-text);
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+}
+
+.prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.prompt-card {
+  background: #161512;
+  border: 1px solid var(--c-border);
+  border-top: 3px solid var(--c-gold);
+  border-radius: 10px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: var(--transition-fast);
+}
+
+.prompt-card:hover {
+  border-color: rgba(227, 178, 60, 0.55);
+  transform: translateY(-2px);
+}
+
+.prompt-card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--c-gold);
+}
+
+.prompt-card__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--c-text);
+  margin: 0.2rem 0;
+}
+
+.prompt-card__desc {
+  font-size: 0.9rem;
+  color: rgba(246, 241, 230, 0.8);
+}
+
+.prompt-code-box {
+  background: #0b0a08;
+  border: 1px solid rgba(246, 241, 230, 0.14);
+  border-radius: 8px;
+  padding: 0.95rem 1rem;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  line-height: 1.58;
+  color: #f3ece0;
+  max-height: 210px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.llm-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.llm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.46rem 0.78rem;
+  border-radius: 6px;
+  font-family: var(--f-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid rgba(246, 241, 230, 0.18);
+  background: #1f1d19;
+  color: var(--c-text);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+
+.llm-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.14);
+}
+
+.llm-btn--chatgpt {
+  background: rgba(16, 163, 127, 0.18);
+  border-color: rgba(16, 163, 127, 0.55);
+  color: #6ee7b7;
+}
+
+.llm-btn--claude {
+  background: rgba(217, 119, 87, 0.2);
+  border-color: rgba(217, 119, 87, 0.6);
+  color: #fdba74;
+}
+
+.llm-btn--perplexity {
+  background: rgba(56, 189, 248, 0.16);
+  border-color: rgba(56, 189, 248, 0.5);
+  color: #7dd3fc;
+}
+
+.llm-btn--gemini {
+  background: rgba(168, 85, 247, 0.18);
+  border-color: rgba(168, 85, 247, 0.5);
+  color: #d8b4fe;
+}
+
+.llm-btn--copy {
+  background: rgba(227, 178, 60, 0.2);
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+}
+
+/* 4. AI & SEO Calculators Grid */
+.ai-calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ai-calc-card {
+  background: #161512;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ai-calc-result {
+  background: linear-gradient(135deg, rgba(227, 178, 60, 0.14), rgba(217, 79, 61, 0.1));
+  border: 1px solid rgba(227, 178, 60, 0.45);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+}
+
+.ai-calc-result__big {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--c-gold);
+  line-height: 1.2;
+}
+
+.sge-check-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+.sge-check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.84rem;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.45rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--c-border);
+  cursor: pointer;
+}
+
+/* 5. AIGeddon YouTube Case Studies & Promptgott Newsletter */
+.aigeddon-banner {
+  background: linear-gradient(135deg, #17140d 0%, #24160e 60%, #141311 100%);
+  border: 2px solid #ffe14d;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.case-study-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.case-study-card {
+  background: #161512;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.case-study-card__tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 225, 77, 0.15);
+  color: #ffe14d;
+  width: fit-content;
+}
+
+.promptgott-vault {
+  background: linear-gradient(135deg, rgba(227, 178, 60, 0.14), rgba(13, 12, 10, 0.96));
+  border: 2px solid var(--c-gold);
+  border-radius: 12px;
+  padding: 2.25rem;
+  margin: 2.5rem 0;
+}
+
+/* 6. Ecosystem Hub & Monetization Cards */
+.eco-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.eco-hub-card {
+  background: #161512;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.8rem;
+  transition: var(--transition-fast);
+}
+
+.eco-hub-card:hover {
+  border-color: var(--c-gold);
+  transform: translateY(-2px);
+}
+
+.monetize-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.monetize-card {
+  background: #161512;
+  border: 1px solid var(--c-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  position: relative;
+}
+
+.monetize-card--featured {
+  border: 2px solid var(--c-gold);
+  background: linear-gradient(180deg, rgba(227, 178, 60, 0.1), #161512);
+}
+
+.monetize-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-gold);
+}
+
+@media (max-width: 850px) {
+  .jean-callout {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+  .aigeddon-banner {
+    grid-template-columns: 1fr;
+  }
+  .prompt-grid,
+  .ai-calc-grid {
+    grid-template-columns: 1fr;
+  }
+  .sge-check-list {
+    grid-template-columns: 1fr;
+  }
+  .jean-floating-dock {
+    bottom: 4.2rem;
+    right: 0.75rem;
   }
 }

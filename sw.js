@@ -1,7 +1,8 @@
-const CACHE_NAME = 'saarvice-v3-viral';
+const CACHE_NAME = 'saarvice-v4-mastermind';
 const ASSETS = [
   './',
   './index.html',
+  './jean.html',
   './drops.html',
   './getraenke.html',
   './catering.html',
@@ -10,8 +11,13 @@ const ASSETS = [
   './js/config.js',
   './js/main.js',
   './js/viral.js',
+  './assets/fonts/plus-jakarta-sans-latin.woff2',
+  './assets/fonts/plus-jakarta-sans-latin-ext.woff2',
   './assets/images/logo_stamp.png',
-  './assets/images/hero_poster.webp'
+  './assets/images/hero_poster.webp',
+  './assets/images/jean.jpg',
+  './assets/images/jean-cool.jpg',
+  './assets/images/jean_mascot.svg'
 ];
 
 self.addEventListener('install', (event) => {

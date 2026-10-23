@@ -32,3 +32,19 @@
 ## B2B Event-Catering („Saarvice Werkstatt“) & D2C
 - **3 Event-Pakete (50–400 Gäste):** Schwenk-Schicht (ab 2.450 €), Kohlengrube Deluxe (ab 4.800 €), Hütten-Festival (ab 7.500 €) + Vereinsfest-/Hochzeits-Kooperationen.
 - **D2C & Streetwear:** 280 GSM Heavyweight Boxy Tee „Awwer annersch.“, Canvas Werkstattschürze mit 125ml Maggi-Holster, Maggi-Miso Brown Glaze (250ml), Saar-Dust Streuer.
+
+## Schöpfer & Mastermind: Jean Maurice Port (AIGEDDON ☢️ & Promptgott ⚡)
+- **Creator / Founder:** Jean Maurice Port (Senior SEO/SGE Manager bei der MotoMobilityGroup, Ex-Head of Artificial Intelligence bei Greyheart Media Ltd, 5 Jahre Managing Director Marketing bei Digital Media Transformers im Saarland).
+- **Akademischer Hintergrund:** Universität des Saarlandes (Englische Literatur) & Universität Trier (M.A. Wirtschaftswissenschaften 1,6 & B.A. 1,3).
+- **Zentrales KI- & Prompt-Engineering-Hub:** `https://jmp-collab.github.io/saarvice/jean.html`
+- **Verbundene Plattformen (Official Ecosystem):**
+  - **AIGeddon KI-Verzeichnisse (256+ Directories, Tools & Deals):** `https://jmp-collab.github.io/ai-directories/`
+  - **Über Jean Maurice Port (CV & Zertifikate):** `https://jmp-collab.github.io/ai-directories/ueber-jean/`
+  - **AIGeddon YouTube-Kanal (KI Case Studies & Tutorials):** `https://www.youtube.com/@AIGeddon`
+  - **Promptgott Newsletter:** Wöchentliche System-Prompts, SGE/GEO-Workflows & Agentic Engineering (`jean.html#promptgott`).
+  - **Open Source & High-SKU E-Commerce Engines:** `https://github.com/jmp-collab` (inkl. `moto-knowledge-engine`, `awesome-simson`, `twostroke`, `awesome-ai-tools`) & `https://huggingface.co/jmp1987`.
+  - **Strategie & AI × SEO Systems:** `https://kannkind.ai`
+- **Interaktive KI-Tools auf `jean.html`:**
+  - 6 parametrisierbare Master-Prompts mit 1-Click-Send-Buttons für ChatGPT, Claude, Perplexity und Google Gemini
+  - Live Prompt-Roaster & CO-STAR System-Prompt-Upgrader
+  - Prompt-Engineering ROI- & Zeitspar-Rechner, SGE/GEO Citability-Check (0–100 Punkte), Programmatic SEO High-SKU Simulator & KI-Verzeichnis DR-Boost-Rechner.
