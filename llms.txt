@@ -44,11 +44,13 @@
   - **Promptgott Substack ("ABGEFAHRENSTE AI USE CASES & TRICKS" / "THE PROGRAMMATIC REVENUE MACHINE"):** `https://promptgott.substack.com/` sowie vollständig integriert in `jean.html#promptgott` (alle 14 Kapitel von *Der Greyhat-Eid* über *Index Swarm*, *Merchant Brain (`merchants.json`)*, *Lokalisierungs-Bombe* bis *Der FAQ-Reaktor*, inkl. Machine Notes #01–#73 und eingebettetem Substack-Lead-Formular).
   - **Open Source & High-SKU E-Commerce Engines:** `https://github.com/jmp-collab` (inkl. `moto-knowledge-engine`, `awesome-simson`, `twostroke`, `awesome-ai-tools`) & `https://huggingface.co/jmp1987`.
   - **Strategie & AI × SEO Systems:** `https://kannkind.ai`
-- **Interaktive KI-Tools & 7 Rechner auf `jean.html`:**
+- **Interaktive KI-Tools, Lead-Konfigurator & 12 Rechner auf `jean.html`:**
+  - Linke Sticky Command-Sidebar (Live Scroll-Spy, Telemetrie & Quick-Actions) + Rechte Sticky Lead-Fastlane (Direkt-Anfrage an Jean Maurice Port in < 30 Sek.)
+  - Interaktiver Projekt- & Potenzial-Konfigurator (`#kontakt-leadgen`) mit Sofort-Download eines maßgeschneiderten 30-60-90-Tage Strategie-Dossiers (`.md`)
   - 6 parametrisierbare Master-Prompts + alle 14 Promptgott-Substack-Kapitel-Prompts mit 1-Click-Send-Buttons für ChatGPT, Claude, Perplexity und Google Gemini
   - Interaktives Machine-Note-Orakel (Machine Notes #01 bis #73 aus *The Programmatic Revenue Machine*)
   - Live Prompt-Roaster & CO-STAR System-Prompt-Upgrader
-  - **7 Interaktive KI- & Revenue-Machine-Rechner:**
+  - **12 Interaktive KI-, Token- & Revenue-Machine-Rechner:**
     1. Prompt-Engineering ROI- & Zeitspar-Rechner
     2. SGE / AI-Overviews & GEO Citability-Check (0–100 Punkte)
     3. Programmatic SEO (pSEO) High-SKU Traffic- & Revenue-Simulator
@@ -56,3 +58,8 @@
     5. The Merchant Brain (`merchants.json`) EPC & Smart-Routing Rechner (Kapitel 7)
     6. Die Lokalisierungs-Bombe: Geo-Matrix Multiplikator (Kapitel 13)
     7. Der FAQ-Reaktor & Question-Graph Generator (Kapitel 14)
+    8. LLM Token-, API-Kosten- & Content-Factory-Rechner (Gemini Flash vs. Sonnet/GPT-4o vs. Agentur)
+    9. The Index Swarm & Crawl-Velocity Simulator (Kapitel 10)
+    10. Zero-Click & AI-Brand-Gravity Simulator (Kapitel 3 & 9)
+    11. 72h „Erster Euro“ & 90-Tage Compounding Cashflow-Simulator mit Live-SVG-Dyno-Kurve (Kapitel 12)
+    12. B2B Consulting & Done-For-You Amortisations-Rechner

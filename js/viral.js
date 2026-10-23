@@ -1868,6 +1868,290 @@
       faqTopic.addEventListener('input', updateFaqReactor);
     }
 
+    // Calculator 8: LLM Token & Content Factory Cost Calculator
+    var tokPages = $('calc-token-pages');
+    var tokWords = $('calc-token-words');
+    var tokModel = $('calc-token-model');
+    var tokRes = $('calc-token-result');
+    var tokAct = $('calc-token-actions');
+    function updateTokenCalc() {
+      if (!tokPages || !tokRes) return;
+      var pages = Math.max(10, parseInt(tokPages.value || '5000', 10));
+      var words = Math.max(100, parseInt(tokWords.value || '1200', 10));
+      var model = tokModel ? tokModel.value : 'gpt4o';
+      var outTokens = pages * words * 1.35;
+      var inTokens = pages * 900;
+      var rateOut = model === 'flash' ? 0.5 : (model === 'hybrid' ? 3.2 : 12.0);
+      var rateIn = model === 'flash' ? 0.15 : (model === 'hybrid' ? 0.8 : 3.0);
+      var apiEur = Math.max(1, Math.round(((outTokens / 1000000) * rateOut + (inTokens / 1000000) * rateIn) * 0.92));
+      var agencyEur = pages * 50;
+      var perPageCents = ((apiEur / pages) * 100).toFixed(2).replace('.', ',');
+      tokRes.innerHTML = '<div class="ai-calc-result__big">~' + apiEur.toLocaleString('de-DE') + ' € API-Gesamtkosten (statt ' + agencyEur.toLocaleString('de-DE') + ' € Agentur)</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Kosten pro fertiger Seite inkl. JSON-LD: <strong>' + perPageCents + ' Cent</strong> (~' + (outTokens / 1000000).toFixed(1).replace('.', ',') + ' Mio. Output-Tokens).</div>';
+      if (tokAct) {
+        var p = 'Entwirf mir nach Promptgott Substack Kap. 12 (Die Content Factory von Jean Maurice Port) eine Batch-API-Pipeline für ' + pages + ' Seiten à ' + words + ' Wörter (Gesamtbudget ~' + apiEur + ' €) inkl. Prompt-Caching, JSON-Schema-Validierung und Halluzinations-Bremse.';
+        tokAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(tokAct);
+      }
+    }
+    if (tokPages) {
+      [tokPages, tokWords, tokModel].forEach(function (el) {
+        if (el) el.addEventListener('input', updateTokenCalc);
+        if (el) el.addEventListener('change', updateTokenCalc);
+      });
+      updateTokenCalc();
+    }
+
+    // Calculator 9: Index Swarm & Crawl Velocity Simulator
+    var idxUrls = $('calc-idx-urls');
+    var idxDepth = $('calc-idx-depth');
+    var idxShards = $('calc-idx-shards');
+    var idxRes = $('calc-idx-result');
+    var idxAct = $('calc-idx-actions');
+    function updateIdxCalc() {
+      if (!idxUrls || !idxRes) return;
+      var urls = Math.max(50, parseInt(idxUrls.value || '10000', 10));
+      var depth = Math.max(1, parseInt(idxDepth.value || '2', 10));
+      var shards = Math.max(1, parseInt(idxShards.value || '10', 10));
+      var depthPenalty = depth <= 2 ? 1 : (depth === 3 ? 1.5 : Math.pow(depth - 1, 1.8));
+      var shardBoost = Math.min(2.5, 1 + Math.log10(shards) * 0.65);
+      var days = Math.max(3, Math.round(((urls / 450) * depthPenalty) / shardBoost));
+      var unindexedDays = Math.round(days * 4.8);
+      idxRes.innerHTML = '<div class="ai-calc-result__big">~' + days + ' Tage bis 85 % Index-Abdeckung</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Klicktiefe ' + depth + ' &amp; ' + shards + ' Sitemap-Shards (ohne Hub-Sharding: ~' + unindexedDays + '+ Tage „Crawled – currently not indexed“).</div>';
+      if (idxAct) {
+        var p = 'Baue mir nach Promptgott Substack Kap. 10 (The Index Swarm von Jean Maurice Port) die Sitemap-Sharding- und HTML-Hub-Verlinkungsarchitektur für ' + urls + ' URLs bei maximaler Klicktiefe ' + depth + ', damit 85% der Seiten in unter ' + days + ' Tagen indexiert werden.';
+        idxAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(idxAct);
+      }
+    }
+    if (idxUrls) {
+      [idxUrls, idxDepth, idxShards].forEach(function (el) {
+        if (el) el.addEventListener('input', updateIdxCalc);
+      });
+      updateIdxCalc();
+    }
+
+    // Calculator 10: Zero-Click & AI-Brand-Gravity Simulator
+    var zcImpr = $('calc-zc-impr');
+    var zcTables = $('calc-zc-tables');
+    var zcRes = $('calc-zc-result');
+    var zcAct = $('calc-zc-actions');
+    function updateZcCalc() {
+      if (!zcImpr || !zcRes) return;
+      var impr = Math.max(500, parseInt(zcImpr.value || '120000', 10));
+      var tables = Math.max(1, parseInt(zcTables.value || '25', 10));
+      var sov = Math.min(68, Math.round(12 + Math.sqrt(tables) * 4.4));
+      var brandClicks = Math.round(impr * (sov / 100) * 0.105);
+      zcRes.innerHTML = '<div class="ai-calc-result__big">+' + brandClicks.toLocaleString('de-DE') + ' Brand- &amp; LLM-Klicks / Monat</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Geschätzter AI-Share-of-Voice durch ' + tables + ' Fakten-Tabellen: <strong>' + sov + ' %</strong> (3,2x höhere Kauf-Conversion als kalter Traffic).</div>';
+      if (zcAct) {
+        var p = 'Erstelle mir nach Promptgott Substack Kap. 3 & 9 (Daten-Extraktionsmaschine & Zero-Click Gravity von Jean Maurice Port) die Struktur für ' + tables + ' proprietäre HTML-Fakten-Tabellen und Benchmark-Matrizen, um bei ' + impr + ' monatlichen Impressionen ' + sov + '% AI-Share-of-Voice zu erreichen.';
+        zcAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(zcAct);
+      }
+    }
+    if (zcImpr) {
+      [zcImpr, zcTables].forEach(function (el) {
+        if (el) el.addEventListener('input', updateZcCalc);
+      });
+      updateZcCalc();
+    }
+
+    // Calculator 11: 72h "Erster Euro" & Live SVG Dyno Curve
+    var dynoNodes = $('calc-dyno-nodes');
+    var dynoEpc = $('calc-dyno-epc');
+    var dynoLine = $('calc-dyno-line');
+    var dynoArea = $('calc-dyno-area');
+    var dynoDot = $('calc-dyno-dot');
+    var dynoRes = $('calc-dyno-result');
+    var dynoAct = $('calc-dyno-actions');
+    function updateDynoCalc() {
+      if (!dynoNodes || !dynoRes) return;
+      var nodes = Math.max(10, parseInt(dynoNodes.value || '400', 10));
+      var epc = Math.max(0.1, parseFloat(dynoEpc.value || '1.45'));
+      var day90Rev = Math.round(nodes * 14 * epc);
+      var firstEuroDay = Math.max(3, Math.min(28, Math.round(18 - Math.log10(nodes) * 3.2)));
+      var endY = Math.max(10, Math.min(68, Math.round(78 - Math.min(66, Math.log10(Math.max(100, day90Rev)) * 15))));
+      var midY = Math.round((80 + endY) / 2 + 8);
+      var dPath = 'M10,80 Q95,74 165,' + midY + ' T310,' + endY;
+      if (dynoLine) dynoLine.setAttribute('d', dPath);
+      if (dynoArea) dynoArea.setAttribute('d', dPath + ' L310,85 L10,85 Z');
+      if (dynoDot) dynoDot.setAttribute('cy', String(endY));
+      dynoRes.textContent = 'Tag-90 Run-Rate: ~' + day90Rev.toLocaleString('de-DE') + ' € / Monat (Erster Euro nach ~' + firstEuroDay + ' Tagen)';
+      if (dynoAct) {
+        var p = 'Erstelle mir nach dem Promptgott 72-Stunden-Blueprint von Jean Maurice Port den exakten Tag-1-bis-Tag-3-Umsetzungsplan für ' + nodes + ' Launch-Nodes (Ziel-EPC: ' + epc.toFixed(2) + ' €, Ziel-Run-Rate nach 90 Tagen: ' + day90Rev + ' €/Monat).';
+        dynoAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(dynoAct);
+      }
+    }
+    if (dynoNodes) {
+      [dynoNodes, dynoEpc].forEach(function (el) {
+        if (el) el.addEventListener('input', updateDynoCalc);
+      });
+      updateDynoCalc();
+    }
+
+    // Calculator 12: B2B Consulting & Done-For-You ROI Calculator
+    var b2bInv = $('calc-b2b-invest');
+    var b2bRev = $('calc-b2b-rev');
+    var b2bRes = $('calc-b2b-result');
+    var b2bTransfer = $('calc-b2b-transfer-btn');
+    function updateB2bCalc() {
+      if (!b2bInv || !b2bRes) return;
+      var inv = Math.max(100, parseInt(b2bInv.value || '2400', 10));
+      var rev = Math.max(500, parseInt(b2bRev.value || '45000', 10));
+      var upliftMonth = Math.round(rev * 0.16);
+      var breakEvenDays = Math.max(2, Math.round((inv / Math.max(1, upliftMonth)) * 30));
+      var roiYear = ((upliftMonth * 12) / inv).toFixed(1).replace('.', ',');
+      b2bRes.innerHTML = '<div class="ai-calc-result__big">Break-Even in ~' + breakEvenDays + ' Tagen (ROI: ' + roiYear + 'x / Jahr)</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Schon bei konservativen +16 % SEO/AI-Uplift (+' + upliftMonth.toLocaleString('de-DE') + ' €/Monat) ist dein Investment von ' + inv.toLocaleString('de-DE') + ' € im 1. Monat mehrfach eingespielt.</div>';
+    }
+    if (b2bInv) {
+      [b2bInv, b2bRev].forEach(function (el) {
+        if (el) el.addEventListener('input', updateB2bCalc);
+        if (el) el.addEventListener('change', updateB2bCalc);
+      });
+      updateB2bCalc();
+      if (b2bTransfer) {
+        b2bTransfer.addEventListener('click', function () {
+          var budgetSel = $('lead-main-budget');
+          if (budgetSel && b2bInv) {
+            var v = b2bInv.value;
+            budgetSel.selectedIndex = v === '490' ? 0 : (v === '2400' ? 1 : 2);
+          }
+        });
+      }
+    }
+
+    // 3b. Interactive Lead-Gen & Project Configurator (#kontakt-leadgen) + Homepage Quick Calc
+    var leadPills = document.querySelectorAll('#lead-cfg-pills .lead-intent-pill');
+    var leadTraffic = $('lead-cfg-traffic');
+    var leadAov = $('lead-cfg-aov');
+    var leadTrafficVal = $('lead-cfg-traffic-val');
+    var leadAovVal = $('lead-cfg-aov-val');
+    var leadUplift = $('lead-cfg-uplift');
+    var leadAmort = $('lead-cfg-amort');
+    var leadSummary = $('lead-cfg-summary');
+    var leadMeter = $('lead-cfg-meter');
+    var selectedLeadTopic = 'Programmatic SEO & High-SKU Revenue Machine';
+    var selectedLeadMult = 1.35;
+
+    function updateLeadConfigurator() {
+      if (!leadTraffic || !leadUplift) return;
+      var tr = parseInt(leadTraffic.value || '25000', 10);
+      var aov = parseInt(leadAov.value || '120', 10);
+      if (leadTrafficVal) leadTrafficVal.textContent = tr.toLocaleString('de-DE');
+      if (leadAovVal) leadAovVal.textContent = aov.toLocaleString('de-DE') + ' €';
+      var monthlyPotential = Math.round(tr * 0.006 * aov * selectedLeadMult);
+      leadUplift.textContent = '+' + monthlyPotential.toLocaleString('de-DE') + ' € / Monat';
+      var weeks = monthlyPotential > 15000 ? '< 2 Wochen' : (monthlyPotential > 5000 ? '< 4 Wochen' : '~5 Wochen');
+      if (leadAmort) leadAmort.textContent = 'Amortisation: ' + weeks;
+      if (leadSummary) {
+        leadSummary.innerHTML = 'Fokus: <strong>' + selectedLeadTopic + '</strong> — kalkuliert für ' + tr.toLocaleString('de-DE') + ' Besucher/Monat &amp; ' + aov + ' € Kundenwert.';
+      }
+      if (leadMeter) {
+        var pct = Math.min(98, Math.max(25, Math.round(Math.log10(Math.max(100, monthlyPotential)) * 21)));
+        leadMeter.style.width = pct + '%';
+      }
+    }
+
+    leadPills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        leadPills.forEach(function (x) { x.classList.remove('is-selected'); });
+        pill.classList.add('is-selected');
+        selectedLeadTopic = pill.getAttribute('data-lead-topic') || selectedLeadTopic;
+        selectedLeadMult = parseFloat(pill.getAttribute('data-lead-mult') || '1.25');
+        updateLeadConfigurator();
+        ViralAudio.sizzle();
+      });
+    });
+
+    if (leadTraffic && leadAov) {
+      leadTraffic.addEventListener('input', updateLeadConfigurator);
+      leadAov.addEventListener('input', updateLeadConfigurator);
+      updateLeadConfigurator();
+    }
+
+    function downloadStrategyDossier(name, contact, url, topic, budget, notes, upliftText) {
+      var dossier = [
+        '# JEAN MAURICE PORT // PERSÖNLICHES AI × SEO STRATEGIE-DOSSIER',
+        '- **Erstellt für:** ' + (name || 'Projekt-Partner'),
+        '- **Kontakt:** ' + (contact || '-'),
+        '- **Website / Projekt:** ' + (url || '-'),
+        '- **Gewählter System-Schwerpunkt:** ' + topic,
+        '- **Gewünschter Rahmen:** ' + (budget || 'Sprint / Sparring'),
+        '- **Kalkuliertes Potenzial:** ' + (upliftText || '+15.000 €/Monat'),
+        '- **Notiz / Engpass:** ' + (notes || 'Skalierung von organischem Traffic, SGE-Sichtbarkeit & Conversion'),
+        '',
+        '## EMPFOHLENE 30-60-90 TAGE OPERATOR-ROADMAP',
+        '1. **Tage 1–14 (Data & Entity Foundation):** Aufbau von `/llms.txt`, vernetztem JSON-LD Schema und Extraktion der profitabelsten Such-Territorien & People-Also-Ask-Fragen.',
+        '2. **Tage 15–45 (Content Factory & Programmatic Nodes):** Skalierung der Landingpage-Cluster mit strukturierten Fakten-Tabellen und internem Link-Graphen (max. Klicktiefe 2–3).',
+        '3. **Tage 46–90 (Merchant Brain & Conversion Loop):** Dynamisches EPC-/Conversion-Routing, interaktive Lead-Rechner und Index-Swarm-Optimierung.',
+        '',
+        '## DIREKTKONTAKT ZU JEAN MAURICE PORT',
+        '- **E-Mail:** hallo@saarvice.de',
+        '- **Promptgott Substack:** https://promptgott.substack.com/',
+        '- **KI-Verzeichnisse & Launch-Service:** https://jmp-collab.github.io/ai-directories/'
+      ].join('\n');
+      var blob = new Blob([dossier], { type: 'text/markdown;charset=utf-8' });
+      var dlUrl = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = dlUrl;
+      a.download = 'jean-maurice-port-strategie-dossier.md';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      return dossier;
+    }
+
+    var mainLeadForm = $('main-leadgen-form');
+    var mainLeadSuccess = $('main-leadgen-success');
+    var mainLeadActions = $('main-leadgen-actions');
+    if (mainLeadForm && mainLeadSuccess) {
+      mainLeadForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = ($('lead-main-name') ? $('lead-main-name').value.trim() : '') || 'Interessent';
+        var email = ($('lead-main-email') ? $('lead-main-email').value.trim() : '') || '';
+        var url = ($('lead-main-url') ? $('lead-main-url').value.trim() : '') || '';
+        var budget = ($('lead-main-budget') ? $('lead-main-budget').value : '') || '';
+        var notes = ($('lead-main-notes') ? $('lead-main-notes').value.trim() : '') || '';
+        var upliftTxt = leadUplift ? leadUplift.textContent : '+24.300 € / Monat';
+
+        var dossierText = downloadStrategyDossier(name, email, url, selectedLeadTopic, budget, notes, upliftTxt);
+        mainLeadSuccess.hidden = false;
+        ViralAudio.maggi();
+        showViralToast('🚀 Strategie-Dossier heruntergeladen & Anfrage bereit!');
+
+        var mailSubj = encodeURIComponent('Projekt-Anfrage: ' + selectedLeadTopic + ' (' + name + ')');
+        var mailBody = encodeURIComponent(dossierText);
+        if (mainLeadActions) {
+          var llmPrompt = 'Ich plane mit Jean Maurice Port folgendes Projekt: Schwerpunkt "' + selectedLeadTopic + '", Website "' + (url || 'unser Shop/SaaS') + '", Ziel-Potenzial ' + upliftTxt + '. Erstelle mir zur Vorbereitung auf unser Kickoff-Gespräch die 10 wichtigsten technischen Audit-Fragen und Quick-Wins.';
+          mainLeadActions.innerHTML =
+            '<a href="mailto:hallo@saarvice.de?subject=' + mailSubj + '&body=' + mailBody + '" class="llm-btn llm-btn--copy">📧 Jetzt als E-Mail an Jean absenden ↗</a>' +
+            buildLlmActionButtonsHtml(llmPrompt);
+          wireLlmButtonEvents(mainLeadActions);
+        }
+      });
+    }
+
+    // Homepage Quick Calculator (#home-quick-pages & #home-quick-aov)
+    var hqPages = $('home-quick-pages');
+    var hqAov = $('home-quick-aov');
+    var hqRes = $('home-quick-result');
+    function updateHomeQuickCalc() {
+      if (!hqPages || !hqRes) return;
+      var p = Math.max(10, parseInt(hqPages.value || '500', 10));
+      var a = Math.max(10, parseInt(hqAov.value || '95', 10));
+      var rev = Math.round(p * 12 * 0.02 * a);
+      hqRes.textContent = 'Potenzial: +' + rev.toLocaleString('de-DE') + ' € / Monat zusätzlicher pSEO-Umsatz';
+    }
+    if (hqPages && hqAov) {
+      hqPages.addEventListener('input', updateHomeQuickCalc);
+      hqAov.addEventListener('input', updateHomeQuickCalc);
+      updateHomeQuickCalc();
+    }
+
     // 4. Machine Note Oracle (#01–#73 from promptgott.substack.com)
     var MACHINE_NOTES = [
       { num: '#01', ch: 'THE PROGRAMMATIC REVENUE MACHINE', q: 'Google bestraft keine Automation. Google bestraft schlechte Struktur und leeren Spam. 10 Seiten sind Arbeit — 100.000 Seiten sind Architektur.' },
@@ -2096,6 +2380,193 @@
     }
   }
 
+  function initStickySidebarsAndScrollSpy() {
+    var path = window.location.pathname || '';
+    var isMenuSub = path.indexOf('/menu/') !== -1 || path.indexOf('\\menu\\') !== -1;
+    var prefix = isMenuSub ? '../' : '';
+
+    // Inject Left & Right Sticky Sidebars on pages that don't have them hardcoded (e.g., index.html & subpages)
+    if (!document.getElementById('sticky-sidebar-left')) {
+      document.body.classList.add('has-dual-sidebars');
+      var leftBtn = document.createElement('button');
+      leftBtn.type = 'button';
+      leftBtn.className = 'sticky-rail-toggle sticky-rail-toggle--left';
+      leftBtn.id = 'toggle-left-rail-btn';
+      leftBtn.setAttribute('aria-label', 'Linke Command-Sidebar ein-/ausblenden');
+      leftBtn.textContent = '🧭 NAV & TELEMETRIE';
+
+      var leftAside = document.createElement('aside');
+      leftAside.className = 'sticky-sidebar-left';
+      leftAside.id = 'sticky-sidebar-left';
+      leftAside.setAttribute('aria-label', 'Schnellnavigation & Live-Telemetrie');
+      leftAside.innerHTML = '' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; gap:0.4rem; margin-bottom:0.35rem;">' +
+        '  <span style="font-family:var(--f-mono); font-size:0.7rem; font-weight:800; color:#38bdf8; letter-spacing:0.08em;">🧭 COMMAND RAIL</span>' +
+        '  <span id="rail-scroll-pct" style="font-family:var(--f-mono); font-size:0.72rem; color:#ffe14d; font-weight:800;">0%</span>' +
+        '</div>' +
+        '<div class="rail-progress-wrap" aria-hidden="true"><div class="rail-progress-bar" id="rail-progress-bar"></div></div>' +
+        '<ul class="rail-nav-list" id="rail-nav-list">' +
+        '  <li><a href="' + prefix + 'index.html#menu" class="rail-nav-link">🥪 Die Speisen &amp; V2 Karte</a></li>' +
+        '  <li><a href="' + prefix + 'index.html#kultur-labor" class="rail-nav-link">📐 Saarland-Flächenmaß-Labor</a></li>' +
+        '  <li><a href="' + prefix + 'index.html#viral-arena" class="rail-nav-link">🪪 Schwenker-Führerschein</a></li>' +
+        '  <li><a href="' + prefix + 'index.html#jean-mastermind" class="rail-nav-link"><span class="live-dot-green"></span> 🧔 Jean Mastermind &amp; Prompts</a></li>' +
+        '  <li><a href="' + prefix + 'jean.html#kontakt-leadgen" class="rail-nav-link">🤝 Projekt- &amp; ROI-Konfigurator</a></li>' +
+        '  <li><a href="' + prefix + 'jean.html#ki-rechner" class="rail-nav-link">🧮 Alle 12 KI- &amp; SEO-Rechner</a></li>' +
+        '  <li><a href="' + prefix + 'jean.html#promptgott" class="rail-nav-link">📬 Promptgott Substack (14 Kap.)</a></li>' +
+        '  <li><a href="' + prefix + 'catering.html" class="rail-nav-link">🔥 Event-Catering buchen</a></li>' +
+        '</ul>' +
+        '<div style="display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin:0.65rem 0;">' +
+        '  <div style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.35); border-radius:6px; padding:0.4rem; text-align:center;">' +
+        '    <strong style="display:block; font-size:0.95rem; color:#7dd3fc;">12</strong><span style="font-size:0.65rem; opacity:0.8;">KI-Rechner</span>' +
+        '  </div>' +
+        '  <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.35); border-radius:6px; padding:0.4rem; text-align:center;">' +
+        '    <strong style="display:block; font-size:0.95rem; color:#6ee7b7;">14</strong><span style="font-size:0.65rem; opacity:0.8;">Substack Kap.</span>' +
+        '  </div>' +
+        '</div>' +
+        '<a href="' + prefix + 'jean.html#kontakt-leadgen" class="llm-btn llm-btn--copy" style="width:100%; font-size:0.73rem; padding:0.42rem;">⚡ 60-Sek. Potenzial-Check →</a>';
+      document.body.appendChild(leftBtn);
+      document.body.appendChild(leftAside);
+    }
+
+    if (!document.getElementById('sticky-sidebar-right')) {
+      var rightBtn = document.createElement('button');
+      rightBtn.type = 'button';
+      rightBtn.className = 'sticky-rail-toggle sticky-rail-toggle--right';
+      rightBtn.id = 'toggle-right-rail-btn';
+      rightBtn.setAttribute('aria-label', 'Rechte Kontakt-Sidebar ein-/ausblenden');
+      rightBtn.textContent = '📬 DIREKT-KONTAKT';
+
+      var rightAside = document.createElement('aside');
+      rightAside.className = 'sticky-sidebar-right';
+      rightAside.id = 'sticky-sidebar-right';
+      rightAside.setAttribute('aria-label', 'Direkt-Kontakt & Projekt-Anfrage an Jean Maurice Port');
+      rightAside.innerHTML = '' +
+        '<div style="display:flex; align-items:center; gap:0.55rem; margin-bottom:0.55rem;">' +
+        '  <img src="' + prefix + 'assets/images/jean.jpg" alt="Jean Maurice Port" width="42" height="42" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:2px solid #10b981;">' +
+        '  <div>' +
+        '    <div style="display:flex; align-items:center; gap:0.35rem; font-size:0.68rem; font-weight:800; color:#6ee7b7; text-transform:uppercase;"><span class="live-dot-green"></span> 2 Slots frei</div>' +
+        '    <strong style="font-size:0.84rem; color:#ffe14d; display:block;">Jean Maurice Port</strong>' +
+        '    <span style="font-size:0.68rem; opacity:0.78;">AI × SEO &amp; SAARVICE</span>' +
+        '  </div>' +
+        '</div>' +
+        '<form id="sticky-lead-form" novalidate style="border-top:1px solid rgba(255,255,255,0.12); padding-top:0.55rem;">' +
+        '  <label for="sticky-lead-intent" style="display:block; font-size:0.68rem; font-weight:800; color:#ffe14d; text-transform:uppercase; margin-bottom:0.25rem;">Worum geht\'s?</label>' +
+        '  <select id="sticky-lead-intent" class="rail-mini-input">' +
+        '    <option value="pSEO &amp; Programmatic Revenue Machine">🚀 pSEO Revenue Machine</option>' +
+        '    <option value="SGE / AI-Overviews &amp; GEO Audit">🔎 SGE / AI-Overviews Audit</option>' +
+        '    <option value="Inhouse Prompt-Engineering &amp; AI-Agents">⚡ Team Prompt- &amp; Agent-Setup</option>' +
+        '    <option value="90-Minuten 1:1 Strategie-Sparring">🧔 90-Min. 1:1 Sparring (490 €)</option>' +
+        '    <option value="SAARVICE Event / Brand-Kooperation">🍖 SAARVICE Event / Catering</option>' +
+        '  </select>' +
+        '  <input type="text" id="sticky-lead-name" class="rail-mini-input" placeholder="Dein Name / Firma *" required>' +
+        '  <input type="text" id="sticky-lead-contact" class="rail-mini-input" placeholder="E-Mail oder Telefon *" required>' +
+        '  <input type="text" id="sticky-lead-url" class="rail-mini-input" placeholder="Website-URL / Kurz-Info">' +
+        '  <button type="submit" class="btn btn-primary" style="width:100%; padding:0.55rem 0.7rem; font-size:0.78rem; margin-top:0.15rem;">⚡ Direkt an Jean senden + Dossier</button>' +
+        '</form>' +
+        '<div id="sticky-lead-feedback" hidden style="margin-top:0.45rem; padding:0.5rem; border-radius:6px; background:rgba(16,185,129,0.18); border:1px solid #10b981; font-size:0.72rem; color:#6ee7b7;">' +
+        '  ✅ Briefing &amp; Dossier erstellt!' +
+        '</div>' +
+        '<div style="margin-top:0.55rem; padding-top:0.5rem; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:1fr 1fr; gap:0.35rem;">' +
+        '  <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt" style="font-size:0.68rem; padding:0.35rem;">📬 Substack ↗</a>' +
+        '  <a href="' + prefix + 'jean.html#ki-rechner" class="llm-btn llm-btn--copy" style="font-size:0.68rem; padding:0.35rem;">🧮 12 Rechner</a>' +
+        '</div>';
+      document.body.appendChild(rightBtn);
+      document.body.appendChild(rightAside);
+    }
+
+    var leftRail = document.getElementById('sticky-sidebar-left');
+    var rightRail = document.getElementById('sticky-sidebar-right');
+    var toggleLeft = document.getElementById('toggle-left-rail-btn');
+    var toggleRight = document.getElementById('toggle-right-rail-btn');
+
+    // Auto-collapse on screens narrower than 1360px so content is never covered unless user clicks the rail tab
+    if (window.innerWidth < 1360) {
+      if (leftRail) leftRail.classList.add('is-collapsed');
+      if (rightRail) rightRail.classList.add('is-collapsed');
+    }
+
+    if (toggleLeft && leftRail) {
+      toggleLeft.addEventListener('click', function () {
+        leftRail.classList.toggle('is-collapsed');
+      });
+    }
+    if (toggleRight && rightRail) {
+      toggleRight.addEventListener('click', function () {
+        rightRail.classList.toggle('is-collapsed');
+      });
+    }
+
+    // Wire random Machine Note button in left rail
+    var railMnBtn = document.getElementById('rail-random-mn-btn');
+    if (railMnBtn) {
+      railMnBtn.addEventListener('click', function () {
+        var mnBtn = document.getElementById('mn-next-btn');
+        if (mnBtn) {
+          mnBtn.click();
+          var pgSec = document.getElementById('promptgott');
+          if (pgSec) pgSec.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
+
+    // Wire Sticky Right Sidebar Lead Form (#sticky-lead-form)
+    var stickyForm = document.getElementById('sticky-lead-form');
+    var stickyFeedback = document.getElementById('sticky-lead-feedback');
+    if (stickyForm) {
+      stickyForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var intent = (document.getElementById('sticky-lead-intent') || {}).value || 'AI & SEO Projekt';
+        var name = (document.getElementById('sticky-lead-name') || {}).value || 'Interessent';
+        var contact = (document.getElementById('sticky-lead-contact') || {}).value || '';
+        var url = (document.getElementById('sticky-lead-url') || {}).value || '';
+        var bodyTxt = [
+          'Hallo Jean,',
+          '',
+          'ich möchte ein Projekt / Sparring anfragen:',
+          '- Thema: ' + intent,
+          '- Name / Firma: ' + name,
+          '- Kontakt: ' + contact,
+          '- Website / Info: ' + url
+        ].join('\n');
+        if (stickyFeedback) stickyFeedback.hidden = false;
+        ViralAudio.maggi();
+        showViralToast('📬 Anfrage vorbereitet — E-Mail-Programm öffnet sich!');
+        window.location.href = 'mailto:hallo@saarvice.de?subject=' + encodeURIComponent('Schnell-Anfrage: ' + intent + ' (' + name + ')') + '&body=' + encodeURIComponent(bodyTxt);
+      });
+    }
+
+    // Live Scroll Progress & Section Spy in Left Sticky Sidebar
+    var progBar = document.getElementById('rail-progress-bar');
+    var progPct = document.getElementById('rail-scroll-pct');
+    var navLinks = document.querySelectorAll('#rail-nav-list .rail-nav-link');
+    function onScrollSpy() {
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = docH > 0 ? Math.min(100, Math.max(0, Math.round((window.scrollY / docH) * 100))) : 0;
+      if (progBar) progBar.style.width = pct + '%';
+      if (progPct) progPct.textContent = pct + '%';
+
+      var curId = '';
+      document.querySelectorAll('main section[id]').forEach(function (sec) {
+        var rect = sec.getBoundingClientRect();
+        if (rect.top <= 240 && rect.bottom >= 160) {
+          curId = sec.id;
+        }
+      });
+      if (curId) {
+        navLinks.forEach(function (lnk) {
+          var href = lnk.getAttribute('href') || '';
+          if (href.indexOf('#' + curId) !== -1) {
+            lnk.classList.add('is-active');
+          } else {
+            lnk.classList.remove('is-active');
+          }
+        });
+      }
+    }
+    window.addEventListener('scroll', onScrollSpy, { passive: true });
+    onScrollSpy();
+  }
+
   /* ------------------------------------------------------------------ *
    * 13. PWA SERVICE WORKER REGISTRATION (#092 / #194)
    * ------------------------------------------------------------------ */
@@ -2117,6 +2588,7 @@
     initSubpageTools();
     initJeanMastermindLab();
     injectJeanSubpageCalloutsAndFloatingDock();
+    initStickySidebarsAndScrollSpy();
     initViralCockpitModal();
     initServiceWorker();
   });

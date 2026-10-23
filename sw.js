@@ -1,4 +1,4 @@
-const CACHE_NAME = 'saarvice-v5-promptgott';
+const CACHE_NAME = 'saarvice-v6-sidebars-leadgen';
 const ASSETS = [
   './',
   './index.html',

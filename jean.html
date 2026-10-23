@@ -56,9 +56,116 @@
   ]
   </script>
 </head>
-<body>
+<body class="has-dual-sidebars">
   <a href="#main-content" class="skip-link">Direkt zum Inhalt springen</a>
   <div id="scroll-heat-bar" class="scroll-heat-bar" aria-hidden="true"></div>
+
+  <!-- STICKY LEFT SIDEBAR: COMMAND RAIL, SCROLL SPY & LIVE TELEMETRY -->
+  <button type="button" class="sticky-rail-toggle sticky-rail-toggle--left" id="toggle-left-rail-btn" aria-label="Linke Command-Sidebar ein-/ausblenden" title="Navigation &amp; Telemetrie umschalten">
+    🧭 NAV &amp; TELEMETRIE
+  </button>
+  <aside class="sticky-sidebar-left" id="sticky-sidebar-left" aria-label="Schnellnavigation &amp; Live-Telemetrie">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; margin-bottom: 0.35rem;">
+      <span style="font-family: var(--f-mono); font-size: 0.7rem; font-weight: 800; color: #38bdf8; letter-spacing: 0.08em;">🧭 COMMAND RAIL</span>
+      <span id="rail-scroll-pct" style="font-family: var(--f-mono); font-size: 0.72rem; color: #ffe14d; font-weight: 800;">0%</span>
+    </div>
+    <div class="rail-progress-wrap" aria-hidden="true">
+      <div class="rail-progress-bar" id="rail-progress-bar"></div>
+    </div>
+
+    <ul class="rail-nav-list" id="rail-nav-list">
+      <li><a href="#kontakt-leadgen" class="rail-nav-link"><span class="live-dot-green"></span> 🤝 Projekt-Anfrage &amp; Audit</a></li>
+      <li><a href="#ecosystem" class="rail-nav-link">🌐 8x Content-Ökosystem</a></li>
+      <li><a href="#prompt-lab" class="rail-nav-link">⚡ 1-Click Prompt-Tresor</a></li>
+      <li><a href="#ki-rechner" class="rail-nav-link">🧮 12 Live KI- &amp; SEO-Rechner</a></li>
+      <li><a href="#promptgott" class="rail-nav-link">📬 Promptgott Substack (14 Kap.)</a></li>
+      <li><a href="#tutorials" class="rail-nav-link">📖 Hands-On Tutorials</a></li>
+      <li><a href="#aigeddon" class="rail-nav-link">☢️ AIGeddon YouTube Cases</a></li>
+      <li><a href="#monetarisierung" class="rail-nav-link">💼 Pakete, Deals &amp; Sparring</a></li>
+      <li><a href="index.html" class="rail-nav-link">🍖 Zurück zu SAARVICE Hauptseite</a></li>
+    </ul>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem; margin: 0.65rem 0;">
+      <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 6px; padding: 0.4rem; text-align: center;">
+        <strong style="display: block; font-size: 0.95rem; color: #7dd3fc;">12</strong>
+        <span style="font-size: 0.65rem; opacity: 0.8;">KI-Rechner</span>
+      </div>
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 6px; padding: 0.4rem; text-align: center;">
+        <strong style="display: block; font-size: 0.95rem; color: #6ee7b7;">73</strong>
+        <span style="font-size: 0.65rem; opacity: 0.8;">Machine Notes</span>
+      </div>
+      <div style="background: rgba(255, 225, 77, 0.1); border: 1px solid rgba(255, 225, 77, 0.35); border-radius: 6px; padding: 0.4rem; text-align: center;">
+        <strong style="display: block; font-size: 0.95rem; color: #ffe14d;">20+</strong>
+        <span style="font-size: 0.65rem; opacity: 0.8;">LLM-Prompts</span>
+      </div>
+      <div style="background: rgba(255, 87, 34, 0.12); border: 1px solid rgba(255, 87, 34, 0.4); border-radius: 6px; padding: 0.4rem; text-align: center;">
+        <strong style="display: block; font-size: 0.95rem; color: #ffab91;">256+</strong>
+        <span style="font-size: 0.65rem; opacity: 0.8;">Directories</span>
+      </div>
+    </div>
+
+    <div style="display: grid; gap: 0.38rem;">
+      <button type="button" id="rail-random-mn-btn" class="llm-btn llm-btn--chatgpt" style="width: 100%; font-size: 0.73rem; padding: 0.42rem;">
+        🎲 Zufällige Machine Note
+      </button>
+      <a href="#kontakt-leadgen" class="llm-btn llm-btn--copy" style="width: 100%; font-size: 0.73rem; padding: 0.42rem;">
+        ⚡ 60-Sek. Potenzial-Check
+      </a>
+    </div>
+  </aside>
+
+  <!-- STICKY RIGHT SIDEBAR: DIRECT LEAD GENERATION & INSTANT CONTACT FASTLANE -->
+  <button type="button" class="sticky-rail-toggle sticky-rail-toggle--right" id="toggle-right-rail-btn" aria-label="Rechte Kontakt-Sidebar ein-/ausblenden" title="Direkt-Kontakt &amp; Lead-Fastlane umschalten">
+    📬 DIREKT-KONTAKT
+  </button>
+  <aside class="sticky-sidebar-right" id="sticky-sidebar-right" aria-label="Direkt-Kontakt &amp; Projekt-Anfrage an Jean Maurice Port">
+    <div style="display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.55rem;">
+      <img src="assets/images/jean.jpg" alt="Jean Maurice Port" width="42" height="42" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; border: 2px solid #10b981;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.35rem; font-size: 0.68rem; font-weight: 800; color: #6ee7b7; text-transform: uppercase;">
+          <span class="live-dot-green"></span> 2 Projekt-Slots frei
+        </div>
+        <strong style="font-size: 0.84rem; color: #ffe14d; display: block;">Jean Maurice Port</strong>
+        <span style="font-size: 0.68rem; opacity: 0.78;">Antwort in &lt; 24 Std.</span>
+      </div>
+    </div>
+
+    <form id="sticky-lead-form" novalidate style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 0.55rem;">
+      <label for="sticky-lead-intent" style="display: block; font-size: 0.68rem; font-weight: 800; color: #ffe14d; text-transform: uppercase; margin-bottom: 0.25rem;">Worum geht's?</label>
+      <select id="sticky-lead-intent" class="rail-mini-input">
+        <option value="pSEO &amp; Programmatic Revenue Machine">🚀 pSEO Revenue Machine</option>
+        <option value="SGE / AI-Overviews &amp; GEO Audit">🔎 SGE / AI-Overviews Audit</option>
+        <option value="Inhouse Prompt-Engineering &amp; AI-Agents">⚡ Team Prompt- &amp; Agent-Setup</option>
+        <option value="90-Minuten 1:1 Strategie-Sparring">🧔 90-Min. 1:1 Sparring (490 €)</option>
+        <option value="KI-Verzeichnis Launch-Service">🗂️ Directory Launch-Service</option>
+        <option value="SAARVICE Event / Brand-Kooperation">🍖 SAARVICE Event / Collab</option>
+      </select>
+
+      <label for="sticky-lead-name" class="sr-only">Dein Name oder Firma</label>
+      <input type="text" id="sticky-lead-name" class="rail-mini-input" placeholder="Dein Name / Firma *" required>
+
+      <label for="sticky-lead-contact" class="sr-only">Deine E-Mail oder Telefonnummer</label>
+      <input type="text" id="sticky-lead-contact" class="rail-mini-input" placeholder="E-Mail oder Telefon / LinkedIn *" required>
+
+      <label for="sticky-lead-url" class="sr-only">Deine Website-URL oder Kurz-Info</label>
+      <input type="text" id="sticky-lead-url" class="rail-mini-input" placeholder="Website-URL / aktueller Engpass">
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.55rem 0.7rem; font-size: 0.78rem; margin-top: 0.15rem;">
+        ⚡ Direkt an Jean senden + Dossier
+      </button>
+    </form>
+
+    <div id="sticky-lead-feedback" hidden style="margin-top: 0.45rem; padding: 0.5rem; border-radius: 6px; background: rgba(16, 185, 129, 0.18); border: 1px solid #10b981; font-size: 0.72rem; color: #6ee7b7;">
+      ✅ Briefing erstellt &amp; Strategie-Dossier heruntergeladen!
+    </div>
+
+    <div style="margin-top: 0.55rem; padding-top: 0.5rem; border-top: 1px solid rgba(255,255,255,0.1); display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem;">
+      <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt" style="font-size: 0.68rem; padding: 0.35rem;">📬 Substack ↗</a>
+      <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener" class="llm-btn llm-btn--claude" style="font-size: 0.68rem; padding: 0.35rem;">☢️ YouTube ↗</a>
+      <a href="https://jmp-collab.github.io/ai-directories/ueber-jean/" target="_blank" rel="noopener" class="llm-btn llm-btn--perplexity" style="font-size: 0.68rem; padding: 0.35rem;">📄 CV / Profil ↗</a>
+      <a href="#ki-rechner" class="llm-btn llm-btn--copy" style="font-size: 0.68rem; padding: 0.35rem;">🧮 12 Rechner</a>
+    </div>
+  </aside>
 
   <!-- Top Viral Utility Bar -->
   <div class="viral-topbar" role="region" aria-label="Saarland &amp; Mastermind Steuerung">
@@ -101,11 +208,11 @@
       <nav id="primary-nav" aria-label="Hauptnavigation">
         <ul class="nav-links">
           <li><a href="index.html">← Streetfood-Showroom</a></li>
+          <li><a href="#kontakt-leadgen" style="color: #6ee7b7; font-weight: 800;">🤝 Projekt-Anfrage</a></li>
           <li><a href="#prompt-lab">Prompt-Tresor ⚡</a></li>
-          <li><a href="#ki-rechner">7 KI-Rechner 🧮</a></li>
-          <li><a href="#tutorials">Tutorials 📖</a></li>
-          <li><a href="#aigeddon">AIGeddon ☢️</a></li>
+          <li><a href="#ki-rechner">12 KI-Rechner 🧮</a></li>
           <li><a href="#promptgott">Promptgott ✉️</a></li>
+          <li><a href="#aigeddon">AIGeddon ☢️</a></li>
           <li><a href="#monetarisierung" class="nav-jean-pill">💼 Angebote &amp; Deals</a></li>
         </ul>
       </nav>
@@ -117,7 +224,7 @@
     <section class="container" style="padding: 3rem 1.5rem 4rem;">
       <div class="aigeddon-banner" style="margin-top: 0;">
         <div>
-          <span class="jean-callout__badge">🧔 Der Typ hinter SAARVICE, AIGEDDON ☢️ &amp; Promptgott ⚡</span>
+          <span class="jean-callout__badge"><span class="live-dot-green"></span> 🧔 Der Typ hinter SAARVICE, AIGEDDON ☢️ &amp; Promptgott ⚡</span>
           <h1 style="font-size: clamp(2.1rem, 4.5vw, 3.4rem); margin: 0.5rem 0 1rem;">
             Jean Maurice Port
           </h1>
@@ -125,60 +232,225 @@
             <strong>Senior SEO/SGE Manager</strong> bei der MotoMobilityGroup, vorher <strong>Head of AI</strong> bei Greyheart Media und <strong>5 Jahre Geschäftsführer im Saarland</strong> (Digital Media Transformers). Studiert an der <strong>Universität des Saarlandes</strong> &amp; <strong>Universität Trier (M.A. 1,6)</strong>.
           </p>
           <p style="font-size: 1rem; color: rgba(246, 241, 230, 0.86); margin-bottom: 1.35rem;">
-            Tagsüber skaliere ich internationale High-SKU-Onlineshops in Google &amp; KI-Suchen (SGE / AI Overviews). Nachts baue ich virale Marken-Experimente wie <strong>SAARVICE</strong>, pflege <strong>256+ KI-Verzeichnisse auf AIGeddon</strong>, drehe YouTube-Case-Studies und schreibe den <strong>Promptgott Newsletter</strong>.
+            Tagsüber skaliere ich internationale High-SKU-Onlineshops in Google &amp; KI-Suchen (SGE / AI Overviews). Nachts baue ich virale Marken-Experimente wie <strong>SAARVICE</strong>, pflege <strong>256+ KI-Verzeichnisse auf AIGeddon</strong>, drehe YouTube-Case-Studies und schreibe den <strong>Promptgott Substack</strong>.
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-            <a href="#prompt-lab" class="btn btn-primary">⚡ Zum Prompt-Tresor (ChatGPT &amp; Claude)</a>
-            <a href="https://www.youtube.com/@AIGeddon?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-outline">☢️ AIGeddon auf YouTube abonnieren</a>
-            <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" class="btn btn-outline">🗂️ Zu den 256+ KI-Verzeichnissen ↗</a>
+            <a href="#kontakt-leadgen" class="btn btn-primary">🤝 Projekt-Potenzial prüfen &amp; Jean direkt anfragen →</a>
+            <a href="#ki-rechner" class="btn btn-outline" style="border-color: #38bdf8; color: #7dd3fc;">🧮 Alle 12 KI- &amp; Revenue-Rechner testen</a>
+            <a href="#promptgott" class="btn btn-outline" style="border-color: #10b981; color: #6ee7b7;">📬 Promptgott Substack (14 Kapitel)</a>
           </div>
         </div>
 
         <!-- Mascot + Real Photos Showcase -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: center;">
-          <div style="background: #141311; border: 2px solid var(--c-gold); border-radius: 12px; padding: 1rem; text-align: center;">
+          <div class="bento-box bento-box--gold" style="padding: 1rem; text-align: center;">
             <img src="assets/images/jean.jpg" alt="Jean Maurice Port Portrait" width="180" height="180" style="width: 125px; height: 125px; border-radius: 50%; margin: 0 auto 0.65rem; object-fit: cover; border: 2px solid #c4581f;">
             <strong style="display: block; color: var(--c-gold); font-size: 0.9rem;">Jean in echt</strong>
             <span style="font-size: 0.78rem; color: rgba(246,241,230,0.75);">SEO, SGE &amp; LLMOps seit Tag 1</span>
           </div>
-          <div style="background: #141311; border: 2px solid #c4581f; border-radius: 12px; padding: 1rem; text-align: center;">
-            <img src="assets/images/jean_mascot.svg" alt="Jean Maurice Port Vektor-Maskottchen mit Vollbart und Sonnenbrille" width="125" height="150" style="width: 105px; height: 125px; margin: 0 auto 0.65rem;">
+          <div class="bento-box bento-box--flame" style="padding: 1rem; text-align: center;">
+            <img src="assets/images/jean_mascot.svg" alt="Jean Maurice Port Vektor-Maskottchen mit Vollbart und Sonnenbrille" class="anim-float" width="125" height="150" style="width: 105px; height: 125px; margin: 0 auto 0.65rem;">
             <strong style="display: block; color: #ffe14d; font-size: 0.9rem;">Schwenker- &amp; KI-Jean</strong>
             <span style="font-size: 0.78rem; color: rgba(246,241,230,0.75);">„Ja, der Bart ist echt.“</span>
           </div>
-          <div style="grid-column: 1 / -1; background: rgba(255,255,255,0.03); border: 1px solid var(--c-border); border-radius: 10px; padding: 0.85rem; display: flex; align-items: center; gap: 0.9rem;">
-            <img src="assets/images/jean-cool.jpg" alt="Jean Maurice Port mit Sonnenbrille im Lager" width="70" height="70" style="width: 64px; height: 64px; border-radius: 8px; object-fit: cover; flex-shrink: 0;">
+          <div style="grid-column: 1 / -1; background: rgba(16, 185, 129, 0.08); border: 1.5px solid rgba(16, 185, 129, 0.45); border-radius: 10px; padding: 0.85rem; display: flex; align-items: center; gap: 0.9rem;">
+            <img src="assets/images/jean-cool.jpg" alt="Jean Maurice Port mit Sonnenbrille im Lager" width="70" height="70" style="width: 64px; height: 64px; border-radius: 8px; object-fit: cover; flex-shrink: 0; border: 2px solid #10b981;">
             <p style="font-size: 0.84rem; margin: 0;">
-              <strong style="color: var(--c-gold);">Warum SAARVICE?</strong> „Ich wollte beweisen, dass man mit präzisem Prompt Engineering, Agentic Coding und echten Saarland-Insidern eine fiktive Streetfood-Marke bauen kann, die sich echter anfühlt als 90 % aller Agentur-Kampagnen.“
+              <strong style="color: #6ee7b7;">Warum SAARVICE?</strong> „Ich wollte beweisen, dass man mit präzisem Prompt Engineering, Agentic Coding und echten Saarland-Insidern eine Streetfood-Marke bauen kann, die sich echter anfühlt als 90 % aller Agentur-Kampagnen.“
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Quick KPI / Credibility Strip -->
-      <div class="viral-grid-4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-        <div class="ai-calc-card" style="padding: 1.1rem;">
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--c-gold); font-weight: 700;">Online-Marketing &amp; SEO</span>
-          <strong style="font-size: 1.55rem;">Seit 2015</strong>
-          <span style="font-size: 0.84rem; opacity: 0.8;">Geschäftsführung (Saarland &amp; Kandel), iGaming, High-SKU E-Commerce</span>
+      <!-- Color-Coded Bento KPI / Credibility Strip -->
+      <div class="bento-grid-4">
+        <div class="bento-box bento-box--gold">
+          <span style="font-size: 0.74rem; text-transform: uppercase; color: #ffe14d; font-weight: 800; letter-spacing: 0.08em;">📈 Online-Marketing &amp; SEO</span>
+          <div class="bento-kpi-num" style="color: #ffe14d;">Seit 2015</div>
+          <span style="font-size: 0.84rem; opacity: 0.86;">5 Jahre Geschäftsführung im Saarland, High-SKU E-Commerce &amp; iGaming</span>
         </div>
-        <div class="ai-calc-card" style="padding: 1.1rem;">
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--c-gold); font-weight: 700;">Generative KI &amp; LLMOps</span>
-          <strong style="font-size: 1.55rem;">Head of AI</strong>
-          <span style="font-size: 0.84rem; opacity: 0.8;">Greyheart Media (Leeds) &amp; Senior SEO/SGE Manager (MotoMobility)</span>
+        <div class="bento-box bento-box--cyber">
+          <span style="font-size: 0.74rem; text-transform: uppercase; color: #7dd3fc; font-weight: 800; letter-spacing: 0.08em;">🤖 Generative KI &amp; SGE</span>
+          <div class="bento-kpi-num" style="color: #7dd3fc;">Head of AI</div>
+          <span style="font-size: 0.84rem; opacity: 0.86;">Greyheart Media (Leeds) &amp; Senior SEO/SGE Manager (MotoMobilityGroup)</span>
         </div>
-        <div class="ai-calc-card" style="padding: 1.1rem;">
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--c-gold); font-weight: 700;">AIGeddon Directory</span>
-          <strong style="font-size: 1.55rem;">256+ Tools &amp; Listen</strong>
-          <span style="font-size: 0.84rem; opacity: 0.8;">Kuratierte KI-Verzeichnisse, Deals, Launch-Kit &amp; offene JSON-API</span>
+        <div class="bento-box bento-box--emerald">
+          <span style="font-size: 0.74rem; text-transform: uppercase; color: #6ee7b7; font-weight: 800; letter-spacing: 0.08em;">⚡ Promptgott &amp; AIGeddon</span>
+          <div class="bento-kpi-num" style="color: #6ee7b7;">256+ &amp; 14 Kap.</div>
+          <span style="font-size: 0.84rem; opacity: 0.86;">256+ KI-Verzeichnisse + 14 Operator-Kapitel der Programmatic Revenue Machine</span>
         </div>
-        <div class="ai-calc-card" style="padding: 1.1rem;">
-          <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--c-gold); font-weight: 700;">Akademisches Fundament</span>
-          <strong style="font-size: 1.55rem;">M.A. (1,6) &amp; B.A. (1,3)</strong>
-          <span style="font-size: 0.84rem; opacity: 0.8;">Wirtschaftswissenschaften (Uni Trier) &amp; Engl. Literatur (Uni des Saarlandes)</span>
+        <div class="bento-box bento-box--purple">
+          <span style="font-size: 0.74rem; text-transform: uppercase; color: #d8b4fe; font-weight: 800; letter-spacing: 0.08em;">🎓 Akademisches Fundament</span>
+          <div class="bento-kpi-num" style="color: #d8b4fe;">M.A. 1,6 / B.A. 1,3</div>
+          <span style="font-size: 0.84rem; opacity: 0.86;">Wirtschaftswissenschaften (Uni Trier) &amp; Engl. Literatur (Uni des Saarlandes)</span>
         </div>
       </div>
     </section>
+
+    <!-- KINETIC DIVIDER BAND #01 (GOLD) -->
+    <div class="kinetic-ticker-band kinetic-ticker-band--gold" aria-hidden="true">
+      <div class="kinetic-ticker-track">
+        <span>⚡ JEAN MAURICE PORT // AI × SEO × PROGRAMMATIC REVENUE SYSTEMS</span>
+        <span>•</span>
+        <span>🧮 12 INTERAKTIVE LIVE-RECHNER</span>
+        <span>•</span>
+        <span>📬 PROMPTGOTT SUBSTACK: 14 OPERATOR-KAPITEL &amp; 73 MACHINE NOTES</span>
+        <span>•</span>
+        <span>🤝 DIREKTE PROJEKT- &amp; SPARRING-ANFRAGE IN 60 SEKUNDEN</span>
+        <span>•</span>
+        <span>⚡ JEAN MAURICE PORT // AI × SEO × PROGRAMMATIC REVENUE SYSTEMS</span>
+        <span>•</span>
+        <span>🧮 12 INTERAKTIVE LIVE-RECHNER</span>
+        <span>•</span>
+        <span>📬 PROMPTGOTT SUBSTACK: 14 OPERATOR-KAPITEL &amp; 73 MACHINE NOTES</span>
+        <span>•</span>
+        <span>🤝 DIREKTE PROJEKT- &amp; SPARRING-ANFRAGE IN 60 SEKUNDEN</span>
+      </div>
+    </div>
+
+    <!-- HIGH-CONTRAST WARM PARCHMENT SECTION: INTERACTIVE LEAD GENERATION & PROJECT CONFIGURATOR -->
+    <section id="kontakt-leadgen" class="section-theme-parchment" aria-label="Interaktiver Projekt- &amp; Potenzial-Konfigurator für Kundenanfragen">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="crest-divider" style="padding: 0 0 1.8rem;">
+          <div class="crest-divider__line"></div>
+          <span class="crest-divider__badge" style="background:#14120e; color:#ffe14d; border-color:#c4581f;">🤝 SEKTION 01 // DIREKT-KONTAKT &amp; POTENZIAL-KONFIGURATOR</span>
+          <div class="crest-divider__line crest-divider__line--right"></div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; align-items: start;">
+          <!-- Left Column: Interactive Project & ROI Configurator -->
+          <div class="lead-funnel-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span style="background: #14120e; color: #ffe14d; font-family: var(--f-mono); font-size: 0.74rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 6px;">⚡ SCHRITT 1: DEIN HEBEL BERECHNEN</span>
+              <span style="font-size: 0.78rem; font-weight: 800; color: #047857;">● Live-Kalkulation ohne Wartezeit</span>
+            </div>
+            <h2 style="font-size: clamp(1.5rem, 2.8vw, 2.15rem); margin-bottom: 0.45rem;">
+              Was willst du mit Jean Maurice Port bauen oder skalieren?
+            </h2>
+            <p style="font-size: 0.92rem; margin-bottom: 0.85rem;">
+              Wähle deinen Schwerpunkt und schieb die Regler auf deine aktuelle Größe — du siehst sofort deinen realistischen Monats-Hebel und kannst die Anfrage mit 1 Klick absenden:
+            </p>
+
+            <span style="display: block; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.35rem;">1. Gewünschtes System / Ziel auswählen:</span>
+            <div class="lead-pill-group" id="lead-cfg-pills">
+              <button type="button" class="lead-intent-pill is-selected" data-lead-topic="Programmatic SEO &amp; High-SKU Revenue Machine" data-lead-mult="1.35">🚀 Programmatic SEO &amp; High-SKU</button>
+              <button type="button" class="lead-intent-pill" data-lead-topic="SGE / AI-Overviews &amp; ChatGPT Search Dominanz" data-lead-mult="1.15">🔎 SGE / AI-Overviews Audit</button>
+              <button type="button" class="lead-intent-pill" data-lead-topic="Inhouse AI-Agents, Content Factory &amp; Prompt-Systeme" data-lead-mult="1.25">🤖 AI Content Factory &amp; Agents</button>
+              <button type="button" class="lead-intent-pill" data-lead-topic="Merchant Brain (merchants.json) &amp; Conversion-Architektur" data-lead-mult="1.45">🧠 Merchant Brain &amp; EPC-Boost</button>
+              <button type="button" class="lead-intent-pill" data-lead-topic="90-Minuten 1:1 Executive Sparring (490 €)" data-lead-mult="1.0">🧔 90-Min. 1:1 Sparring</button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+              <div style="background: #f5ecd9; border: 2px solid #14120e; border-radius: 10px; padding: 0.85rem;">
+                <label for="lead-cfg-traffic" style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 800;">
+                  <span>Monatliche Besucher / Klicks:</span>
+                  <strong id="lead-cfg-traffic-val" style="color: #c4581f;">25.000</strong>
+                </label>
+                <input type="range" id="lead-cfg-traffic" min="1000" max="250000" step="1000" value="25000" style="width: 100%; margin-top: 0.45rem; accent-color: #c4581f;">
+              </div>
+              <div style="background: #f5ecd9; border: 2px solid #14120e; border-radius: 10px; padding: 0.85rem;">
+                <label for="lead-cfg-aov" style="display: flex; justify-content: space-between; font-size: 0.8rem; font-weight: 800;">
+                  <span>Ø Kundenwert / Warenkorb (€):</span>
+                  <strong id="lead-cfg-aov-val" style="color: #c4581f;">120 €</strong>
+                </label>
+                <input type="range" id="lead-cfg-aov" min="20" max="2500" step="10" value="120" style="width: 100%; margin-top: 0.45rem; accent-color: #c4581f;">
+              </div>
+            </div>
+
+            <!-- Live Potential Readout Box -->
+            <div style="background: #14120e; color: #f6f1e6; border: 2px solid #c4581f; border-radius: 10px; padding: 1.15rem; margin-top: 0.75rem;">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
+                <span style="font-size: 0.75rem; font-weight: 800; color: #ffe14d; text-transform: uppercase;">Geschätztes zusätzliches Umsatz-/Effizienz-Potenzial:</span>
+                <span id="lead-cfg-amort" style="font-size: 0.75rem; color: #6ee7b7; font-weight: 700;">Amortisation: &lt; 3 Wochen</span>
+              </div>
+              <div id="lead-cfg-uplift" style="font-family: var(--f-display); font-size: 2rem; font-weight: 800; color: #ffe14d; margin: 0.2rem 0;">
+                +24.300 € / Monat
+              </div>
+              <p id="lead-cfg-summary" style="font-size: 0.83rem; color: rgba(246, 241, 230, 0.88); margin: 0;">
+                Fokus: <strong>Programmatic SEO &amp; High-SKU Revenue Machine</strong> — inkl. Template-Architektur, Entity-Tabellen &amp; internem Link-Graphen.
+              </p>
+              <div class="calc-meter-wrap" style="margin-top: 0.65rem;">
+                <div class="calc-meter-fill" id="lead-cfg-meter" style="width: 72%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Instant Contact & Lead Submission Box -->
+          <div class="lead-funnel-card" style="border-color: #047857; box-shadow: 10px 10px 0 #14120e;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+              <span style="background: #047857; color: #ffffff; font-family: var(--f-mono); font-size: 0.74rem; font-weight: 800; padding: 0.25rem 0.65rem; border-radius: 6px;">📬 SCHRITT 2: DIREKT-KONTAKT ZU JEAN</span>
+              <span style="font-size: 0.78rem; font-weight: 800; color: #14120e;">Kein Sales-Bullshit • Direkt zum Architekten</span>
+            </div>
+            <h3 style="font-size: 1.45rem; margin-bottom: 0.4rem;">
+              Potenzial-Analyse &amp; Erstgespräch anfordern
+            </h3>
+            <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+              Schick mir deine Eckdaten — du erhältst <strong>sofort dein maßgeschneidertes Projekt-Briefing + Strategie-Dossier (.md)</strong> zum Download und öffnest den direkten Draht zu mir:
+            </p>
+
+            <form id="main-leadgen-form" novalidate>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div>
+                  <label for="lead-main-name" style="display: block; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.25rem;">Dein Name / Firma *</label>
+                  <input type="text" id="lead-main-name" required placeholder="z.B. Max / Muster GmbH" style="width: 100%; padding: 0.65rem 0.8rem; border: 2px solid #14120e; border-radius: 8px; background: #fff; color: #14120e; font-weight: 600;">
+                </div>
+                <div>
+                  <label for="lead-main-email" style="display: block; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.25rem;">E-Mail oder Telefon / LinkedIn *</label>
+                  <input type="text" id="lead-main-email" required placeholder="name@firma.de oder +49..." style="width: 100%; padding: 0.65rem 0.8rem; border: 2px solid #14120e; border-radius: 8px; background: #fff; color: #14120e; font-weight: 600;">
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 0.75rem; margin-bottom: 0.75rem;">
+                <div>
+                  <label for="lead-main-url" style="display: block; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.25rem;">Deine Website / Shop-URL (optional)</label>
+                  <input type="text" id="lead-main-url" placeholder="https://dein-projekt.de" style="width: 100%; padding: 0.65rem 0.8rem; border: 2px solid #14120e; border-radius: 8px; background: #fff; color: #14120e;">
+                </div>
+                <div>
+                  <label for="lead-main-budget" style="display: block; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.25rem;">Gewünschter Rahmen</label>
+                  <select id="lead-main-budget" style="width: 100%; padding: 0.65rem 0.8rem; border: 2px solid #14120e; border-radius: 8px; background: #fff; color: #14120e; font-weight: 700;">
+                    <option value="90-Min. Sparring (490 €)">90-Min. Sparring (490 €)</option>
+                    <option value="Sprint / Setup (1.500 – 4.500 €)" selected>Sprint / Setup (1,5k – 4,5k €)</option>
+                    <option value="Full Revenue Machine (ab 5.000 €)">Full Machine (ab 5k €)</option>
+                    <option value="Directory Launch-Service">Directory Launch-Service</option>
+                  </select>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 0.85rem;">
+                <label for="lead-main-notes" style="display: block; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.25rem;">Dein wichtigster Engpass oder Ziel (1 Satz reicht):</label>
+                <textarea id="lead-main-notes" rows="2" placeholder="z.B. Wir haben 4.000 Produkte im Shop, werden aber in Google &amp; ChatGPT kaum zitiert..." style="width: 100%; padding: 0.65rem 0.8rem; border: 2px solid #14120e; border-radius: 8px; background: #fff; color: #14120e; font-family: var(--f-body);"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; background: #c4581f; color: #fff; border: 2px solid #14120e; font-size: 0.98rem; padding: 0.85rem 1.2rem; box-shadow: 4px 4px 0 #14120e;">
+                🚀 Projekt-Anfrage an Jean senden + Strategie-Dossier (.md) herunterladen →
+              </button>
+            </form>
+
+            <div id="main-leadgen-success" hidden style="margin-top: 1rem; padding: 1rem; background: #14120e; color: #f6f1e6; border: 2px solid #10b981; border-radius: 10px;">
+              <strong style="color: #6ee7b7; display: block; margin-bottom: 0.35rem;">✅ Dein persönliches Strategie-Dossier wurde erstellt &amp; heruntergeladen!</strong>
+              <p style="font-size: 0.82rem; color: #f6f1e6; margin-bottom: 0.65rem;">Du kannst dein vorausgefülltes Briefing zusätzlich direkt per 1-Klick-Mail, Zwischenablage oder Substack abfeuern:</p>
+              <div class="llm-btn-row" id="main-leadgen-actions"></div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.9rem; padding-top: 0.75rem; border-top: 2px dashed rgba(20, 18, 14, 0.2); font-size: 0.78rem; font-weight: 700;">
+              <span>⚡ Oder direkt ohne Formular:</span>
+              <a href="mailto:hallo@saarvice.de?subject=Direktanfrage%20an%20Jean%20Maurice%20Port%20(AI%20%26%20SEO)" style="color: #c4581f; text-decoration: underline;">📧 E-Mail öffnen</a>
+              <span>•</span>
+              <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" style="color: #047857; text-decoration: underline;">📬 Substack abonnieren</a>
+              <span>•</span>
+              <a href="https://jmp-collab.github.io/ai-directories/ueber-jean/" target="_blank" rel="noopener" style="color: #1d4ed8; text-decoration: underline;">📄 Kompletten CV &amp; Zertifikate ansehen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREST DIVIDER #02 -->
+    <div class="crest-divider" aria-hidden="true">
+      <div class="crest-divider__line"></div>
+      <span class="crest-divider__badge crest-divider__badge--cyber">🌐 SEKTION 02 // ZENTRALES CONTENT- &amp; CODE-ÖKOSYSTEM</span>
+      <div class="crest-divider__line crest-divider__line--right"></div>
+    </div>
 
     <!-- SECTION 1: ZENTRALISIERUNG ALLER CONTENT-TÄTIGKEITEN (ÖKOSYSTEM-RADAR) -->
     <section id="ecosystem" class="container" style="padding: 3.5rem 1.5rem; border-top: 1px solid var(--c-border);">
@@ -502,190 +774,374 @@ Anforderungen:
       </div>
     </section>
 
-    <!-- SECTION 3: 7 INTERAKTIVE KI-, SEO-, SGE- & BUSINESS-RECHNER -->
-    <section id="ki-rechner" class="container" style="padding: 5rem 1.5rem;">
-      <span class="section-eyebrow">INTERAKTIVE DECISION ENGINES // SCHRITTE 121–130</span>
-      <h2 class="section-title">Jeans KI-, SGE- &amp; Programmatic-SEO-Rechner</h2>
-      <p style="max-width: 760px; opacity: 0.88;">
-        Berechne deinen konkreten Hebel für Prompt-Automatisierung, Sichtbarkeit in KI-Suchmaschinen (ChatGPT / AI Overviews) und High-SKU E-Commerce — und übergib das Ergebnis mit einem Klick direkt an ChatGPT oder Claude.
-      </p>
+    <!-- KINETIC DIVIDER BAND #02 (CYBER BLUE) -->
+    <div class="kinetic-ticker-band kinetic-ticker-band--cyber" aria-hidden="true">
+      <div class="kinetic-ticker-track">
+        <span>🧮 12 INTERAKTIVE KI-, SGE-, TOKEN- &amp; REVENUE-MACHINE-RECHNER</span>
+        <span>•</span>
+        <span>📊 LIVE DYNO-KURVEN, EPC-ROUTING &amp; INDEX-SWARM-SIMULATION</span>
+        <span>•</span>
+        <span>🤖 JEDES ERGEBNIS MIT 1 KLICK ALS SYSTEM-PROMPT AN CHATGPT &amp; CLAUDE SENDEN</span>
+        <span>•</span>
+        <span>🧮 12 INTERAKTIVE KI-, SGE-, TOKEN- &amp; REVENUE-MACHINE-RECHNER</span>
+        <span>•</span>
+        <span>📊 LIVE DYNO-KURVEN, EPC-ROUTING &amp; INDEX-SWARM-SIMULATION</span>
+        <span>•</span>
+        <span>🤖 JEDES ERGEBNIS MIT 1 KLICK ALS SYSTEM-PROMPT AN CHATGPT &amp; CLAUDE SENDEN</span>
+      </div>
+    </div>
 
-      <div class="ai-calc-grid">
-        <!-- Calculator 1: Prompt Engineering ROI -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">🧮 RECHNER #01 // PROMPT-ROI</span>
-          <h3>Prompt-Engineering &amp; Workflow-ROI-Rechner</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;">Wie viel Zeit und Budget spart dein Team durch standardisierte System-Prompts statt Copy-Paste-Chaos?</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-            <div>
-              <label for="calc-roi-team" style="font-size: 0.78rem; color: var(--c-gold);">Teamgröße (Personen)</label>
-              <input type="number" id="calc-roi-team" value="5" min="1" max="500" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-roi-rate" style="font-size: 0.78rem; color: var(--c-gold);">Stundensatz intern (€)</label>
-              <input type="number" id="calc-roi-rate" value="65" min="20" max="350" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-roi-tasks" style="font-size: 0.78rem; color: var(--c-gold);">KI-Tasks pro Kopf / Tag</label>
-              <input type="number" id="calc-roi-tasks" value="8" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-roi-saved" style="font-size: 0.78rem; color: var(--c-gold);">Ersparnis / Task (Min.)</label>
-              <input type="number" id="calc-roi-saved" value="6" min="1" max="60" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-          </div>
-          <div class="ai-calc-result" id="calc-roi-result" aria-live="polite">
-            <div class="ai-calc-result__big">5.720 € / Monat Hebel</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">88 Stunden/Monat gespart (= 68.640 € Jahres-Hebel oder ~1.906 Briot-Sandos 🥪)</div>
-          </div>
-          <div class="llm-btn-row" id="calc-roi-actions"></div>
+    <!-- SECTION 3: 12 INTERAKTIVE KI-, SEO-, SGE- & REVENUE-MACHINE-RECHNER (CYBER THEME) -->
+    <section id="ki-rechner" class="section-theme-cyber">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="crest-divider" style="padding: 0 0 1.8rem;">
+          <div class="crest-divider__line"></div>
+          <span class="crest-divider__badge crest-divider__badge--cyber">🧮 SEKTION 04 // 12 LIVE DECISION ENGINES &amp; KI-RECHNER</span>
+          <div class="crest-divider__line crest-divider__line--right"></div>
         </div>
 
-        <!-- Calculator 2: SGE / AI Overviews Citability Score -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">🔎 RECHNER #02 // SGE &amp; GEO SCORE</span>
-          <h3>AI-Overviews &amp; ChatGPT Citability-Check</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;">Hake ab, was deine Website bereits erfüllt — Jean berechnet deine Zitier-Wahrscheinlichkeit in LLMs:</p>
-          <div class="sge-check-list" id="sge-check-list">
-            <label class="sge-check-item"><input type="checkbox" value="20" checked> <code>/llms.txt</code> vorhanden</label>
-            <label class="sge-check-item"><input type="checkbox" value="20" checked> Vernetztes JSON-LD</label>
-            <label class="sge-check-item"><input type="checkbox" value="15"> Fakten-Tabellen im HTML</label>
-            <label class="sge-check-item"><input type="checkbox" value="15" checked> Echter Autor (E-E-A-T)</label>
-            <label class="sge-check-item"><input type="checkbox" value="15"> 50-Wort Antwort-Blöcke</label>
-            <label class="sge-check-item"><input type="checkbox" value="15"> In KI-Verzeichnissen gelistet</label>
+        <span class="section-eyebrow" style="color: #7dd3fc;">INTERAKTIVE DECISION ENGINES // 12 LIVE-KALKULATOREN</span>
+        <h2 class="section-title">Jeans 12 KI-, SGE-, Token- &amp; Programmatic-Revenue-Rechner</h2>
+        <p style="max-width: 780px; opacity: 0.9;">
+          Berechne deinen konkreten Hebel für Prompt-Automatisierung, LLM-API-Kosten, Index-Swarm-Geschwindigkeit, Merchant-Brain-EPC, 12-Länder-Geo-Matrizen und Done-For-You Projekt-ROI — und übergib jedes Ergebnis mit <strong>1 Klick direkt an ChatGPT, Claude, Perplexity oder an Jean</strong>!
+        </p>
+
+        <div class="ai-calc-grid">
+          <!-- Calculator 1: Prompt Engineering ROI -->
+          <div class="ai-calc-card bento-box--gold">
+            <span class="case-study-card__tag">🧮 RECHNER #01 // PROMPT-ROI</span>
+            <h3>Prompt-Engineering &amp; Workflow-ROI-Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Wie viel Zeit und Budget spart dein Team durch standardisierte System-Prompts statt Copy-Paste-Chaos?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label for="calc-roi-team" style="font-size: 0.78rem; color: var(--c-gold);">Teamgröße (Personen)</label>
+                <input type="number" id="calc-roi-team" value="5" min="1" max="500" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-roi-rate" style="font-size: 0.78rem; color: var(--c-gold);">Stundensatz intern (€)</label>
+                <input type="number" id="calc-roi-rate" value="65" min="20" max="350" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-roi-tasks" style="font-size: 0.78rem; color: var(--c-gold);">KI-Tasks pro Kopf / Tag</label>
+                <input type="number" id="calc-roi-tasks" value="8" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-roi-saved" style="font-size: 0.78rem; color: var(--c-gold);">Ersparnis / Task (Min.)</label>
+                <input type="number" id="calc-roi-saved" value="6" min="1" max="60" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-roi-result" aria-live="polite">
+              <div class="ai-calc-result__big">5.720 € / Monat Hebel</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">88 Stunden/Monat gespart (= 68.640 € Jahres-Hebel oder ~1.906 Briot-Sandos 🥪)</div>
+            </div>
+            <div class="llm-btn-row" id="calc-roi-actions"></div>
           </div>
-          <div class="ai-calc-result" id="calc-sge-result" aria-live="polite">
-            <div class="ai-calc-result__big">55 / 100 GEO-Punkte</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Status: Solides Fundament — mit Fakten-Tabellen &amp; Directory-Backlinks knackst du die Top-3-Zitate!</div>
+
+          <!-- Calculator 2: SGE / AI Overviews Citability Score -->
+          <div class="ai-calc-card bento-box--cyber">
+            <span class="case-study-card__tag">🔎 RECHNER #02 // SGE &amp; GEO SCORE</span>
+            <h3>AI-Overviews &amp; ChatGPT Citability-Check</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Hake ab, was deine Website bereits erfüllt — Jean berechnet deine Zitier-Wahrscheinlichkeit in LLMs:</p>
+            <div class="sge-check-list" id="sge-check-list">
+              <label class="sge-check-item"><input type="checkbox" value="20" checked> <code>/llms.txt</code> vorhanden</label>
+              <label class="sge-check-item"><input type="checkbox" value="20" checked> Vernetztes JSON-LD</label>
+              <label class="sge-check-item"><input type="checkbox" value="15"> Fakten-Tabellen im HTML</label>
+              <label class="sge-check-item"><input type="checkbox" value="15" checked> Echter Autor (E-E-A-T)</label>
+              <label class="sge-check-item"><input type="checkbox" value="15"> 50-Wort Antwort-Blöcke</label>
+              <label class="sge-check-item"><input type="checkbox" value="15"> In KI-Verzeichnissen gelistet</label>
+            </div>
+            <div class="ai-calc-result" id="calc-sge-result" aria-live="polite">
+              <div class="ai-calc-result__big">55 / 100 GEO-Punkte</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Status: Solides Fundament — mit Fakten-Tabellen &amp; Directory-Backlinks knackst du die Top-3-Zitate!</div>
+            </div>
+            <div class="llm-btn-row" id="calc-sge-actions"></div>
           </div>
-          <div class="llm-btn-row" id="calc-sge-actions"></div>
+
+          <!-- Calculator 3: Programmatic SEO High-SKU Simulator -->
+          <div class="ai-calc-card bento-box--emerald">
+            <span class="case-study-card__tag">📈 RECHNER #03 // PROGRAMMATIC SEO</span>
+            <h3>High-SKU E-Commerce &amp; pSEO Simulator</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Wie viel zusätzliches organisches Umsatzpotenzial steckt in strukturierten Produkt- &amp; Kategorieseiten?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-pseo-pages" style="font-size: 0.76rem; color: var(--c-gold);">Anzahl Seiten/SKUs</label>
+                <input type="number" id="calc-pseo-pages" value="1500" min="10" max="500000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-pseo-visits" style="font-size: 0.76rem; color: var(--c-gold);">Ø Klicks/Seite/Mon.</label>
+                <input type="number" id="calc-pseo-visits" value="12" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-pseo-aov" style="font-size: 0.76rem; color: var(--c-gold);">Ø Warenkorb (€)</label>
+                <input type="number" id="calc-pseo-aov" value="85" min="10" max="10000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-pseo-result" aria-live="polite">
+              <div class="ai-calc-result__big">+30.600 € / Monat Potenzial</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">18.000 organische Long-Tail-Besucher/Monat bei konservativen 2,0 % Conversion-Rate.</div>
+            </div>
+            <div class="llm-btn-row" id="calc-pseo-actions"></div>
+          </div>
+
+          <!-- Calculator 4: KI-Verzeichnis Backlink & DR Boost Calculator -->
+          <div class="ai-calc-card bento-box--purple">
+            <span class="case-study-card__tag">🗂️ RECHNER #04 // DIRECTORY LAUNCH BOOST</span>
+            <h3>KI-Verzeichnis Backlink- &amp; DR-Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Basierend auf den 256+ Verzeichnissen aus <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" style="color:var(--c-gold); text-decoration:underline;">AIGeddon AI-Directories</a>:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label for="calc-dir-current" style="font-size: 0.78rem; color: var(--c-gold);">Aktuelles Domain Rating</label>
+                <input type="number" id="calc-dir-current" value="8" min="0" max="90" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-dir-count" style="font-size: 0.78rem; color: var(--c-gold);">Geplante Directory-Einträge</label>
+                <input type="number" id="calc-dir-count" value="35" min="5" max="256" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-dir-result" aria-live="polite">
+              <div class="ai-calc-result__big">Ziel-DR: ~26–32 (in 60 Tagen)</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Geschätzter manueller Zeitaufwand: ~11,5 Std. — oder 0 Std. mit unserem <a href="https://jmp-collab.github.io/ai-directories/werben/" target="_blank" rel="noopener" style="color:#ffe14d; text-decoration:underline;">Launch-Service</a>.</div>
+            </div>
+            <div class="llm-btn-row">
+              <a href="https://jmp-collab.github.io/ai-directories/#alle" target="_blank" rel="noopener" class="llm-btn llm-btn--copy">📋 Top 256 Verzeichnisse öffnen ↗</a>
+              <a href="https://jmp-collab.github.io/ai-directories/liste/kostenlos/" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">🎁 Nur Gratis-Verzeichnisse ↗</a>
+            </div>
+          </div>
+
+          <!-- Calculator 5: The Merchant Brain (merchants.json EPC & Smart-Routing) -->
+          <div class="ai-calc-card bento-box--flame">
+            <span class="case-study-card__tag">🧠 RECHNER #05 // THE MERCHANT BRAIN (SUBSTACK KAP. 7)</span>
+            <h3>EPC &amp; Affiliate Smart-Routing Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #22:</em> „Der beste Affiliate-Link ist nicht der mit der höchsten Provision, sondern der mit dem höchsten erwarteten Profit (EPC).“</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-mb-comm-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: Payout (€)</label>
+                <input type="number" id="calc-mb-comm-a" value="45" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-mb-cr-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: CR (%)</label>
+                <input type="number" id="calc-mb-cr-a" value="1.6" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-mb-comm-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: Payout (€)</label>
+                <input type="number" id="calc-mb-comm-b" value="28" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-mb-cr-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: CR (%)</label>
+                <input type="number" id="calc-mb-cr-b" value="4.8" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-mb-result" aria-live="polite">
+              <div class="ai-calc-result__big">Merchant B gewinnt (EPC 1,34 € vs. 0,72 €)</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Bei 10.000 Klicks liefert Merchant B <strong>+6.240 € mehr Profit</strong> trotz niedrigerer Einzel-Provision!</div>
+            </div>
+            <div class="llm-btn-row" id="calc-mb-actions"></div>
+          </div>
+
+          <!-- Calculator 6: Die Lokalisierungs-Bombe (Geo-Matrix Multiplikator) -->
+          <div class="ai-calc-card bento-box--emerald">
+            <span class="case-study-card__tag">💣 RECHNER #06 // DIE LOKALISIERUNGS-BOMBE (SUBSTACK KAP. 13)</span>
+            <h3>Geo-Matrix &amp; Revenue-Node Multiplikator</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #62:</em> „Jede Stadt ist ein eigener Markt. Geo + Commercial Intent = Revenue Explosion.“</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-geo-prod" style="font-size: 0.76rem; color: var(--c-gold);">Produkte/Services</label>
+                <input type="number" id="calc-geo-prod" value="6" min="1" max="1000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-geo-cities" style="font-size: 0.76rem; color: var(--c-gold);">Städte / Landkreise</label>
+                <input type="number" id="calc-geo-cities" value="80" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-geo-intents" style="font-size: 0.76rem; color: var(--c-gold);">Use-Cases/Probleme</label>
+                <input type="number" id="calc-geo-intents" value="4" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-geo-result" aria-live="polite">
+              <div class="ai-calc-result__big">1.920 lokale Revenue-Nodes</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Schon bei Ø 15 Besuchern/Node/Monat = <strong>28.800 hochkonvertierende Local-Intent-Besucher/Monat</strong>.</div>
+            </div>
+            <div class="llm-btn-row" id="calc-geo-actions"></div>
+          </div>
+
+          <!-- NEW Calculator 8: LLM Token-, API-Kosten- & Modell-Vergleichs-Rechner -->
+          <div class="ai-calc-card bento-box--cyber">
+            <span class="case-study-card__tag">⚡ RECHNER #08 // LLM API &amp; CONTENT FACTORY KOSTEN</span>
+            <h3>LLM Token- &amp; Agent-Pipeline Kosten-Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Was kostet es wirklich, 1.000 bis 50.000 pSEO-Seiten mit Claude Sonnet, GPT-4o oder Gemini Flash zu generieren?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-token-pages" style="font-size: 0.76rem; color: #7dd3fc;">Zu generierende Seiten</label>
+                <input type="number" id="calc-token-pages" value="5000" min="50" max="500000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-token-words" style="font-size: 0.76rem; color: #7dd3fc;">Wörter / Seite (Output)</label>
+                <input type="number" id="calc-token-words" value="1200" min="200" max="10000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div style="grid-column: 1 / -1;">
+                <label for="calc-token-model" style="font-size: 0.76rem; color: #7dd3fc;">Primäres LLM-Modell in der Pipeline</label>
+                <select id="calc-token-model" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+                  <option value="flash">Gemini 2.5 Flash (~0,50 $ / 1M Output — Ultra-Speed)</option>
+                  <option value="gpt4o" selected>GPT-4o / Claude Sonnet (~10–15 $ / 1M Output — Premium)</option>
+                  <option value="hybrid">Promptgott Hybrid-Swarm (80% Flash + 20% Sonnet QA)</option>
+                </select>
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-token-result" aria-live="polite">
+              <div class="ai-calc-result__big">~88 € API-Gesamtkosten (statt 250.000 € Agentur)</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Ersparnis gegenüber manuellerTexterstellung: <strong>99,96 %</strong> (~0,018 € pro fertiger Seite inkl. JSON-LD!).</div>
+            </div>
+            <div class="llm-btn-row" id="calc-token-actions"></div>
+          </div>
+
+          <!-- NEW Calculator 9: Index Swarm & Crawl-Budget Velocity Simulator -->
+          <div class="ai-calc-card bento-box--gold">
+            <span class="case-study-card__tag">🕷️ RECHNER #09 // THE INDEX SWARM (SUBSTACK KAP. 10)</span>
+            <h3>Index-Swarm &amp; Crawl-Velocity Simulator</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #37:</em> „Indexierung ist kein Zufall, sie ist Architektur.“ Wie schnell frisst der Googlebot deine pSEO-Flotte?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-idx-urls" style="font-size: 0.76rem; color: var(--c-gold);">Neue URLs gesamt</label>
+                <input type="number" id="calc-idx-urls" value="10000" min="100" max="1000000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-idx-depth" style="font-size: 0.76rem; color: var(--c-gold);">Max. Klicktiefe</label>
+                <input type="number" id="calc-idx-depth" value="2" min="1" max="8" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-idx-shards" style="font-size: 0.76rem; color: var(--c-gold);">Sitemap-Shards</label>
+                <input type="number" id="calc-idx-shards" value="10" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-idx-result" aria-live="polite">
+              <div class="ai-calc-result__big">~14 Tage bis 85 % Index-Abdeckung</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Ohne Hub-Sharding &amp; flache Klicktiefe (≤ 3): 110+ Tage („Crawled – currently not indexed“-Falle).</div>
+            </div>
+            <div class="llm-btn-row" id="calc-idx-actions"></div>
+          </div>
+
+          <!-- NEW Calculator 10: Zero-Click & AI-Brand-Gravity Simulator -->
+          <div class="ai-calc-card bento-box--purple">
+            <span class="case-study-card__tag">🧲 RECHNER #10 // ZERO-CLICK TRAP &amp; GRAVITY (KAP. 3 &amp; 9)</span>
+            <h3>Zero-Click &amp; AI-Brand-Gravity Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Wie viele hochkonvertierende Direkt-Suchen &amp; LLM-Empfehlungen entstehen, wenn deine Daten-Tabellen in AI-Overviews zitiert werden?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-zc-impr" style="font-size: 0.76rem; color: #d8b4fe;">SERP / AI-Overview Impressions</label>
+                <input type="number" id="calc-zc-impr" value="120000" min="1000" max="10000000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-zc-tables" style="font-size: 0.76rem; color: #d8b4fe;">Proprietäre Fakten-Tabellen</label>
+                <input type="number" id="calc-zc-tables" value="25" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-zc-result" aria-live="polite">
+              <div class="ai-calc-result__big">+4.200 Brand- &amp; LLM-Klicks / Monat</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Geschätzter AI-Share-of-Voice: <strong>34 %</strong> — mit 3,2x höherer Kaufbereitschaft als kalter SEO-Traffic.</div>
+            </div>
+            <div class="llm-btn-row" id="calc-zc-actions"></div>
+          </div>
+
+          <!-- NEW Calculator 11: 72-Stunden "Erster Euro" Launch-Speed & Live SVG Dyno Curve -->
+          <div class="ai-calc-card bento-box--emerald">
+            <span class="case-study-card__tag">🚀 RECHNER #11 // 72H „ERSTER EURO“ DYNO-KURVE (KAP. 12)</span>
+            <h3>90-Tage Compounding Cashflow-Simulator (Live-Chart)</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Simuliere die 90-Tage-Wachstumskurve einer neuen Programmatic-Nischen-Maschine inkl. Live-SVG-Dyno-Graph:</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-dyno-nodes" style="font-size: 0.76rem; color: #6ee7b7;">Launch-Nodes (in 72h)</label>
+                <input type="number" id="calc-dyno-nodes" value="400" min="20" max="50000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+              <div>
+                <label for="calc-dyno-epc" style="font-size: 0.76rem; color: #6ee7b7;">Ø EPC / RPM Wert (€)</label>
+                <input type="number" id="calc-dyno-epc" value="1.45" step="0.05" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div style="background: #06120e; border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 0.65rem;">
+              <svg id="calc-dyno-svg" viewBox="0 0 320 90" width="100%" height="90" role="img" aria-label="90-Tage Cashflow Dyno-Kurve">
+                <defs>
+                  <linearGradient id="dynoGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#10b981" stop-opacity="0.55"/>
+                    <stop offset="100%" stop-color="#10b981" stop-opacity="0.0"/>
+                  </linearGradient>
+                </defs>
+                <path id="calc-dyno-area" d="M10,80 Q90,72 160,48 T310,12 L310,85 L10,85 Z" fill="url(#dynoGrad)"/>
+                <path id="calc-dyno-line" d="M10,80 Q90,72 160,48 T310,12" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+                <circle id="calc-dyno-dot" cx="310" cy="12" r="5" fill="#ffe14d"/>
+              </svg>
+              <div id="calc-dyno-result" style="font-size: 0.84rem; color: #6ee7b7; font-weight: 700; text-align: center;">
+                Tag 90 Run-Rate: ~8.120 € / Monat (Erster Euro nach ~11 Tagen)
+              </div>
+            </div>
+            <div class="llm-btn-row" id="calc-dyno-actions"></div>
+          </div>
+
+          <!-- NEW Calculator 12: B2B Consulting & Done-For-You Projekt-Amortisations-Rechner -->
+          <div class="ai-calc-card bento-box--flame">
+            <span class="case-study-card__tag">🤝 RECHNER #12 // WORK WITH JEAN ROI-KALKULATOR</span>
+            <h3>Consulting &amp; Done-For-You Amortisations-Rechner</h3>
+            <p style="font-size: 0.88rem; opacity: 0.82;">Wann hat sich ein gemeinsames Projekt mit Jean Maurice Port zu 100 % bezahlt gemacht?</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div>
+                <label for="calc-b2b-invest" style="font-size: 0.76rem; color: #ffab91;">Gewähltes Paket (€)</label>
+                <select id="calc-b2b-invest" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+                  <option value="490">90-Min. Sparring (490 €)</option>
+                  <option value="2400" selected>pSEO / AI Architecture Sprint (2.400 €)</option>
+                  <option value="5900">Full Revenue Machine Setup (5.900 €)</option>
+                </select>
+              </div>
+              <div>
+                <label for="calc-b2b-rev" style="font-size: 0.76rem; color: #ffab91;">Aktueller Monatsumsatz (€)</label>
+                <input type="number" id="calc-b2b-rev" value="45000" min="1000" max="10000000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+              </div>
+            </div>
+            <div class="ai-calc-result" id="calc-b2b-result" aria-live="polite">
+              <div class="ai-calc-result__big">Break-Even in ~11 Tagen (ROI: 33,7x / Jahr)</div>
+              <div style="font-size: 0.84rem; margin-top: 0.25rem;">Schon bei konservativen +15 % SEO/AI-Uplift (+6.750 €/Monat) ist das Projekt im 1. Monat mehrfach refinanziert.</div>
+            </div>
+            <div class="llm-btn-row">
+              <a href="#kontakt-leadgen" class="llm-btn llm-btn--copy" id="calc-b2b-transfer-btn">🤝 Dieses Paket jetzt im Lead-Konfigurator anfragen ↑</a>
+            </div>
+          </div>
+
+          <!-- Calculator 7: Der FAQ-Reaktor & Question-Graph Generator -->
+          <div class="ai-calc-card bento-box--gold" style="grid-column: 1 / -1;">
+            <span class="case-study-card__tag">⚛️ RECHNER #07 // DER FAQ-REAKTOR &amp; QUESTION GRAPH (SUBSTACK KAP. 14)</span>
+            <h3>Interaktiver „People Also Ask“ Question-Graph &amp; Intent-Reaktor</h3>
+            <p style="font-size: 0.88rem; opacity: 0.85;"><em>Machine Note #68 &amp; #73:</em> „PAA ist Googles öffentliche Intent-Datenbank. Wer Fragen kontrolliert, kontrolliert Aufmerksamkeit.“ Gib dein Thema ein — der Reaktor baut sofort den 5-Stufen Question Graph + LLM-Extraktions-Prompt:</p>
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem;">
+              <input type="text" id="calc-faq-topic" value="E-Scooter Versicherung &amp; Kennzeichen" placeholder="Dein Kernthema (z.B. Wärmepumpe Förderung, Simson Zündung, B2B Catering...)" style="padding:0.7rem 1rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:8px; font-size:0.95rem;">
+              <button type="button" id="calc-faq-btn" class="btn btn-primary">⚛️ Question Graph zünden</button>
+            </div>
+            <div class="ai-calc-result" id="calc-faq-result" aria-live="polite" style="font-family: var(--f-mono); font-size: 0.83rem; white-space: pre-wrap;"></div>
+            <div class="llm-btn-row" id="calc-faq-actions"></div>
+          </div>
         </div>
 
-        <!-- Calculator 3: Programmatic SEO High-SKU Simulator -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">📈 RECHNER #03 // PROGRAMMATIC SEO</span>
-          <h3>High-SKU E-Commerce &amp; pSEO Simulator</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;">Wie viel zusätzliches organisches Umsatzpotenzial steckt in strukturierten Produkt- &amp; Kategorieseiten?</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
-            <div>
-              <label for="calc-pseo-pages" style="font-size: 0.76rem; color: var(--c-gold);">Anzahl Seiten/SKUs</label>
-              <input type="number" id="calc-pseo-pages" value="1500" min="10" max="500000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-pseo-visits" style="font-size: 0.76rem; color: var(--c-gold);">Ø Klicks/Seite/Mon.</label>
-              <input type="number" id="calc-pseo-visits" value="12" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-pseo-aov" style="font-size: 0.76rem; color: var(--c-gold);">Ø Warenkorb (€)</label>
-              <input type="number" id="calc-pseo-aov" value="85" min="10" max="10000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
+        <!-- INLINE LEAD-GENERATION STRIP AFTER CALCULATORS -->
+        <div class="inline-lead-strip">
+          <div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 800; color: #ffe14d; text-transform: uppercase;">🚀 Du hast deinen Hebel gerade ausgerechnet?</span>
+            <h3 style="font-size: 1.35rem; margin: 0.2rem 0; color: #ffffff;">Lass uns diese Zahlen in eine echte Revenue-Maschine für dein Business gießen!</h3>
+            <p style="font-size: 0.88rem; color: rgba(246, 241, 230, 0.85); margin: 0;">Kein Agentur-Blabla: Du sprichst direkt mit Jean Maurice Port. Hol dir dein individuelles Strategie-Dossier in 60 Sekunden.</p>
           </div>
-          <div class="ai-calc-result" id="calc-pseo-result" aria-live="polite">
-            <div class="ai-calc-result__big">+30.600 € / Monat Potenzial</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">18.000 organische Long-Tail-Besucher/Monat bei konservativen 2,0 % Conversion-Rate.</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            <a href="#kontakt-leadgen" class="btn btn-primary">🤝 Jetzt Potenzial-Anfrage senden ↑</a>
+            <a href="mailto:hallo@saarvice.de?subject=Projektanfrage%20nach%20KI-Rechner%20Check" class="btn btn-outline">📧 Direkt per E-Mail</a>
           </div>
-          <div class="llm-btn-row" id="calc-pseo-actions"></div>
-        </div>
-
-        <!-- Calculator 4: KI-Verzeichnis Backlink & DR Boost Calculator -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">🗂️ RECHNER #04 // DIRECTORY LAUNCH BOOST</span>
-          <h3>KI-Verzeichnis Backlink- &amp; DR-Rechner</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;">Basierend auf den 256+ Verzeichnissen aus <a href="https://jmp-collab.github.io/ai-directories/" target="_blank" rel="noopener" style="color:var(--c-gold); text-decoration:underline;">AIGeddon AI-Directories</a>:</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-            <div>
-              <label for="calc-dir-current" style="font-size: 0.78rem; color: var(--c-gold);">Aktuelles Domain Rating</label>
-              <input type="number" id="calc-dir-current" value="8" min="0" max="90" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-dir-count" style="font-size: 0.78rem; color: var(--c-gold);">Geplante Directory-Einträge</label>
-              <input type="number" id="calc-dir-count" value="35" min="5" max="256" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-          </div>
-          <div class="ai-calc-result" id="calc-dir-result" aria-live="polite">
-            <div class="ai-calc-result__big">Ziel-DR: ~26–32 (in 60 Tagen)</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Geschätzter manueller Zeitaufwand: ~11,5 Std. — oder 0 Std. mit unserem <a href="https://jmp-collab.github.io/ai-directories/werben/" target="_blank" rel="noopener" style="color:#ffe14d; text-decoration:underline;">Launch-Service</a>.</div>
-          </div>
-          <div class="llm-btn-row">
-            <a href="https://jmp-collab.github.io/ai-directories/#alle" target="_blank" rel="noopener" class="llm-btn llm-btn--copy">📋 Top 256 Verzeichnisse öffnen ↗</a>
-            <a href="https://jmp-collab.github.io/ai-directories/liste/kostenlos/" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">🎁 Nur Gratis-Verzeichnisse ↗</a>
-          </div>
-        </div>
-
-        <!-- Calculator 5: The Merchant Brain (merchants.json EPC & Smart-Routing) -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">🧠 RECHNER #05 // THE MERCHANT BRAIN (SUBSTACK KAP. 7)</span>
-          <h3>EPC &amp; Affiliate Smart-Routing Rechner</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #22:</em> „Der beste Affiliate-Link ist nicht der mit der höchsten Provision, sondern der mit dem höchsten erwarteten Profit (EPC).“</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
-            <div>
-              <label for="calc-mb-comm-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: Payout (€)</label>
-              <input type="number" id="calc-mb-comm-a" value="45" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-mb-cr-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: CR (%)</label>
-              <input type="number" id="calc-mb-cr-a" value="1.6" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-mb-comm-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: Payout (€)</label>
-              <input type="number" id="calc-mb-comm-b" value="28" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-mb-cr-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: CR (%)</label>
-              <input type="number" id="calc-mb-cr-b" value="4.8" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-          </div>
-          <div class="ai-calc-result" id="calc-mb-result" aria-live="polite">
-            <div class="ai-calc-result__big">Merchant B gewinnt (EPC 1,34 € vs. 0,72 €)</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Bei 10.000 Klicks liefert Merchant B <strong>+6.240 € mehr Profit</strong> trotz niedrigerer Einzel-Provision!</div>
-          </div>
-          <div class="llm-btn-row" id="calc-mb-actions"></div>
-        </div>
-
-        <!-- Calculator 6: Die Lokalisierungs-Bombe (Geo-Matrix Multiplikator) -->
-        <div class="ai-calc-card">
-          <span class="case-study-card__tag">💣 RECHNER #06 // DIE LOKALISIERUNGS-BOMBE (SUBSTACK KAP. 13)</span>
-          <h3>Geo-Matrix &amp; Revenue-Node Multiplikator</h3>
-          <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #62:</em> „Jede Stadt ist ein eigener Markt. Geo + Commercial Intent = Revenue Explosion.“</p>
-          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
-            <div>
-              <label for="calc-geo-prod" style="font-size: 0.76rem; color: var(--c-gold);">Produkte/Services</label>
-              <input type="number" id="calc-geo-prod" value="6" min="1" max="1000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-geo-cities" style="font-size: 0.76rem; color: var(--c-gold);">Städte / Landkreise</label>
-              <input type="number" id="calc-geo-cities" value="80" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-            <div>
-              <label for="calc-geo-intents" style="font-size: 0.76rem; color: var(--c-gold);">Use-Cases/Probleme</label>
-              <input type="number" id="calc-geo-intents" value="4" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
-            </div>
-          </div>
-          <div class="ai-calc-result" id="calc-geo-result" aria-live="polite">
-            <div class="ai-calc-result__big">1.920 lokale Revenue-Nodes</div>
-            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Schon bei Ø 15 Besuchern/Node/Monat = <strong>28.800 hochkonvertierende Local-Intent-Besucher/Monat</strong>.</div>
-          </div>
-          <div class="llm-btn-row" id="calc-geo-actions"></div>
-        </div>
-
-        <!-- Calculator 7: Der FAQ-Reaktor & Question-Graph Generator -->
-        <div class="ai-calc-card" style="grid-column: 1 / -1;">
-          <span class="case-study-card__tag">⚛️ RECHNER #07 // DER FAQ-REAKTOR &amp; QUESTION GRAPH (SUBSTACK KAP. 14)</span>
-          <h3>Interaktiver „People Also Ask“ Question-Graph &amp; Intent-Reaktor</h3>
-          <p style="font-size: 0.88rem; opacity: 0.85;"><em>Machine Note #68 &amp; #73:</em> „PAA ist Googles öffentliche Intent-Datenbank. Wer Fragen kontrolliert, kontrolliert Aufmerksamkeit.“ Gib dein Thema ein — der Reaktor baut sofort den 5-Stufen Question Graph + LLM-Extraktions-Prompt:</p>
-          <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem;">
-            <input type="text" id="calc-faq-topic" value="E-Scooter Versicherung &amp; Kennzeichen" placeholder="Dein Kernthema (z.B. Wärmepumpe Förderung, Simson Zündung, B2B Catering...)" style="padding:0.7rem 1rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:8px; font-size:0.95rem;">
-            <button type="button" id="calc-faq-btn" class="btn btn-primary">⚛️ Question Graph zünden</button>
-          </div>
-          <div class="ai-calc-result" id="calc-faq-result" aria-live="polite" style="font-family: var(--f-mono); font-size: 0.83rem; white-space: pre-wrap;"></div>
-          <div class="llm-btn-row" id="calc-faq-actions"></div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 4: INTERAKTIVE TUTORIALS & BLUEPRINTS -->
-    <section id="tutorials" class="container" style="padding: 4.5rem 1.5rem; border-top: 1px solid var(--c-border);">
-      <span class="section-eyebrow">HANDS-ON PLAYBOOKS // SCHRITTE 131–140</span>
+    <!-- SECTION 4: INTERAKTIVE TUTORIALS & BLUEPRINTS (PURPLE FORGE THEME) -->
+    <section id="tutorials" class="section-theme-purple">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="crest-divider" style="padding: 0 0 1.8rem;">
+          <div class="crest-divider__line"></div>
+          <span class="crest-divider__badge">📖 SEKTION 05 // INTERAKTIVE STEP-BY-STEP PLAYBOOKS</span>
+          <div class="crest-divider__line crest-divider__line--right"></div>
+        </div>
+        <span class="section-eyebrow" style="color: #d8b4fe;">HANDS-ON PLAYBOOKS // SCHRITTE 131–140</span>
       <h2 class="section-title">Interaktive Tutorials: Von Vibe Coding zu echten KI-Systemen</h2>
       <p style="max-width: 760px; margin-bottom: 1.5rem; opacity: 0.88;">
         Jedes Tutorial enthält die exakten Schritte aus meiner Praxis — und lässt sich mit einem Klick als <strong>interaktiver Schritt-für-Schritt-Coach direkt in ChatGPT oder Claude öffnen</strong>.
@@ -743,11 +1199,35 @@ Anforderungen:
           <div class="llm-btn-row" data-prompt-actions></div>
         </article>
       </div>
+      </div>
     </section>
 
-    <!-- SECTION 5: AIGEDDON YOUTUBE CHANNEL & VIDEO CASE STUDIES -->
-    <section id="aigeddon" class="container" style="padding: 4.5rem 1.5rem; border-top: 1px solid var(--c-border);">
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem;">
+    <!-- KINETIC DIVIDER BAND #03 (FLAME / VOLCANIC) -->
+    <div class="kinetic-ticker-band kinetic-ticker-band--flame" aria-hidden="true">
+      <div class="kinetic-ticker-track">
+        <span>☢️ AIGEDDON YOUTUBE CASE STUDIES &amp; LIVE TEARDOWNS</span>
+        <span>•</span>
+        <span>🔥 UNGEFILTERTE KI-EXPERIMENTS AUS DEM SAARLAND &amp; DACH</span>
+        <span>•</span>
+        <span>⚙️ MOTO KNOWLEDGE ENGINE • 256+ DIRECTORIES • SAARVICE LAB</span>
+        <span>•</span>
+        <span>☢️ AIGEDDON YOUTUBE CASE STUDIES &amp; LIVE TEARDOWNS</span>
+        <span>•</span>
+        <span>🔥 UNGEFILTERTE KI-EXPERIMENTS AUS DEM SAARLAND &amp; DACH</span>
+        <span>•</span>
+        <span>⚙️ MOTO KNOWLEDGE ENGINE • 256+ DIRECTORIES • SAARVICE LAB</span>
+      </div>
+    </div>
+
+    <!-- SECTION 5: AIGEDDON YOUTUBE CHANNEL & VIDEO CASE STUDIES (VOLCANIC THEME) -->
+    <section id="aigeddon" class="section-theme-volcanic">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="crest-divider" style="padding: 0 0 1.8rem;">
+          <div class="crest-divider__line"></div>
+          <span class="crest-divider__badge crest-divider__badge--flame">☢️ SEKTION 06 // AIGEDDON YOUTUBE CASE STUDIES</span>
+          <div class="crest-divider__line crest-divider__line--right"></div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem;">
         <div>
           <span class="section-eyebrow">AIGEDDON ☢️ AUF YOUTUBE // SCHRITTE 141–150</span>
           <h2 class="section-title">Video Case Studies &amp; Live-Zerlegungen</h2>
@@ -797,11 +1277,35 @@ Anforderungen:
           </div>
         </article>
       </div>
+      </div>
     </section>
 
-    <!-- SECTION 6: PROMPTGOTT SUBSTACK COMMAND CENTER & THE PROGRAMMATIC REVENUE MACHINE -->
-    <section id="promptgott" class="container" style="padding: 3rem 1.5rem 5rem; border-top: 1px solid var(--c-border);">
-      <div class="promptgott-vault">
+    <!-- KINETIC DIVIDER BAND #04 (EMERALD MATRIX) -->
+    <div class="kinetic-ticker-band kinetic-ticker-band--emerald" aria-hidden="true">
+      <div class="kinetic-ticker-track">
+        <span>⚡ PROMPTGOTT.SUBSTACK.COM // THE PROGRAMMATIC REVENUE MACHINE</span>
+        <span>•</span>
+        <span>📘 ALLE 14 OPERATOR-KAPITEL &amp; 73 MACHINE NOTES DIREKT INTEGRIERT</span>
+        <span>•</span>
+        <span>🧲 THE MACHINE DOES NOT CREATE CONTENT — THE MACHINE CREATES GRAVITY</span>
+        <span>•</span>
+        <span>⚡ PROMPTGOTT.SUBSTACK.COM // THE PROGRAMMATIC REVENUE MACHINE</span>
+        <span>•</span>
+        <span>📘 ALLE 14 OPERATOR-KAPITEL &amp; 73 MACHINE NOTES DIREKT INTEGRIERT</span>
+        <span>•</span>
+        <span>🧲 THE MACHINE DOES NOT CREATE CONTENT — THE MACHINE CREATES GRAVITY</span>
+      </div>
+    </div>
+
+    <!-- SECTION 6: PROMPTGOTT SUBSTACK COMMAND CENTER & THE PROGRAMMATIC REVENUE MACHINE (EMERALD THEME) -->
+    <section id="promptgott" class="section-theme-emerald">
+      <div class="container" style="padding: 0 1.5rem;">
+        <div class="crest-divider" style="padding: 0 0 1.8rem;">
+          <div class="crest-divider__line"></div>
+          <span class="crest-divider__badge crest-divider__badge--emerald">⚡ SEKTION 07 // PROMPTGOTT SUBSTACK &amp; 14 OPERATOR-KAPITEL</span>
+          <div class="crest-divider__line crest-divider__line--right"></div>
+        </div>
+        <div class="promptgott-vault" style="border-color: #10b981; background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(6, 20, 15, 0.96));">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.25rem; align-items: start;">
           <div>
             <div style="display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.85rem;">
@@ -1134,11 +1638,30 @@ Anforderungen:
             </div>
           </article>
         </div>
+
+        <!-- Inline Lead Strip inside Promptgott Section -->
+        <div class="inline-lead-strip" style="border-color: #10b981; margin-top: 2.5rem;">
+          <div>
+            <span style="font-family: var(--f-mono); font-size: 0.75rem; font-weight: 800; color: #6ee7b7; text-transform: uppercase;">⚙️ Du willst die Programmatic Revenue Machine für deine eigene Domain?</span>
+            <h3 style="font-size: 1.35rem; margin: 0.2rem 0; color: #ffffff;">Wir bauen dir Data Layer, Content Factory, Merchant Brain &amp; FAQ-Reaktor schlüsselfertig auf.</h3>
+            <p style="font-size: 0.88rem; color: rgba(246, 241, 230, 0.85); margin: 0;">Starte oben im interaktiven Potenzial-Konfigurator oder buche direkt dein 90-Minuten Architektur-Sparring.</p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.65rem;">
+            <a href="#kontakt-leadgen" class="btn btn-primary" style="background: #10b981; color: #04130e; border-color: #34d399;">🤝 Projekt im Konfigurator starten ↑</a>
+            <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" class="btn btn-outline" style="border-color: #6ee7b7; color: #6ee7b7;">📬 Substack öffnen ↗</a>
+          </div>
+        </div>
+      </div>
       </div>
     </section>
 
     <!-- SECTION 7: MONETARISIERUNG, PRODUKTE, CONSULTING & DEALS -->
     <section id="monetarisierung" class="container" style="padding: 4.5rem 1.5rem; border-top: 1px solid var(--c-border);">
+      <div class="crest-divider" style="padding: 0 0 1.8rem;">
+        <div class="crest-divider__line"></div>
+        <span class="crest-divider__badge">💼 SEKTION 08 // PAKETE, LAUNCH-SERVICE &amp; DEALS</span>
+        <div class="crest-divider__line crest-divider__line--right"></div>
+      </div>
       <span class="section-eyebrow">WORK WITH JEAN // SCHRITTE 161–170</span>
       <h2 class="section-title">Angebote, Playbooks, Launch-Service &amp; Exklusive KI-Deals</h2>
       <p style="max-width: 760px; opacity: 0.88;">
