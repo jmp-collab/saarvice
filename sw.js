@@ -1,4 +1,4 @@
-const CACHE_NAME = 'saarvice-v9-clean-ui';
+const CACHE_NAME = 'saarvice-v10-tutorials';
 const ASSETS = [
   './',
   './index.html',

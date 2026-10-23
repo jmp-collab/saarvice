@@ -5336,3 +5336,237 @@ nav a.active,
   transform: translateX(-50%) translateY(0);
 }
 
+/* ==========================================================================
+   6. LONG-FORM SAARLAND TUTORIALS MASTERCLASS STYLING (#saar-tutorials)
+   ========================================================================== */
+.tutorials-masterclass-section {
+  position: relative;
+  padding: 5rem 0;
+  background: radial-gradient(circle at 15% 10%, rgba(227, 178, 60, 0.08), transparent 45%),
+              radial-gradient(circle at 85% 80%, rgba(217, 79, 61, 0.08), transparent 45%),
+              #0f0e0c;
+  border-top: 2px solid rgba(227, 178, 60, 0.28);
+  border-bottom: 2px solid rgba(227, 178, 60, 0.28);
+}
+
+.tut-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+  margin: 1.75rem 0 2.5rem;
+  padding: 0.75rem;
+  background: rgba(20, 19, 17, 0.9);
+  border: 1px solid rgba(227, 178, 60, 0.25);
+  border-radius: 14px;
+}
+
+.tut-filter-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(246, 241, 230, 0.16);
+  color: var(--c-text);
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  font-family: var(--f-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tut-filter-btn:hover,
+.tut-filter-btn.is-active {
+  background: rgba(227, 178, 60, 0.18);
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+  box-shadow: 0 4px 16px rgba(227, 178, 60, 0.15);
+}
+
+.saar-tutorial-article {
+  background: linear-gradient(180deg, #171512 0%, #12110e 100%);
+  border: 1.5px solid rgba(227, 178, 60, 0.32);
+  border-radius: 18px;
+  padding: clamp(1.5rem, 3.5vw, 2.75rem);
+  margin-bottom: 3rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+  position: relative;
+  overflow: hidden;
+}
+
+.saar-tutorial-article--emerald {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.saar-tutorial-article--flame {
+  border-color: rgba(217, 79, 61, 0.45);
+}
+
+.saar-tutorial-article--cyber {
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.tut-meta-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(246, 241, 230, 0.12);
+}
+
+.tut-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--f-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  background: rgba(227, 178, 60, 0.14);
+  border: 1px solid rgba(227, 178, 60, 0.4);
+  color: var(--c-gold);
+}
+
+.tut-badge--red {
+  background: rgba(217, 79, 61, 0.16);
+  border-color: rgba(217, 79, 61, 0.45);
+  color: #fca5a5;
+}
+
+.tut-badge--emerald {
+  background: rgba(16, 185, 129, 0.14);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #6ee7b7;
+}
+
+.tut-badge--cyber {
+  background: rgba(56, 189, 248, 0.14);
+  border-color: rgba(56, 189, 248, 0.4);
+  color: #7dd3fc;
+}
+
+.tut-lead {
+  font-size: 1.08rem;
+  line-height: 1.72;
+  color: rgba(246, 241, 230, 0.92);
+  margin: 0.85rem 0 1.6rem;
+  padding-left: 1rem;
+  border-left: 3px solid var(--c-gold);
+}
+
+.tut-chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.35rem;
+  margin: 1.5rem 0;
+}
+
+.tut-chapter-box {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(246, 241, 230, 0.12);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.tut-chapter-box h4 {
+  font-size: 1.05rem;
+  color: var(--c-gold);
+  margin-bottom: 0.55rem;
+}
+
+.tut-chapter-box p {
+  font-size: 0.92rem;
+  line-height: 1.68;
+  color: rgba(246, 241, 230, 0.86);
+  margin-bottom: 0.65rem;
+}
+
+.tut-callout {
+  background: rgba(217, 79, 61, 0.1);
+  border-left: 4px solid var(--c-red);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.15rem 0;
+  font-size: 0.9rem;
+}
+
+.tut-callout--oma {
+  background: rgba(16, 185, 129, 0.1);
+  border-left-color: #10b981;
+}
+
+.tut-callout--jean {
+  background: rgba(227, 178, 60, 0.1);
+  border-left-color: var(--c-gold);
+}
+
+.tut-table-wrap {
+  overflow-x: auto;
+  margin: 1.35rem 0;
+  border: 1px solid rgba(246, 241, 230, 0.14);
+  border-radius: 10px;
+}
+
+.tut-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  text-align: left;
+}
+
+.tut-table th {
+  background: rgba(227, 178, 60, 0.12);
+  color: var(--c-gold);
+  padding: 0.65rem 0.85rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(227, 178, 60, 0.3);
+}
+
+.tut-table td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid rgba(246, 241, 230, 0.08);
+  color: rgba(246, 241, 230, 0.88);
+}
+
+.tut-interactive-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.35rem;
+  margin-top: 1.5rem;
+}
+
+.tut-mini-calc {
+  background: #0b0a08;
+  border: 1.5px solid rgba(227, 178, 60, 0.4);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.tut-checklist-box {
+  background: rgba(16, 185, 129, 0.06);
+  border: 1.5px solid rgba(16, 185, 129, 0.32);
+  border-radius: 12px;
+  padding: 1.2rem;
+}
+
+.tut-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  padding: 0.42rem 0;
+  cursor: pointer;
+  color: rgba(246, 241, 230, 0.9);
+}
+
+.tut-check-item input[type="checkbox"] {
+  margin-top: 0.22rem;
+  accent-color: #10b981;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+

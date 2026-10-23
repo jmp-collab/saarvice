@@ -3241,6 +3241,191 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 12B. DIE 4 SAARLÄNDISCHEN LONG-FORM MASTERCLASS-TUTORIALS (#saar-tutorials)
+   * ------------------------------------------------------------------ */
+  function initSaarTutorialsMasterclass() {
+    var $ = function (id) { return document.getElementById(id); };
+
+    // 1. Filter Tabs for Tutorials (works on index.html and jean.html)
+    document.querySelectorAll('.tut-filter-bar').forEach(function (bar) {
+      var section = bar.closest('section') || document;
+      var btns = bar.querySelectorAll('.tut-filter-btn');
+      var articles = section.querySelectorAll('.saar-tutorial-article[data-tut-id]');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          btns.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+          var filter = btn.getAttribute('data-tut-filter') || 'all';
+          articles.forEach(function (art) {
+            var id = art.getAttribute('data-tut-id');
+            art.style.display = (filter === 'all' || filter === id) ? '' : 'none';
+          });
+          ViralAudio.sizzle();
+        });
+      });
+    });
+
+    // 2. Interactive Checklists inside Tutorials
+    document.querySelectorAll('.tut-checklist-box').forEach(function (box) {
+      var checks = box.querySelectorAll('.tut-check-input');
+      var statusEl = box.querySelector('.tut-check-status');
+      function updateChecklist() {
+        var done = 0;
+        checks.forEach(function (c) { if (c.checked) done++; });
+        if (statusEl) {
+          statusEl.textContent = done + '/' + checks.length + ' erledigt';
+          statusEl.style.color = done === checks.length ? '#ffe14d' : '#6ee7b7';
+        }
+        if (done === checks.length && checks.length > 0) {
+          ViralAudio.maggi();
+          unlockStamp('story');
+          showViralToast('🏆 Saarländische Masterclass-Checkliste 100% erfüllt! (+Stempel)');
+        }
+      }
+      checks.forEach(function (c) {
+        c.addEventListener('change', updateChecklist);
+      });
+    });
+
+    // 3. Tutorial #01 Simulator: Onkel-Werner-Putsch-Rechner
+    var t1Guests = $('tut1-guests');
+    var t1Stubbi = $('tut1-stubbi');
+    var t1GuestsVal = $('tut1-guests-val');
+    var t1StubbiVal = $('tut1-stubbi-val');
+    var t1Res = $('tut1-result');
+    function updateTut1() {
+      if (!t1Guests || !t1Stubbi || !t1Res) return;
+      var g = parseInt(t1Guests.value || '6', 10);
+      var s = parseInt(t1Stubbi.value || '3', 10);
+      if (t1GuestsVal) t1GuestsVal.textContent = String(g);
+      if (t1StubbiVal) t1StubbiVal.textContent = String(s);
+      var risk = Math.min(99, Math.max(8, g * 6 + s * 8));
+      var tactic = '';
+      if (risk < 40) {
+        tactic = 'Grüner Bereich: Ein gelegentliches „Ajo, läuft“ reicht völlig, um die Hoheit über das Dreibein zu behalten.';
+      } else if (risk < 75) {
+        tactic = 'Alarmstufe Orange: Drück dem lautesten Onkel sofort ein frisches Urpils in die rechte und ein Stück Baguette in die linke Hand — ohne freie Hand kann er keine Zange greifen!';
+      } else {
+        tactic = 'AKUTE PUTSCH-GEFAHR (Stufe Rot): Schicke Onkel Werner sofort mit dem Auftrag in den Keller, „die gute 1-Liter-Maggi-Reserveflasche hinterm Werkzeugkasten“ zu suchen (bringt dir 9 Minuten Ruhe am Rost!).';
+      }
+      t1Res.innerHTML = '<strong>Putsch-Risiko am Dreibein: ' + risk + ' %</strong><br><span style="opacity:0.92;">' + tactic + '</span>';
+    }
+    if (t1Guests && t1Stubbi) {
+      ['input', 'change'].forEach(function (ev) {
+        t1Guests.addEventListener(ev, updateTut1);
+        t1Stubbi.addEventListener(ev, updateTut1);
+      });
+      updateTut1();
+    }
+
+    // 4. Tutorial #02 Simulator: Der 3-Sterne-Maggi-Sommelier
+    var t2Dish = $('tut2-dish');
+    var t2Level = $('tut2-level');
+    var t2LevelVal = $('tut2-level-val');
+    var t2Res = $('tut2-result');
+    var levelNames = ['1 — Rucksack-Saarländer', '2 — Einsteiger', '3 — Saar-Standard', '4 — Hütten-Veteran', '5 — Endstufe Völklingen'];
+    function updateTut2() {
+      if (!t2Dish || !t2Level || !t2Res) return;
+      var dish = t2Dish.value;
+      var lvl = parseInt(t2Level.value || '3', 10);
+      if (t2LevelVal) t2LevelVal.textContent = levelNames[lvl - 1] || 'Saar-Standard';
+      var drops = lvl * 2;
+      var note = '';
+      if (dish === 'ei') {
+        drops = lvl + 2;
+        note = 'Direkt in den 4-mm-Eigelb-Krater träufeln und 4 Sekunden bis zur bernsteinfarbenen Marmorierung warten!';
+      } else if (dish === 'supp') {
+        drops = lvl * 5;
+        note = 'Erst NACH dem Abschmecken im Teller kreisförmig im Uhrzeigersinn einrühren (Oma schaut zu!).';
+      } else if (dish === 'gefillde') {
+        drops = lvl * 4;
+        note = 'Harmonisiert die schwere Specksauce mit dem Sauerkraut — erhöht die anschließende Eckbank-Schlafqualität um 18 %.';
+      } else if (dish === 'salat') {
+        drops = lvl * 3;
+        note = 'Zusammen mit saurer Sahne und feinen Zwiebelwürfeln emulgieren. Danach Schüssel mit Doppelweck ausditschen!';
+      } else {
+        drops = lvl * 4;
+        note = 'SAARVICE Signature-Verhältnis: Mit 2 EL Shiro-Miso und 3 EL aufgeschäumter brauner Butter bei 140 °C glasieren!';
+      }
+      var ml = (drops * 0.06).toFixed(2).replace('.', ',');
+      t2Res.innerHTML = '<strong>Empfohlene Dosis: ' + drops + ' Tropfen (' + ml + ' ml)</strong><br><span style="opacity:0.92;">Sommelier-Anweisung: ' + note + '</span>';
+    }
+    if (t2Dish && t2Level) {
+      ['input', 'change'].forEach(function (ev) {
+        t2Dish.addEventListener(ev, updateTut2);
+        t2Level.addEventListener(ev, updateTut2);
+      });
+      updateTut2();
+    }
+
+    // 5. Tutorial #03 Simulator: Dibbelabbes-Statik & Eckbank-Schlaf-Kalkulator
+    var t3People = $('tut3-people');
+    var t3Side = $('tut3-side');
+    var t3PeopleVal = $('tut3-people-val');
+    var t3Res = $('tut3-result');
+    function updateTut3() {
+      if (!t3People || !t3Side || !t3Res) return;
+      var p = parseInt(t3People.value || '4', 10);
+      var side = t3Side.value;
+      if (t3PeopleVal) t3PeopleVal.textContent = String(p);
+      var kg = (p * 0.55).toFixed(1).replace('.', ',');
+      var speck = p * 65;
+      var lauch = Math.max(1, Math.ceil(p * 0.5));
+      var schmalz = Math.max(2, Math.ceil(p * 0.8));
+      var bicepKcal = p * 52;
+      var napMins = 28 + p * 3 + (side === 'both' ? 12 : 5);
+      var sideComment = side === 'both' ? 'Beide Beilagen gewählt (Maximale Diplomatie am Tisch!)' : (side === 'apfel' ? 'Team Kaltes Apfelmus (Süß-Salzig-Kontrast)' : 'Team Warmer Endiviensalat mit Knoblauch-Krachercher');
+      t3Res.innerHTML = '<strong>Bedarf: ' + kg + ' kg Grumbeere • ' + speck + ' g Dörrfleisch • ' + lauch + ' Stangen Lauch • ' + schmalz + ' EL Schmalz</strong><br>' +
+        '<span style="opacity:0.92;">' + sideComment + ' | Oberarm-Workout beim Reiben: ~' + bicepKcal + ' kcal | Erwartete Eckbank-Fressnarkose: <strong>' + napMins + ' Minuten</strong>.</span>';
+    }
+    if (t3People && t3Side) {
+      ['input', 'change'].forEach(function (ev) {
+        t3People.addEventListener(ev, updateTut3);
+        t3Side.addEventListener(ev, updateTut3);
+      });
+      updateTut3();
+    }
+
+    // 6. Tutorial #04 Simulator: Der „Ajo“-Konfliktlöser & Verwandtschafts-Scanner
+    var t4Sit = $('tut4-situation');
+    var t4Ort = $('tut4-ort');
+    var t4Res = $('tut4-result');
+    function updateTut4() {
+      if (!t4Sit || !t4Ort || !t4Res) return;
+      var sit = t4Sit.value;
+      var ort = t4Ort.value;
+      var phrase = '';
+      if (sit === 'meeting') {
+        phrase = '„Ajo, schwätze ma net lang drumrum — mache ma einfach, odder?“ (Spart 45 Minuten PowerPoint!)';
+      } else if (sit === 'stau') {
+        phrase = '„A-jo… machschde nix. Hauptsach die Lyoner im Kofferraum bleibt kühl.“';
+      } else if (sit === 'schwenk') {
+        phrase = '„Ei ajo, e bissje Flüssig-Sonne schadet nur dem, der kä Schirm überm Dreibein hat! Weitergehst!“';
+      } else {
+        phrase = '„Ajo, da sachschde was! Ich muss awwer grad emol gucke, es Essen steht uffm Herd!“ (Höflicher Sofort-Flucht-Code)';
+      }
+      var ortMap = {
+        sb: { name: 'Saarbrücken (SB)', pct: '94,2 %', hook: 'mindestens 2 gemeinsame Bekannte vom St. Johanner Markt oder vom FCS-Block' },
+        sls: { name: 'Saarlouis (SLS)', pct: '97,8 %', hook: 'einen Schwager, der auf der Dillinger Hütte oder bei Ford in derselben Schicht war' },
+        wnd: { name: 'St. Wendel (WND)', pct: '98,9 %', hook: 'eine Cousine 2. Grades, die beim selben Musikverein am Bostalsee gespielt hat' },
+        nk: { name: 'Neunkirchen (NK)', pct: '96,4 %', hook: 'einen Onkel, der früher im Ellenfeldstadion direkt neben deinem Opa stand' },
+        mzg: { name: 'Merzig-Wadern (MZG)', pct: '97,1 %', hook: 'denselben Viez-Lieferanten aus Merzig und eine gemeinsame Tante in Losheim' },
+        hom: { name: 'Saarpfalz (HOM)', pct: '93,5 %', hook: 'mindestens einen Nachbarn, der bei Karlsberg direkt an der Quelle sitzt' }
+      };
+      var info = ortMap[ort] || ortMap.sb;
+      t4Res.innerHTML = '<strong>Perfekter Satz: ' + phrase + '</strong><br>' +
+        '<span style="opacity:0.92;">Verwandtschafts-Scan ' + info.name + ': <strong>' + info.pct + ' Wahrscheinlichkeit</strong>, dass ihr ' + info.hook + ' habt!</span>';
+    }
+    if (t4Sit && t4Ort) {
+      ['input', 'change'].forEach(function (ev) {
+        t4Sit.addEventListener(ev, updateTut4);
+        t4Ort.addEventListener(ev, updateTut4);
+      });
+      updateTut4();
+    }
+  }
+
+  /* ------------------------------------------------------------------ *
    * 13. PWA SERVICE WORKER REGISTRATION (#092 / #194)
    * ------------------------------------------------------------------ */
   function initServiceWorker() {
@@ -3268,6 +3453,7 @@
     safeRun(initPassAndLexikonExtras, 'initPassAndLexikonExtras');
     safeRun(initSubpageTools, 'initSubpageTools');
     safeRun(initJeanMastermindLab, 'initJeanMastermindLab');
+    safeRun(initSaarTutorialsMasterclass, 'initSaarTutorialsMasterclass');
     safeRun(injectJeanSubpageCalloutsAndFloatingDock, 'injectJeanSubpageCalloutsAndFloatingDock');
     safeRun(initStickySidebarsAndScrollSpy, 'initStickySidebarsAndScrollSpy');
     safeRun(initEditorialSuiteAnd24Elements, 'initEditorialSuiteAnd24Elements');
