@@ -2568,6 +2568,612 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * 12B. 24 EDITORIAL, JUMPLINKS, READING TIME, SLIDING BACK-TO-TOP,
+   *      PROGRESS BAR, AUDIO TTS, SELECTION AI & COMMAND SUITE
+   * ------------------------------------------------------------------ */
+  function initEditorialSuiteAnd24Elements() {
+    var mainEl = document.querySelector('main');
+    if (!mainEl) return;
+
+    var path = window.location.pathname || '';
+    var isMenuSub = path.indexOf('/menu/') !== -1 || path.indexOf('\\menu\\') !== -1;
+    var prefix = isMenuSub ? '../' : '';
+    var pageKey = 'saarvice_scroll_' + (path.replace(/[^a-zA-Z0-9]/g, '_') || 'home');
+
+    // --- ELEMENT #03: Calculate Total Word Count & Reading Time ---
+    var rawText = (mainEl.innerText || mainEl.textContent || '').replace(/\s+/g, ' ').trim();
+    var totalWords = rawText ? rawText.split(' ').length : 450;
+    var totalMinutes = Math.max(1, Math.ceil(totalWords / 195));
+    var interactiveCount = mainEl.querySelectorAll('button, input, select, .prompt-code-box').length;
+
+    // --- ELEMENT #01 & #09 & #14: Scan Headings (h2 & h3), Assign IDs, Add Permalink (#) & Bookmark (⭐), Build Sidebar Jumplinks ---
+    var headings = Array.prototype.slice.call(mainEl.querySelectorAll('h2, h3'));
+    var tocItems = [];
+    var usedIds = {};
+
+    function slugify(str) {
+      return str.toLowerCase()
+        .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '')
+        .slice(0, 52) || 'abschnitt';
+    }
+
+    var savedBookmarks = [];
+    try {
+      savedBookmarks = JSON.parse(localStorage.getItem('saarvice_bookmarks') || '[]');
+    } catch (e) { savedBookmarks = []; }
+
+    headings.forEach(function (h, idx) {
+      var cleanTitle = (h.textContent || '').replace(/[⚡🧮📖☢️✉️💼🧔🔥📐🤝🪪🥪🫗]/g, '').trim();
+      if (!cleanTitle || cleanTitle.length < 3) return;
+      var parentSec = h.closest('section[id]');
+      var targetId = h.id || (parentSec && h.tagName === 'H2' ? parentSec.id : '');
+      if (!targetId) {
+        var baseSlug = slugify(cleanTitle);
+        targetId = usedIds[baseSlug] ? baseSlug + '-' + idx : baseSlug;
+        h.id = targetId;
+      }
+      usedIds[targetId] = true;
+
+      // Only add heading utility buttons (# permalink & ⭐ bookmark) if not inside a small card header
+      if (!h.querySelector('.heading-anchor-wrap') && (h.tagName === 'H2' || cleanTitle.length > 14)) {
+        var wrap = document.createElement('span');
+        wrap.className = 'heading-anchor-wrap';
+        var linkBtn = document.createElement('button');
+        linkBtn.type = 'button';
+        linkBtn.className = 'heading-util-btn';
+        linkBtn.title = 'Direktlink zu diesem Abschnitt kopieren';
+        linkBtn.textContent = '#';
+        linkBtn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          var fullUrl = window.location.origin + window.location.pathname + '#' + targetId;
+          copyTextWithFallback(fullUrl, linkBtn);
+          showViralToast('🔗 Sprunglink kopiert: #' + targetId);
+        });
+
+        var starBtn = document.createElement('button');
+        starBtn.type = 'button';
+        starBtn.className = 'heading-util-btn';
+        starBtn.title = 'Abschnitt auf Merkliste speichern';
+        var isStarred = savedBookmarks.some(function (b) { return b.id === targetId; });
+        starBtn.textContent = isStarred ? '★' : '☆';
+        starBtn.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          var existsIdx = savedBookmarks.findIndex(function (b) { return b.id === targetId; });
+          if (existsIdx >= 0) {
+            savedBookmarks.splice(existsIdx, 1);
+            starBtn.textContent = '☆';
+            showViralToast('Aus Merkliste entfernt');
+          } else {
+            savedBookmarks.push({ id: targetId, title: cleanTitle.slice(0, 48), url: window.location.pathname + '#' + targetId });
+            starBtn.textContent = '★';
+            showViralToast('⭐ Auf deiner Merkliste gespeichert!');
+          }
+          try { localStorage.setItem('saarvice_bookmarks', JSON.stringify(savedBookmarks)); } catch (e) {}
+          updateBookmarkCounter();
+        });
+
+        wrap.appendChild(linkBtn);
+        wrap.appendChild(starBtn);
+        h.appendChild(wrap);
+      }
+
+      if (h.tagName === 'H2' || tocItems.length < 24) {
+        tocItems.push({
+          id: targetId,
+          title: cleanTitle.slice(0, 44),
+          tag: h.tagName.toLowerCase(),
+          el: h
+        });
+      }
+    });
+
+    // Inject Auto-Generated Article Jumplinks & Search Filter into Left Sticky Sidebar (#01, #14, #17, #24)
+    var leftRail = document.getElementById('sticky-sidebar-left');
+    function updateBookmarkCounter() {
+      var bmBadge = document.getElementById('rail-bm-count');
+      if (bmBadge) bmBadge.textContent = String(savedBookmarks.length);
+    }
+
+    if (leftRail && !document.getElementById('rail-auto-toc-box')) {
+      var tocBox = document.createElement('div');
+      tocBox.id = 'rail-auto-toc-box';
+      tocBox.style.marginTop = '0.55rem';
+      tocBox.style.borderTop = '1px solid rgba(255,255,255,0.14)';
+      tocBox.style.paddingTop = '0.5rem';
+
+      var tocLinksHtml = tocItems.slice(0, 18).map(function (item) {
+        var cls = 'rail-toc-item' + (item.tag === 'h3' ? ' rail-toc-item--h3' : '');
+        return '<li><a href="#' + item.id + '" class="' + cls + '" data-toc-id="' + item.id + '">' +
+          (item.tag === 'h2' ? '▸ ' : '· ') + item.title + '</a></li>';
+      }).join('');
+
+      tocBox.innerHTML = '' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.3rem;">' +
+        '  <span style="font-family:var(--f-mono); font-size:0.66rem; font-weight:800; color:#6ee7b7; text-transform:uppercase;">📑 Artikel-Jumplinks (' + Math.min(18, tocItems.length) + ')</span>' +
+        '  <span id="rail-rem-time" style="font-family:var(--f-mono); font-size:0.64rem; color:#ffe14d;">⏱️ ~' + totalMinutes + ' Min.</span>' +
+        '</div>' +
+        '<input type="search" id="rail-toc-filter" class="rail-mini-input" placeholder="🔍 Jumplink suchen (Alt+K)..." style="margin-bottom:0.3rem; font-size:0.72rem; padding:0.32rem 0.5rem;">' +
+        '<ul class="rail-toc-sublist" id="rail-toc-sublist">' + tocLinksHtml + '</ul>' +
+        '<div style="display:flex; justify-content:space-between; align-items:center; gap:0.3rem; margin-top:0.4rem; font-size:0.66rem;">' +
+        '  <button type="button" id="rail-export-bm-btn" class="ed-tool-btn" style="flex:1; justify-content:center; padding:0.28rem;">⭐ Merkliste (<span id="rail-bm-count">' + savedBookmarks.length + '</span>)</button>' +
+        '  <button type="button" id="rail-zen-btn" class="ed-tool-btn" style="padding:0.28rem 0.45rem;" title="Fokus-Modus (Alt+F)">🧘 Fokus</button>' +
+        '</div>' +
+        '<div style="margin-top:0.35rem; font-family:var(--f-mono); font-size:0.58rem; color:rgba(246,241,230,0.5); text-align:center;">' +
+        '  Shortcuts: [Alt+T] Top • [Alt+K] Suche • [Alt+F] Fokus' +
+        '</div>';
+      leftRail.appendChild(tocBox);
+
+      var filterInput = document.getElementById('rail-toc-filter');
+      if (filterInput) {
+        filterInput.addEventListener('input', function () {
+          var q = filterInput.value.toLowerCase().trim();
+          leftRail.querySelectorAll('#rail-toc-sublist li').forEach(function (li) {
+            var txt = (li.textContent || '').toLowerCase();
+            li.style.display = (!q || txt.indexOf(q) !== -1) ? '' : 'none';
+          });
+        });
+      }
+
+      var exportBmBtn = document.getElementById('rail-export-bm-btn');
+      if (exportBmBtn) {
+        exportBmBtn.addEventListener('click', function () {
+          if (!savedBookmarks.length) {
+            showViralToast('Klicke an einer Überschrift auf ☆, um Abschnitte zu merken!');
+            return;
+          }
+          var mdList = '# MEINE SAARVICE & PROMPTGOTT MERKLISTE\n\n' + savedBookmarks.map(function (b) {
+            return '- [' + b.title + '](' + window.location.origin + b.url + ')';
+          }).join('\n');
+          copyTextWithFallback(mdList, exportBmBtn);
+          showViralToast('📋 ' + savedBookmarks.length + ' Lesezeichen als Markdown kopiert!');
+        });
+      }
+
+      var railZen = document.getElementById('rail-zen-btn');
+      if (railZen) {
+        railZen.addEventListener('click', function () {
+          document.body.classList.toggle('is-zen-mode');
+          railZen.classList.toggle('is-active');
+          showViralToast(document.body.classList.contains('is-zen-mode') ? '🧘 Fokus-Lesemodus aktiviert' : 'Fokus-Lesemodus beendet');
+        });
+      }
+    }
+
+    // --- ELEMENT #05, #06, #07, #08, #11, #12, #15, #18, #19: Inject Editorial Meta Bar & TL;DR Suite at Top of Main ---
+    if (!document.getElementById('editorial-meta-suite')) {
+      var suite = document.createElement('div');
+      suite.id = 'editorial-meta-suite';
+      suite.className = 'editorial-meta-suite';
+      var pageTitleShort = (document.title || 'SAARVICE').split('—')[0].trim();
+      var topTakeaways = tocItems.filter(function (t) { return t.tag === 'h2'; }).slice(0, 5).map(function (t) {
+        return '<li><a href="#' + t.id + '" style="color:#7dd3fc; text-decoration:underline;">' + t.title + '</a></li>';
+      }).join('');
+
+      suite.innerHTML = '' +
+        '<div class="editorial-meta-bar" role="region" aria-label="Artikel-Metadaten, Lesezeit und Werkzeuge">' +
+        '  <div class="editorial-meta-stats">' +
+        '    <span class="editorial-stat-pill editorial-stat-pill--gold" id="ed-breadcrumb-pill">📍 <a href="' + prefix + 'index.html" style="color:inherit;text-decoration:none;">SAARVICE</a> › <strong id="ed-active-sec-label">' + pageTitleShort + '</strong></span>' +
+        '    <span class="editorial-stat-pill editorial-stat-pill--emerald" title="Geschätzte Lesezeit bei 195 Wörtern/Minute">⏱️ Lesezeit: ~' + totalMinutes + ' Min. (' + totalWords.toLocaleString('de-DE') + ' Wörter)</span>' +
+        '    <span class="editorial-stat-pill editorial-stat-pill--cyber">⚡ ' + interactiveCount + ' Interaktive Elemente</span>' +
+        '    <span class="editorial-stat-pill">📅 Stand: Okt. 2026</span>' +
+        '  </div>' +
+        '  <div class="editorial-meta-tools">' +
+        '    <button type="button" class="ed-tool-btn" id="ed-tldr-btn" aria-expanded="false">⚡ 30s TL;DR</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-tts-btn" title="Seite per Sprachsynthese vorlesen lassen">🎧 Vorlesen</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-font-dec" title="Schrift kleiner">A-</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-font-inc" title="Schrift größer">A+</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-zen-toggle" title="Ablenkungsfreier Fokus-Modus (Alt+F)">🧘 Fokus</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-copy-md-btn" title="Seite als Markdown für ChatGPT/Claude/Notion kopieren">📋 Als Markdown</button>' +
+        '    <button type="button" class="ed-tool-btn" id="ed-print-btn" title="Drucken oder als PDF speichern">🖨️ PDF</button>' +
+        '  </div>' +
+        '</div>' +
+        '<div class="ed-tldr-drawer" id="ed-tldr-drawer" hidden>' +
+        '  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.5rem;">' +
+        '    <strong style="color:#7dd3fc; font-size:0.92rem;">⚡ 30-Sekunden Executive Summary &amp; Direkt-Jumplinks dieser Seite:</strong>' +
+        '    <span style="font-size:0.75rem; color:#ffe14d;">Lesezeit gesamt: ~' + totalMinutes + ' Min.</span>' +
+        '  </div>' +
+        '  <ul style="margin:0 0 0.75rem 1.2rem; display:grid; gap:0.28rem;">' +
+        (topTakeaways || '<li>Alle Kernmodule, Rechner und Direkt-Kontakte auf einen Blick.</li>') +
+        '  </ul>' +
+        '  <div class="llm-btn-row" id="ed-tldr-llm-actions"></div>' +
+        '</div>';
+
+      mainEl.insertBefore(suite, mainEl.firstChild);
+
+      // Wire TL;DR Drawer + 1-Click Page Summarize in ChatGPT/Claude (#06 & #07)
+      var tldrBtn = document.getElementById('ed-tldr-btn');
+      var tldrDrawer = document.getElementById('ed-tldr-drawer');
+      var tldrActions = document.getElementById('ed-tldr-llm-actions');
+      if (tldrBtn && tldrDrawer) {
+        tldrBtn.addEventListener('click', function () {
+          var open = tldrDrawer.hidden;
+          tldrDrawer.hidden = !open;
+          tldrBtn.setAttribute('aria-expanded', String(open));
+          tldrBtn.classList.toggle('is-active', open);
+        });
+      }
+      if (tldrActions) {
+        var sumPrompt = 'Fasse mir die wichtigsten Konzepte, Formeln und Action-Steps der Seite "' + document.title + '" (' + window.location.href + ') von Jean Maurice Port in 7 prägnanten Bullet-Points zusammen und erstelle mir eine Checkliste zur direkten Umsetzung.';
+        tldrActions.innerHTML = buildLlmActionButtonsHtml(sumPrompt);
+        wireLlmButtonEvents(tldrActions);
+      }
+
+      // Wire Audio TTS Reader (#08)
+      var ttsBtn = document.getElementById('ed-tts-btn');
+      var isSpeaking = false;
+      if (ttsBtn && 'speechSynthesis' in window) {
+        ttsBtn.addEventListener('click', function () {
+          if (isSpeaking) {
+            window.speechSynthesis.cancel();
+            isSpeaking = false;
+            ttsBtn.textContent = '🎧 Vorlesen';
+            ttsBtn.classList.remove('is-active');
+            return;
+          }
+          window.speechSynthesis.cancel();
+          var sample = (mainEl.innerText || '').replace(/\s+/g, ' ').slice(0, 3200);
+          var utter = new SpeechSynthesisUtterance(sample);
+          utter.lang = 'de-DE';
+          utter.rate = 1.08;
+          utter.onend = function () {
+            isSpeaking = false;
+            ttsBtn.textContent = '🎧 Vorlesen';
+            ttsBtn.classList.remove('is-active');
+          };
+          window.speechSynthesis.speak(utter);
+          isSpeaking = true;
+          ttsBtn.textContent = '⏹️ Stopp';
+          ttsBtn.classList.add('is-active');
+          showViralToast('🎧 Audio-Vorleser gestartet (Deutsch)');
+        });
+      }
+
+      // Wire Font Scaling A- / A+ (#12)
+      var currentScale = parseInt(localStorage.getItem('saarvice_font_pct') || '100', 10);
+      if (currentScale !== 100) document.documentElement.style.fontSize = currentScale + '%';
+      var btnDec = document.getElementById('ed-font-dec');
+      var btnInc = document.getElementById('ed-font-inc');
+      if (btnDec) {
+        btnDec.addEventListener('click', function () {
+          currentScale = Math.max(90, currentScale - 6);
+          document.documentElement.style.fontSize = currentScale + '%';
+          try { localStorage.setItem('saarvice_font_pct', String(currentScale)); } catch (e) {}
+          showViralToast('Schriftgröße: ' + currentScale + '%');
+        });
+      }
+      if (btnInc) {
+        btnInc.addEventListener('click', function () {
+          currentScale = Math.min(126, currentScale + 6);
+          document.documentElement.style.fontSize = currentScale + '%';
+          try { localStorage.setItem('saarvice_font_pct', String(currentScale)); } catch (e) {}
+          showViralToast('Schriftgröße: ' + currentScale + '%');
+        });
+      }
+
+      // Wire Focus Mode (#11)
+      var zenBtn = document.getElementById('ed-zen-toggle');
+      if (zenBtn) {
+        zenBtn.addEventListener('click', function () {
+          document.body.classList.toggle('is-zen-mode');
+          zenBtn.classList.toggle('is-active');
+          showViralToast(document.body.classList.contains('is-zen-mode') ? '🧘 Fokus-Modus aktiv' : 'Standard-Ansicht aktiv');
+        });
+      }
+
+      // Wire Copy Page as Markdown (#18)
+      var copyMdBtn = document.getElementById('ed-copy-md-btn');
+      if (copyMdBtn) {
+        copyMdBtn.addEventListener('click', function () {
+          var mdLines = ['# ' + document.title, '> Quelle: ' + window.location.href, '> Lesezeit: ~' + totalMinutes + ' Min. (' + totalWords + ' Wörter)', ''];
+          tocItems.forEach(function (t) {
+            mdLines.push((t.tag === 'h2' ? '## ' : '### ') + t.title);
+          });
+          copyTextWithFallback(mdLines.join('\n'), copyMdBtn);
+          showViralToast('📋 Seiten-Struktur als Markdown für dein LLM kopiert!');
+        });
+      }
+
+      // Wire Print / Save PDF (#19)
+      var printBtn = document.getElementById('ed-print-btn');
+      if (printBtn) {
+        printBtn.addEventListener('click', function () {
+          window.print();
+        });
+      }
+    }
+
+    // --- ELEMENT #20: Add Token & Word Counter Toolbar above every .prompt-code-box ---
+    document.querySelectorAll('.prompt-code-box').forEach(function (pre) {
+      if (pre.previousElementSibling && pre.previousElementSibling.classList.contains('prompt-box-toolbar')) return;
+      var txt = (pre.textContent || '').trim();
+      var wCount = txt ? txt.split(/\s+/).length : 0;
+      var tokEst = Math.max(5, Math.round(wCount * 1.35));
+      var bar = document.createElement('div');
+      bar.className = 'prompt-box-toolbar';
+      bar.innerHTML = '<span>⚡ SYSTEM-PROMPT // ~' + wCount + ' Wörter (~' + tokEst + ' Tokens)</span>' +
+        '<button type="button" class="heading-util-btn" style="font-size:0.64rem;">↕ Vollansicht</button>';
+      var expBtn = bar.querySelector('button');
+      if (expBtn) {
+        expBtn.addEventListener('click', function () {
+          pre.classList.toggle('is-expanded');
+          expBtn.textContent = pre.classList.contains('is-expanded') ? '↕ Kompakt' : '↕ Vollansicht';
+        });
+      }
+      if (pre.parentNode) pre.parentNode.insertBefore(bar, pre);
+    });
+
+    // --- ELEMENT #02, #04 & #16: Sliding Back-to-Top Button with SVG Progress Ring, Section Stepper & Top HUD ---
+    var hud = document.getElementById('scroll-progress-hud');
+    if (!hud) {
+      hud = document.createElement('div');
+      hud.id = 'scroll-progress-hud';
+      hud.className = 'scroll-progress-hud';
+      hud.innerHTML = '<span id="hud-pct-text">0% gelesen</span><span>•</span><span id="hud-rem-text">Noch ~' + totalMinutes + ' Min.</span>';
+      document.body.appendChild(hud);
+    }
+
+    var bttCluster = document.getElementById('sliding-btt-cluster');
+    if (!bttCluster) {
+      bttCluster = document.createElement('div');
+      bttCluster.id = 'sliding-btt-cluster';
+      bttCluster.className = 'sliding-btt-cluster';
+      bttCluster.innerHTML = '' +
+        '<button type="button" class="sliding-btt-btn" id="sliding-btt-btn" aria-label="Nach oben springen (Alt+T)" title="Nach oben springen (Alt+T)">' +
+        '  <svg class="btt-ring" viewBox="0 0 56 56">' +
+        '    <circle cx="28" cy="28" r="25" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3"></circle>' +
+        '    <circle id="btt-ring-circle" cx="28" cy="28" r="25" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="157" stroke-dashoffset="157" stroke-linecap="round"></circle>' +
+        '  </svg>' +
+        '  <span style="font-size:1rem; line-height:1; font-weight:900;">↑</span>' +
+        '  <span class="sliding-btt-pct" id="sliding-btt-pct">0%</span>' +
+        '</button>' +
+        '<div class="btt-step-row">' +
+        '  <button type="button" class="btt-step-btn" id="btt-prev-sec" title="Vorheriger Abschnitt">▲ Vorh.</button>' +
+        '  <button type="button" class="btt-step-btn" id="btt-next-sec" title="Nächster Abschnitt (Alt+J)">▼ Nächst.</button>' +
+        '</div>';
+      document.body.appendChild(bttCluster);
+
+      var bttBtn = document.getElementById('sliding-btt-btn');
+      if (bttBtn) {
+        bttBtn.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      function stepSection(dir) {
+        var h2List = tocItems.filter(function (t) { return t.tag === 'h2'; });
+        if (!h2List.length) return;
+        var curY = window.scrollY;
+        if (dir > 0) {
+          for (var i = 0; i < h2List.length; i++) {
+            var top = h2List[i].el.getBoundingClientRect().top + curY - 110;
+            if (top > curY + 45) {
+              window.scrollTo({ top: top, behavior: 'smooth' });
+              return;
+            }
+          }
+        } else {
+          for (var j = h2List.length - 1; j >= 0; j--) {
+            var topPrev = h2List[j].el.getBoundingClientRect().top + curY - 110;
+            if (topPrev < curY - 45) {
+              window.scrollTo({ top: Math.max(0, topPrev), behavior: 'smooth' });
+              return;
+            }
+          }
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }
+
+      var prevBtn = document.getElementById('btt-prev-sec');
+      var nextBtn = document.getElementById('btt-next-sec');
+      if (prevBtn) prevBtn.addEventListener('click', function () { stepSection(-1); });
+      if (nextBtn) nextBtn.addEventListener('click', function () { stepSection(1); });
+    }
+
+    // --- ELEMENT #10: Text-Selection AI & Share Popover ---
+    var selPop = document.getElementById('selection-ai-popover');
+    if (!selPop) {
+      selPop = document.createElement('div');
+      selPop.id = 'selection-ai-popover';
+      selPop.className = 'selection-ai-popover';
+      selPop.hidden = true;
+      selPop.innerHTML = '' +
+        '<button type="button" class="ed-tool-btn" id="sel-chatgpt-btn">🤖 ChatGPT fragen</button>' +
+        '<button type="button" class="ed-tool-btn" id="sel-claude-btn">🧠 Claude</button>' +
+        '<button type="button" class="ed-tool-btn" id="sel-copy-btn">📋 Kopieren</button>';
+      document.body.appendChild(selPop);
+
+      var currentSelectionText = '';
+      document.addEventListener('mouseup', function (e) {
+        if (selPop.contains(e.target)) return;
+        var sel = window.getSelection ? window.getSelection().toString().trim() : '';
+        if (sel.length >= 18 && sel.length <= 500) {
+          currentSelectionText = sel;
+          selPop.style.left = Math.min(window.innerWidth - 280, Math.max(12, e.clientX - 110)) + 'px';
+          selPop.style.top = Math.max(12, e.clientY - 52) + 'px';
+          selPop.hidden = false;
+        } else {
+          selPop.hidden = true;
+        }
+      });
+
+      var selGpt = document.getElementById('sel-chatgpt-btn');
+      var selClaude = document.getElementById('sel-claude-btn');
+      var selCopy = document.getElementById('sel-copy-btn');
+      if (selGpt) {
+        selGpt.addEventListener('click', function () {
+          var q = 'Erkläre und vertiefe dieses Zitat von Jean Maurice Port (' + document.title + ') und wende es auf mein Projekt an: "' + currentSelectionText + '"';
+          window.open('https://chatgpt.com/?q=' + encodeURIComponent(q), '_blank', 'noopener');
+          selPop.hidden = true;
+        });
+      }
+      if (selClaude) {
+        selClaude.addEventListener('click', function () {
+          var q = 'Analysiere dieses Konzept von Jean Maurice Port und erstelle mir einen Umsetzungsplan: "' + currentSelectionText + '"';
+          window.open('https://claude.ai/new?q=' + encodeURIComponent(q), '_blank', 'noopener');
+          selPop.hidden = true;
+        });
+      }
+      if (selCopy) {
+        selCopy.addEventListener('click', function () {
+          copyTextWithFallback('„' + currentSelectionText + '“ — ' + window.location.href, selCopy);
+          showViralToast('📋 Zitat mit Quellen-URL kopiert!');
+          selPop.hidden = true;
+        });
+      }
+    }
+
+    // --- ELEMENT #13: Auto-Scroll Reading Position Memory Pill ---
+    try {
+      var savedScrollPct = parseInt(localStorage.getItem(pageKey) || '0', 10);
+      if (savedScrollPct >= 20 && savedScrollPct <= 90 && window.scrollY < 150) {
+        var resumePill = document.createElement('div');
+        resumePill.className = 'resume-reading-pill';
+        resumePill.innerHTML = '<span>🔖 Du warst zuletzt bei <strong>' + savedScrollPct + '%</strong> dieser Seite</span>' +
+          '<button type="button" class="ed-tool-btn" id="resume-jump-btn" style="border-color:#38bdf8; color:#7dd3fc;">Weiterlesen ↓</button>' +
+          '<button type="button" id="resume-close-btn" style="background:none;border:none;color:#aaa;cursor:pointer;">✕</button>';
+        document.body.appendChild(resumePill);
+        var rJump = document.getElementById('resume-jump-btn');
+        var rClose = document.getElementById('resume-close-btn');
+        if (rJump) {
+          rJump.addEventListener('click', function () {
+            var targetY = Math.round((document.documentElement.scrollHeight - window.innerHeight) * (savedScrollPct / 100));
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+            resumePill.hidden = true;
+          });
+        }
+        if (rClose) {
+          rClose.addEventListener('click', function () { resumePill.hidden = true; });
+        }
+        setTimeout(function () { resumePill.hidden = true; }, 11000);
+      }
+    } catch (e) {}
+
+    // --- ELEMENT #21 & #23: End-of-Article Helpful Feedback & Contextual Next-Step Bridge ---
+    if (!document.getElementById('ed-end-article-bridge')) {
+      var bridge = document.createElement('div');
+      bridge.id = 'ed-end-article-bridge';
+      bridge.className = 'container';
+      bridge.style.padding = '1.5rem';
+      bridge.innerHTML = '' +
+        '<div class="bento-box bento-box--emerald" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1rem;">' +
+        '  <div>' +
+        '    <span style="font-family:var(--f-mono); font-size:0.72rem; color:#6ee7b7; font-weight:800;">🏁 ARTIKEL- &amp; SEITEN-CHECKPOINT // JEAN MAURICE PORT</span>' +
+        '    <h3 style="font-size:1.2rem; margin:0.2rem 0;">War diese Seite hilfreich für dein Projekt oder deinen nächsten Drop?</h3>' +
+        '    <p style="font-size:0.84rem; opacity:0.85; margin:0;">Hol dir das komplette 14-Kapitel-Playbook oder lass uns dein System direkt gemeinsam bauen.</p>' +
+        '  </div>' +
+        '  <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">' +
+        '    <button type="button" class="ed-tool-btn" id="ed-helpful-yes">🔥 Extrem hilfreich (+1)</button>' +
+        '    <a href="' + prefix + 'jean.html#kontakt-leadgen" class="ed-tool-btn" style="border-color:#10b981; color:#6ee7b7; text-decoration:none;">🤝 Projekt mit Jean starten →</a>' +
+        '    <a href="' + prefix + 'jean.html#ki-rechner" class="ed-tool-btn" style="border-color:#ffe14d; color:#ffe14d; text-decoration:none;">🧮 Zu den 12 KI-Rechnern →</a>' +
+        '  </div>' +
+        '</div>';
+      mainEl.appendChild(bridge);
+      var helpYes = document.getElementById('ed-helpful-yes');
+      if (helpYes) {
+        helpYes.addEventListener('click', function () {
+          helpYes.textContent = '✅ Danke für dein Feedback!';
+          helpYes.classList.add('is-active');
+          ViralAudio.maggi();
+        });
+      }
+    }
+
+    // --- Live Scroll Listener for #01, #02, #03, #04, #13, #15, #22 ---
+    var topHeatBar = document.getElementById('scroll-heat-bar');
+    if (!topHeatBar) {
+      topHeatBar = document.createElement('div');
+      topHeatBar.id = 'scroll-heat-bar';
+      topHeatBar.className = 'scroll-heat-bar';
+      topHeatBar.setAttribute('aria-hidden', 'true');
+      document.body.insertBefore(topHeatBar, document.body.firstChild);
+    }
+    var bttRing = document.getElementById('btt-ring-circle');
+    var bttPct = document.getElementById('sliding-btt-pct');
+    var hudPct = document.getElementById('hud-pct-text');
+    var hudRem = document.getElementById('hud-rem-text');
+    var railRem = document.getElementById('rail-rem-time');
+    var activeSecLabel = document.getElementById('ed-active-sec-label');
+    var tocLinkEls = document.querySelectorAll('#rail-toc-sublist .rail-toc-item');
+    var bonusUnlocked = false;
+
+    function updateEditorialScroll() {
+      var scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      var docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var pct = Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100)));
+      var remMins = Math.max(0, Math.ceil(totalMinutes * (1 - pct / 100)));
+      if (topHeatBar) topHeatBar.style.width = pct + '%';
+
+      // Show/Hide Sliding Back-to-Top Cluster (#02)
+      if (bttCluster) {
+        bttCluster.classList.toggle('is-visible', scrollTop > 240);
+      }
+      if (bttPct) bttPct.textContent = pct + '%';
+      if (bttRing) {
+        var offset = Math.round(157 - (157 * pct) / 100);
+        bttRing.setAttribute('stroke-dashoffset', String(offset));
+      }
+
+      // Update Top HUD & Sidebar Remaining Reading Time (#03 & #04)
+      if (hudPct) hudPct.textContent = pct + '% gelesen';
+      var remText = remMins === 0 ? '✓ Komplett gelesen' : 'Noch ~' + remMins + ' Min. Lesezeit';
+      if (hudRem) hudRem.textContent = remText;
+      if (railRem) railRem.textContent = '⏱️ ' + (remMins === 0 ? 'Fertig!' : '~' + remMins + 'm');
+
+      // Highlight Active Heading in Sidebar TOC & Update Breadcrumb (#01 & #15)
+      var currentHeading = null;
+      for (var i = 0; i < tocItems.length; i++) {
+        var r = tocItems[i].el.getBoundingClientRect();
+        if (r.top <= 180) {
+          currentHeading = tocItems[i];
+        }
+      }
+      if (currentHeading) {
+        if (activeSecLabel) activeSecLabel.textContent = currentHeading.title.slice(0, 32);
+        tocLinkEls.forEach(function (a) {
+          a.classList.toggle('is-active', a.getAttribute('data-toc-id') === currentHeading.id);
+        });
+      }
+
+      // Save Reading Position (#13) & Unlock 85% Reading Bonus (#22)
+      if (pct > 15 && pct < 95) {
+        try { localStorage.setItem(pageKey, String(pct)); } catch (e) {}
+      }
+      if (pct >= 85 && !bonusUnlocked) {
+        bonusUnlocked = true;
+        unlockStamp('story');
+      }
+    }
+
+    window.addEventListener('scroll', updateEditorialScroll, { passive: true });
+    updateEditorialScroll();
+
+    // --- ELEMENT #24: Global Keyboard Shortcuts (Alt+T, Alt+K, Alt+F, Alt+J) ---
+    document.addEventListener('keydown', function (ev) {
+      if (!ev.altKey) return;
+      var k = (ev.key || '').toLowerCase();
+      if (k === 't') {
+        ev.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (k === 'k') {
+        ev.preventDefault();
+        if (leftRail) leftRail.classList.remove('is-collapsed');
+        var searchIn = document.getElementById('rail-toc-filter');
+        if (searchIn) searchIn.focus();
+      } else if (k === 'f') {
+        ev.preventDefault();
+        document.body.classList.toggle('is-zen-mode');
+        showViralToast(document.body.classList.contains('is-zen-mode') ? '🧘 Fokus-Modus aktiv' : 'Standard-Ansicht aktiv');
+      } else if (k === 'j') {
+        ev.preventDefault();
+        var nextBtnEl = document.getElementById('btt-next-sec');
+        if (nextBtnEl) nextBtnEl.click();
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------ *
    * 13. PWA SERVICE WORKER REGISTRATION (#092 / #194)
    * ------------------------------------------------------------------ */
   function initServiceWorker() {
@@ -2589,6 +3195,7 @@
     initJeanMastermindLab();
     injectJeanSubpageCalloutsAndFloatingDock();
     initStickySidebarsAndScrollSpy();
+    initEditorialSuiteAnd24Elements();
     initViralCockpitModal();
     initServiceWorker();
   });

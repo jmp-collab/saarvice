@@ -4458,3 +4458,408 @@ html[data-theme="grubengold"] {
   border-color: #14120e;
   transform: translateY(-2px);
 }
+
+
+/* ==========================================================================
+   SAARVICE V6 — 24 EDITORIAL, JUMPLINKS, READING TIME, BACK-TO-TOP,
+   PROGRESS BAR, SELECTION POPOVER, AUDIO TTS, FOCUS MODE & COMMAND SEARCH
+   ========================================================================== */
+
+/* 1. Upgraded Top Scroll Progress Bar with Chapter Milestone Ticks & Badge */
+.scroll-heat-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #38bdf8 0%, #10b981 45%, #ffe14d 75%, #ff5722 100%);
+  z-index: 9999;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 12px rgba(255, 225, 77, 0.75);
+}
+
+.scroll-progress-hud {
+  position: fixed;
+  top: 6px;
+  right: 1rem;
+  z-index: 9998;
+  background: rgba(14, 13, 11, 0.92);
+  border: 1px solid rgba(255, 225, 77, 0.45);
+  border-radius: 99px;
+  padding: 0.18rem 0.65rem;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #ffe14d;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  pointer-events: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+}
+
+/* 2. Sliding Back-to-Top Button with SVG Progress Ring & Section Stepper */
+.sliding-btt-cluster {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 210;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  transform: translateY(130px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+}
+
+.sliding-btt-cluster.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sliding-btt-btn {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #161411, #261a10);
+  border: 2px solid #ffe14d;
+  color: #ffe14d;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.85), 0 0 16px rgba(255, 225, 77, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+  padding: 0;
+}
+
+.sliding-btt-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: #ffe14d;
+  color: #11100d;
+}
+
+.sliding-btt-btn svg.btt-ring {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.sliding-btt-pct {
+  font-family: var(--f-mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.btt-step-row {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.btt-step-btn {
+  background: #141311;
+  border: 1px solid rgba(246, 241, 230, 0.28);
+  color: #f6f1e6;
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.btt-step-btn:hover {
+  border-color: #38bdf8;
+  color: #7dd3fc;
+}
+
+/* Adjust floating jean dock so it sits neatly above the Back-to-Top cluster */
+.jean-floating-dock {
+  bottom: 6.4rem !important;
+}
+
+/* 3. Editorial Reading-Time, TL;DR, Audio TTS & Utility Meta Bar */
+.editorial-meta-suite {
+  max-width: var(--container-max);
+  margin: 0.75rem auto 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.editorial-meta-bar {
+  background: linear-gradient(90deg, rgba(20, 19, 17, 0.96), rgba(26, 22, 16, 0.96));
+  border: 1.5px solid rgba(227, 178, 60, 0.42);
+  border-left: 4px solid #10b981;
+  border-radius: 10px;
+  padding: 0.75rem 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
+}
+
+.editorial-meta-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem 0.9rem;
+  font-size: 0.8rem;
+  color: rgba(246, 241, 230, 0.9);
+}
+
+.editorial-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--f-mono);
+  font-size: 0.73rem;
+  font-weight: 700;
+}
+
+.editorial-stat-pill--emerald {
+  border-color: rgba(16, 185, 129, 0.45);
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.editorial-stat-pill--cyber {
+  border-color: rgba(56, 189, 248, 0.45);
+  color: #7dd3fc;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.editorial-stat-pill--gold {
+  border-color: rgba(255, 225, 77, 0.45);
+  color: #ffe14d;
+  background: rgba(255, 225, 77, 0.1);
+}
+
+.editorial-meta-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ed-tool-btn {
+  background: #1a1815;
+  border: 1px solid rgba(246, 241, 230, 0.22);
+  color: #f6f1e6;
+  border-radius: 6px;
+  padding: 0.32rem 0.62rem;
+  font-family: var(--f-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.15s ease;
+}
+
+.ed-tool-btn:hover,
+.ed-tool-btn.is-active {
+  border-color: #ffe14d;
+  color: #ffe14d;
+  background: rgba(255, 225, 77, 0.12);
+}
+
+.ed-tldr-drawer {
+  margin-top: 0.65rem;
+  background: #121722;
+  border: 1.5px solid #38bdf8;
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: 0.86rem;
+}
+
+/* 4. Auto-Generated Article / Heading Jumplinks in Sidebar */
+.rail-toc-sublist {
+  list-style: none;
+  padding: 0;
+  margin: 0.35rem 0 0.6rem;
+  max-height: 210px;
+  overflow-y: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 0.4rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.rail-toc-item {
+  display: block;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  padding: 0.28rem 0.45rem;
+  border-radius: 5px;
+  color: rgba(246, 241, 230, 0.75);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rail-toc-item--h3 {
+  padding-left: 1rem;
+  font-size: 0.68rem;
+  opacity: 0.82;
+}
+
+.rail-toc-item:hover,
+.rail-toc-item.is-active {
+  background: rgba(16, 185, 129, 0.15);
+  border-left-color: #10b981;
+  color: #6ee7b7;
+  font-weight: 700;
+}
+
+/* 5. Heading Anchor Permalink (#) & Section Bookmark Star (⭐) */
+.heading-anchor-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.45rem;
+  vertical-align: middle;
+  opacity: 0.38;
+  transition: opacity 0.18s ease;
+}
+
+h2:hover .heading-anchor-wrap,
+h3:hover .heading-anchor-wrap {
+  opacity: 1;
+}
+
+.heading-util-btn {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--c-gold);
+  border-radius: 5px;
+  padding: 0.1rem 0.38rem;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.heading-util-btn:hover {
+  background: var(--c-gold);
+  color: #11100d;
+}
+
+/* 6. Text Selection AI & Share Popover */
+.selection-ai-popover {
+  position: fixed;
+  z-index: 9995;
+  background: #141311;
+  border: 1.5px solid #ffe14d;
+  border-radius: 8px;
+  padding: 0.35rem 0.45rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+
+.selection-ai-popover[hidden] {
+  display: none !important;
+}
+
+/* 7. Prompt Code Box Header Bar (Token Counter & Expand Toggle) */
+.prompt-box-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background: #14120f;
+  border: 1px solid rgba(246, 241, 230, 0.16);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  color: rgba(246, 241, 230, 0.72);
+}
+
+.prompt-box-toolbar + .prompt-code-box {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.prompt-code-box.is-expanded {
+  max-height: none !important;
+}
+
+/* 8. Focus / Zen Reading Mode */
+body.is-zen-mode .kinetic-ticker-band,
+body.is-zen-mode .viral-topbar,
+body.is-zen-mode .sticky-sidebar-right,
+body.is-zen-mode .sticky-rail-toggle--right,
+body.is-zen-mode .jean-floating-dock {
+  display: none !important;
+}
+
+body.is-zen-mode main p,
+body.is-zen-mode main li {
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+/* 9. Resume Reading Toast Banner */
+.resume-reading-pill {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 220;
+  background: #141311;
+  border: 2px solid #38bdf8;
+  border-radius: 99px;
+  padding: 0.45rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  color: #f6f1e6;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.85);
+}
+
+.resume-reading-pill[hidden] {
+  display: none !important;
+}
+
+/* 10. Print Stylesheet (#19) */
+@media print {
+  .sticky-sidebar-left,
+  .sticky-sidebar-right,
+  .sticky-rail-toggle,
+  .sliding-btt-cluster,
+  .jean-floating-dock,
+  .viral-topbar,
+  .kinetic-ticker-band,
+  #header {
+    display: none !important;
+  }
+  body, main {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+  }
+}
