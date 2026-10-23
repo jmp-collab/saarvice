@@ -1,4 +1,4 @@
-const CACHE_NAME = 'saarvice-v4-mastermind';
+const CACHE_NAME = 'saarvice-v5-promptgott';
 const ASSETS = [
   './',
   './index.html',
@@ -17,7 +17,8 @@ const ASSETS = [
   './assets/images/hero_poster.webp',
   './assets/images/jean.jpg',
   './assets/images/jean-cool.jpg',
-  './assets/images/jean_mascot.svg'
+  './assets/images/jean_mascot.svg',
+  './assets/images/promptgott_logo.png'
 ];
 
 self.addEventListener('install', (event) => {

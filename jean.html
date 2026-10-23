@@ -611,6 +611,75 @@ Anforderungen:
             <a href="https://jmp-collab.github.io/ai-directories/liste/kostenlos/" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">🎁 Nur Gratis-Verzeichnisse ↗</a>
           </div>
         </div>
+
+        <!-- Calculator 5: The Merchant Brain (merchants.json EPC & Smart-Routing) -->
+        <div class="ai-calc-card">
+          <span class="case-study-card__tag">🧠 RECHNER #05 // THE MERCHANT BRAIN (SUBSTACK KAP. 7)</span>
+          <h3>EPC &amp; Affiliate Smart-Routing Rechner</h3>
+          <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #22:</em> „Der beste Affiliate-Link ist nicht der mit der höchsten Provision, sondern der mit dem höchsten erwarteten Profit (EPC).“</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+            <div>
+              <label for="calc-mb-comm-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: Payout (€)</label>
+              <input type="number" id="calc-mb-comm-a" value="45" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+            <div>
+              <label for="calc-mb-cr-a" style="font-size: 0.76rem; color: var(--c-gold);">Merchant A: CR (%)</label>
+              <input type="number" id="calc-mb-cr-a" value="1.6" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+            <div>
+              <label for="calc-mb-comm-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: Payout (€)</label>
+              <input type="number" id="calc-mb-comm-b" value="28" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+            <div>
+              <label for="calc-mb-cr-b" style="font-size: 0.76rem; color: var(--c-gold);">Merchant B: CR (%)</label>
+              <input type="number" id="calc-mb-cr-b" value="4.8" step="0.1" min="0.1" max="50" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+          </div>
+          <div class="ai-calc-result" id="calc-mb-result" aria-live="polite">
+            <div class="ai-calc-result__big">Merchant B gewinnt (EPC 1,34 € vs. 0,72 €)</div>
+            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Bei 10.000 Klicks liefert Merchant B <strong>+6.240 € mehr Profit</strong> trotz niedrigerer Einzel-Provision!</div>
+          </div>
+          <div class="llm-btn-row" id="calc-mb-actions"></div>
+        </div>
+
+        <!-- Calculator 6: Die Lokalisierungs-Bombe (Geo-Matrix Multiplikator) -->
+        <div class="ai-calc-card">
+          <span class="case-study-card__tag">💣 RECHNER #06 // DIE LOKALISIERUNGS-BOMBE (SUBSTACK KAP. 13)</span>
+          <h3>Geo-Matrix &amp; Revenue-Node Multiplikator</h3>
+          <p style="font-size: 0.88rem; opacity: 0.82;"><em>Machine Note #62:</em> „Jede Stadt ist ein eigener Markt. Geo + Commercial Intent = Revenue Explosion.“</p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.65rem;">
+            <div>
+              <label for="calc-geo-prod" style="font-size: 0.76rem; color: var(--c-gold);">Produkte/Services</label>
+              <input type="number" id="calc-geo-prod" value="6" min="1" max="1000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+            <div>
+              <label for="calc-geo-cities" style="font-size: 0.76rem; color: var(--c-gold);">Städte / Landkreise</label>
+              <input type="number" id="calc-geo-cities" value="80" min="1" max="5000" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+            <div>
+              <label for="calc-geo-intents" style="font-size: 0.76rem; color: var(--c-gold);">Use-Cases/Probleme</label>
+              <input type="number" id="calc-geo-intents" value="4" min="1" max="100" style="width:100%; padding:0.5rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:6px;">
+            </div>
+          </div>
+          <div class="ai-calc-result" id="calc-geo-result" aria-live="polite">
+            <div class="ai-calc-result__big">1.920 lokale Revenue-Nodes</div>
+            <div style="font-size: 0.84rem; margin-top: 0.25rem;">Schon bei Ø 15 Besuchern/Node/Monat = <strong>28.800 hochkonvertierende Local-Intent-Besucher/Monat</strong>.</div>
+          </div>
+          <div class="llm-btn-row" id="calc-geo-actions"></div>
+        </div>
+
+        <!-- Calculator 7: Der FAQ-Reaktor & Question-Graph Generator -->
+        <div class="ai-calc-card" style="grid-column: 1 / -1;">
+          <span class="case-study-card__tag">⚛️ RECHNER #07 // DER FAQ-REAKTOR &amp; QUESTION GRAPH (SUBSTACK KAP. 14)</span>
+          <h3>Interaktiver „People Also Ask“ Question-Graph &amp; Intent-Reaktor</h3>
+          <p style="font-size: 0.88rem; opacity: 0.85;"><em>Machine Note #68 &amp; #73:</em> „PAA ist Googles öffentliche Intent-Datenbank. Wer Fragen kontrolliert, kontrolliert Aufmerksamkeit.“ Gib dein Thema ein — der Reaktor baut sofort den 5-Stufen Question Graph + LLM-Extraktions-Prompt:</p>
+          <div style="display: grid; grid-template-columns: 1fr auto; gap: 0.75rem;">
+            <input type="text" id="calc-faq-topic" value="E-Scooter Versicherung &amp; Kennzeichen" placeholder="Dein Kernthema (z.B. Wärmepumpe Förderung, Simson Zündung, B2B Catering...)" style="padding:0.7rem 1rem; background:#0b0a08; color:var(--c-text); border:1px solid var(--c-border); border-radius:8px; font-size:0.95rem;">
+            <button type="button" id="calc-faq-btn" class="btn btn-primary">⚛️ Question Graph zünden</button>
+          </div>
+          <div class="ai-calc-result" id="calc-faq-result" aria-live="polite" style="font-family: var(--f-mono); font-size: 0.83rem; white-space: pre-wrap;"></div>
+          <div class="llm-btn-row" id="calc-faq-actions"></div>
+        </div>
       </div>
     </section>
 
@@ -730,49 +799,340 @@ Anforderungen:
       </div>
     </section>
 
-    <!-- SECTION 6: PROMPTGOTT NEWSLETTER INTEGRATION -->
-    <section id="promptgott" class="container" style="padding: 2rem 1.5rem 4rem;">
+    <!-- SECTION 6: PROMPTGOTT SUBSTACK COMMAND CENTER & THE PROGRAMMATIC REVENUE MACHINE -->
+    <section id="promptgott" class="container" style="padding: 3rem 1.5rem 5rem; border-top: 1px solid var(--c-border);">
       <div class="promptgott-vault">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 2rem; align-items: center;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.25rem; align-items: start;">
           <div>
-            <span class="jean-callout__badge">⚡ DER PROMPTGOTT NEWSLETTER // SCHRITTE 151–160</span>
-            <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); margin: 0.5rem 0 0.85rem;">
-              Jeden Dienstag: 1 System-Prompt, 1 SGE-Hack, 0% KI-Blabla.
-            </h2>
-            <p style="font-size: 0.98rem; opacity: 0.9; margin-bottom: 1rem;">
-              Trag dich kostenlos in den <strong>Promptgott Newsletter</strong> ein und schalte sofort das <strong>Promptgott Starter-Deck (inkl. JSON/Markdown-Download &amp; VIP-Stempel)</strong> direkt hier im Browser frei.
+            <div style="display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.85rem;">
+              <img src="assets/images/promptgott_logo.png" alt="PROMPTGOTT Substack Logo" width="64" height="64" style="width: 64px; height: 64px; border-radius: 12px; border: 2px solid var(--c-gold); object-fit: cover;">
+              <div>
+                <span class="jean-callout__badge" style="margin-bottom: 0.2rem;">⚡ OFFIZIELLER SUBSTACK // PROMPTGOTT.SUBSTACK.COM</span>
+                <h2 style="font-size: clamp(1.65rem, 3.2vw, 2.35rem); margin: 0;">PROMPTGOTT — Abgefahrenste AI Use Cases &amp; Tricks</h2>
+              </div>
+            </div>
+            <p style="font-size: 1.02rem; opacity: 0.94; margin-bottom: 1rem;">
+              <strong>„The Machine does not create content. The Machine creates gravity.“</strong> — Auf <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" style="color: var(--c-gold); text-decoration: underline; font-weight: 700;">promptgott.substack.com</a> veröffentliche ich das komplette <strong>Operator Manual für autonome Internet-Systeme, Programmatic SEO, Geo-Matrizen, Merchant Brains &amp; AI-Pipelines</strong>.
             </p>
-            <ul style="list-style: none; display: grid; gap: 0.45rem; font-size: 0.9rem; margin-bottom: 1.25rem;">
-              <li>✅ <strong>Aus der echten Praxis:</strong> Getestet in High-SKU E-Commerce &amp; Agentic Workflows</li>
-              <li>✅ <strong>Sofort einsetzbar:</strong> Jeder Newsletter-Prompt hat 1-Click-Links für ChatGPT &amp; Claude</li>
-              <li>✅ <strong>Ehrenwort von Jean:</strong> Kein Spam. Abmelden schneller als ein Doppelweck gegessen ist.</li>
+            <ul style="list-style: none; display: grid; gap: 0.5rem; font-size: 0.92rem; margin-bottom: 1.35rem;">
+              <li>🔥 <strong>Alle 14 Operator-Kapitel + 73 Machine Notes:</strong> Von <em>Der Greyhat-Eid</em> über <em>The Index Swarm</em> bis <em>Der FAQ-Reaktor</em></li>
+              <li>🤖 <strong>Jedes Kapitel mit 1-Click LLM-Prompt:</strong> Direkt an ChatGPT, Claude, Perplexity oder Gemini feuern</li>
+              <li>📥 <strong>Sofortiger Lead-Magnet:</strong> Trag dich ein und lade dir das komplette <em>Programmatic Revenue Machine Kompendium (.md)</em> herunter!</li>
             </ul>
+
+            <!-- Interactive Machine Note #01 - #73 Oracle -->
+            <div style="background: #11100e; border: 1px solid rgba(227, 178, 60, 0.45); border-radius: 10px; padding: 1.1rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.45rem;">
+                <span id="mn-number" style="font-size: 0.76rem; font-weight: 800; color: #ffe14d; letter-spacing: 0.08em;">⚙️ MACHINE NOTE #05 // DER GREYHAT-EID</span>
+                <button type="button" id="mn-next-btn" class="viral-pill-btn viral-pill-btn--gold" style="font-size: 0.74rem; padding: 0.25rem 0.65rem;">🎲 Nächste Machine Note (1–73)</button>
+              </div>
+              <blockquote id="mn-quote" style="font-size: 1.05rem; font-weight: 700; color: var(--c-text); margin: 0.35rem 0 0.75rem;">
+                „Die meisten SEO-Probleme sind Architekturprobleme. Keine Schreibprobleme. Eine Seite kann sterben — ein System verstärkt sich selbst.“
+              </blockquote>
+              <div id="mn-actions" class="llm-btn-row"></div>
+            </div>
           </div>
 
-          <div style="background: #141311; border: 1px solid var(--c-border); border-radius: 10px; padding: 1.5rem;">
-            <form id="promptgott-form" novalidate>
-              <label for="pg-email" style="display:block; font-size:0.82rem; font-weight:700; color:var(--c-gold); margin-bottom:0.35rem;">Deine beste E-Mail-Adresse</label>
-              <input type="email" id="pg-email" required placeholder="z.B. chef-prompt@unternehmen.de" style="width:100%; padding:0.75rem 0.9rem; background:#0b0a08; border:1px solid var(--c-border); border-radius:6px; color:var(--c-text); margin-bottom:0.85rem; font-size:0.95rem;">
+          <!-- Dual Lead-Gen Box: Native Fast-Unlock + Official Substack Embed -->
+          <div style="background: #141311; border: 2px solid var(--c-gold); border-radius: 12px; padding: 1.5rem; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+            <span class="case-study-card__tag" style="margin-bottom: 0.6rem;">✉️ DIREKTE SUBSTACK LEAD-GENERATION</span>
+            <h3 style="font-size: 1.25rem; margin-bottom: 0.4rem;">Kostenlos auf Substack abonnieren &amp; Operator-Kompendium freischalten</h3>
+            <p style="font-size: 0.85rem; opacity: 0.84; margin-bottom: 1rem;">
+              Trag deine E-Mail ein — du wirst direkt bei <strong>promptgott.substack.com</strong> angemeldet und schaltest sofort alle 14 System-Blueprints als Download frei:
+            </p>
 
-              <span style="display:block; font-size:0.78rem; font-weight:700; color:var(--c-gold); margin-bottom:0.4rem;">Welche Schwerpunkte interessieren dich am meisten?</span>
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; margin-bottom:1rem; font-size:0.82rem;">
-                <label class="sge-check-item"><input type="checkbox" checked> Prompt Engineering</label>
-                <label class="sge-check-item"><input type="checkbox" checked> SEO &amp; Google SGE</label>
-                <label class="sge-check-item"><input type="checkbox" checked> Agentic Coding</label>
-                <label class="sge-check-item"><input type="checkbox"> E-Commerce &amp; pSEO</label>
+            <form id="promptgott-form" action="https://promptgott.substack.com/subscribe" method="get" target="_blank" novalidate>
+              <input type="hidden" name="utm_source" value="saarvice_jean_hub">
+              <input type="hidden" name="utm_medium" value="lead_form">
+              <label for="pg-email" style="display:block; font-size:0.8rem; font-weight:700; color:var(--c-gold); margin-bottom:0.35rem;">Deine E-Mail-Adresse für den Operator-Verteiler</label>
+              <input type="email" id="pg-email" name="email" required placeholder="dein-name@domain.de" style="width:100%; padding:0.75rem 0.9rem; background:#0b0a08; border:1px solid var(--c-border); border-radius:6px; color:var(--c-text); margin-bottom:0.85rem; font-size:0.95rem;">
+
+              <span style="display:block; font-size:0.76rem; font-weight:700; color:var(--c-gold); margin-bottom:0.4rem;">Welche Machine-Module baust du gerade?</span>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.45rem; margin-bottom:1rem; font-size:0.8rem;">
+                <label class="sge-check-item"><input type="checkbox" checked> Programmatic SEO</label>
+                <label class="sge-check-item"><input type="checkbox" checked> AI Content Factory</label>
+                <label class="sge-check-item"><input type="checkbox" checked> FAQ- &amp; PAA-Reaktor</label>
+                <label class="sge-check-item"><input type="checkbox" checked> Merchant Brain / EPC</label>
               </div>
 
-              <button type="submit" class="btn btn-primary" style="width:100%;">
-                ⚡ Jetzt kostenlos abonnieren &amp; Prompt-Deck freischalten
+              <button type="submit" class="btn btn-primary" style="width:100%; margin-bottom: 0.65rem;">
+                ⚡ Auf Substack abonnieren &amp; 14-Kapitel-Playbook freischalten →
               </button>
             </form>
 
-            <div id="promptgott-success" hidden style="margin-top: 1rem; padding: 1rem; background: rgba(16, 163, 127, 0.16); border: 1px solid #6ee7b7; border-radius: 8px;">
-              <strong style="color: #6ee7b7; display: block; margin-bottom: 0.35rem;">🎉 Willkommen im Promptgott-Kreis!</strong>
-              <p style="font-size: 0.85rem; margin-bottom: 0.65rem;">Dein VIP-Status ist aktiv. Lade dir hier direkt das komplette <strong>Promptgott Markdown-Playbook</strong> herunter:</p>
-              <button type="button" id="pg-download-deck" class="llm-btn llm-btn--copy">📥 Promptgott-Starter-Deck (.md) herunterladen</button>
+            <div id="promptgott-success" hidden style="margin: 0.85rem 0; padding: 1rem; background: rgba(16, 163, 127, 0.16); border: 1px solid #6ee7b7; border-radius: 8px;">
+              <strong style="color: #6ee7b7; display: block; margin-bottom: 0.35rem;">🎉 Stark! Substack-Anmeldung geöffnet &amp; Operator-Tresor entsperrt!</strong>
+              <p style="font-size: 0.83rem; margin-bottom: 0.65rem;">Bestätige kurz im Substack-Tab deine Mail — und lade dir hier sofort das komplette <strong>Programmatic Revenue Machine Kompendium (alle 14 Kapitel + 73 Machine Notes)</strong> herunter:</p>
+              <div class="llm-btn-row">
+                <button type="button" id="pg-download-deck" class="llm-btn llm-btn--copy">📥 Komplettes 14-Kapitel-Playbook (.md) herunterladen</button>
+                <a href="https://promptgott.substack.com/archive" target="_blank" rel="noopener" class="llm-btn llm-btn--chatgpt">📚 Substack-Archiv öffnen ↗</a>
+              </div>
+            </div>
+
+            <!-- Official Substack Embed Widget -->
+            <div style="margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--c-border);">
+              <span style="display: block; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(246,241,230,0.65); margin-bottom: 0.45rem;">Offizielles Substack Direct-Embed (promptgott.substack.com/embed):</span>
+              <iframe src="https://promptgott.substack.com/embed" width="100%" height="150" style="border: 1px solid rgba(227, 178, 60, 0.4); background: #0d0c0a; border-radius: 8px;" frameborder="0" scrolling="no" loading="lazy" title="PROMPTGOTT Substack Newsletter Anmeldung"></iframe>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- ALL 14 ORIGINAL SUBSTACK CHAPTERS: THE PROGRAMMATIC REVENUE MACHINE -->
+      <div style="margin-top: 3.5rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <span class="section-eyebrow">KOMPLETTES ARCHIV VOM PROMPTGOTT SUBSTACK // 14 OPERATOR-KAPITEL</span>
+            <h3 style="font-size: clamp(1.55rem, 3vw, 2.2rem); margin: 0.25rem 0;">The Programmatic Revenue Machine — Alle 14 Original-Ausgaben &amp; System-Prompts</h3>
+            <p style="max-width: 780px; opacity: 0.86; font-size: 0.95rem;">
+              Jede Ausgabe von <a href="https://promptgott.substack.com/" target="_blank" rel="noopener" style="color: var(--c-gold); text-decoration: underline;">promptgott.substack.com</a> hier direkt als ausführbares Architektur-Modul — inklusive Original-Formel, Machine Notes, Direktlink zum Substack-Artikel und <strong>1-Click-Buttons für ChatGPT, Claude, Perplexity &amp; Gemini</strong>:
+            </p>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 0.45rem;" role="tablist" aria-label="Substack Kapitel filtern">
+            <button type="button" class="viral-pill-btn viral-pill-btn--gold pg-cat-btn" data-pg-cat="all">Alle 14 Ausgaben</button>
+            <button type="button" class="viral-pill-btn pg-cat-btn" data-pg-cat="mindset">Mindset &amp; Greyhat-Eid</button>
+            <button type="button" class="viral-pill-btn pg-cat-btn" data-pg-cat="pseo">pSEO, Data &amp; Index Swarm</button>
+            <button type="button" class="viral-pill-btn pg-cat-btn" data-pg-cat="factory">Content Factory &amp; FAQ-Reaktor</button>
+            <button type="button" class="viral-pill-btn pg-cat-btn" data-pg-cat="revenue">Merchant Brain &amp; Geo-Bombe</button>
+          </div>
+        </div>
+
+        <!-- NPC vs Operator Comparison Table from "Der Greyhat-Eid" -->
+        <div class="ai-calc-card" style="margin-bottom: 2rem; overflow-x: auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+            <span class="case-study-card__tag">⚡ AUS „DER GREYHAT-EID“ // NPC-MARKETER VS. OPERATOR</span>
+            <a href="https://promptgott.substack.com/p/der-greyhat-eid" target="_blank" rel="noopener" style="font-size: 0.8rem; color: var(--c-gold); text-decoration: underline;">Original auf Substack lesen ↗</a>
+          </div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-top: 0.5rem;">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--c-gold); text-align: left; color: var(--c-gold);">
+                <th style="padding: 0.55rem;">Dimension</th>
+                <th style="padding: 0.55rem;">❌ Der NPC-Marketer (Alte Welt)</th>
+                <th style="padding: 0.55rem;">⚡ Der Promptgott-Operator (Die Machine)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--c-border);">
+                <td style="padding: 0.55rem; font-weight: 700;">Output-Einheit</td>
+                <td style="padding: 0.55rem; opacity: 0.8;">Schreibt einzelne Blogposts manuell (3/Woche)</td>
+                <td style="padding: 0.55rem; color: #6ee7b7; font-weight: 600;">Baut Systeme, Templates &amp; Datensätze (100.000 Nodes)</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--c-border);">
+                <td style="padding: 0.55rem; font-weight: 700;">SEO-Fokus</td>
+                <td style="padding: 0.55rem; opacity: 0.8;">Diskutiert Keyword-Density &amp; H1-Kosmetik</td>
+                <td style="padding: 0.55rem; color: #6ee7b7; font-weight: 600;">Besetzt komplette semantische Such-Territorien &amp; PAA-Graphen</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--c-border);">
+                <td style="padding: 0.55rem; font-weight: 700;">Suchmaschinen-Bild</td>
+                <td style="padding: 0.55rem; opacity: 0.8;">Glaubt, Google „liest“ wie ein Literaturkritiker</td>
+                <td style="padding: 0.55rem; color: #6ee7b7; font-weight: 600;">Füttert Googles Parser mit Entitäten, Tabellen &amp; JSON-LD</td>
+              </tr>
+              <tr>
+                <td style="padding: 0.55rem; font-weight: 700;">Monetarisierung</td>
+                <td style="padding: 0.55rem; opacity: 0.8;">Setzt statische Affiliate-Links nach höchster Provision %</td>
+                <td style="padding: 0.55rem; color: #6ee7b7; font-weight: 600;">Steuert dynamisch über <code>merchants.json</code> nach maximalem EPC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Dynamic 14-Chapter Grid (populated & wired by js/viral.js + static fallback) -->
+        <div class="prompt-grid" id="promptgott-chapters-grid">
+          <!-- Chapter 01 -->
+          <article class="prompt-card" data-pg-chapter="mindset">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #01 // MANIFEST</span><span>MACHINE NOTE #01–#04</span></div>
+              <h4 class="prompt-card__title">The Programmatic Revenue Machine</h4>
+              <p class="prompt-card__desc"><em>„The Machine does not create content. The Machine creates gravity.“</em> Die 5 Evolutionsstufen vom manuellen Schreiben bis zur Self-Compounding Infrastructure.</p>
+              <pre class="prompt-code-box">Agier als Operator der 'Programmatic Revenue Machine' (Promptgott Substack Kap. 1 von Jean Maurice Port). Analysiere mein aktuelles Geschäftsmodell und zeige mir den konkreten Architektur-Fahrplan, um von Level 1/2 (manuelle Content-Arbeit) auf Level 5 (Self-Compounding Infrastructure: Data → Templates → Programmatic Pages → SERP → Revenue → More Data) aufzusteigen.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/the-programmatic-revenue-machine" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 02 -->
+          <article class="prompt-card" data-pg-chapter="mindset">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #02 // DOCTRINE</span><span>MACHINE NOTE #05–#07</span></div>
+              <h4 class="prompt-card__title">Der Greyhat-Eid: Warum „Best Practices“ Verlierer produzieren</h4>
+              <p class="prompt-card__desc"><em>Machine Note #05:</em> „Die meisten SEO-Probleme sind Architekturprobleme. Keine Schreibprobleme.“ Warum Suchmaschinen Struktur und Signale statt Poesie belohnen.</p>
+              <pre class="prompt-code-box">Wende den 'Greyhat-Eid' (Promptgott Substack Kap. 2) auf mein Projekt an: Wo verhalte ich mich aktuell noch wie ein 'NPC-Marketer' (einzelne Artikel, Keyword-Jagd, Handarbeit) und welche 5 konkreten Operator-Systeme (Daten-Loops, Template-Skalierung, Entitäts-Architektur) ersetzen diese Handarbeit sofort?</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/der-greyhat-eid" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 03 -->
+          <article class="prompt-card" data-pg-chapter="mindset pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #03 // AI EXTRACTION</span><span>MACHINE NOTE #08–#10</span></div>
+              <h4 class="prompt-card__title">Google ist kein Suchsystem — Es ist eine Daten-Extraktionsmaschine</h4>
+              <p class="prompt-card__desc"><em>Machine Note #08:</em> „Wer nur für Rankings optimiert, optimiert für die Vergangenheit.“ Wie `crawl → parse → classify → compress → rank → extract` für AI Overviews funktioniert.</p>
+              <pre class="prompt-code-box">Optimiere meinen Content für Googles Daten-Extraktionsmaschine (Promptgott Substack Kap. 3: crawl → parse → classify → compress → extract): Verwandle mein Thema in extrahierbare Informationsobjekte (kurze Antwort-Segmente, semantische Entitäten-Liste, Vergleichstabelle, FAQ-Block und JSON-LD).</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/google-ist-kein-suchsystem" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 04 -->
+          <article class="prompt-card" data-pg-chapter="pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #04 // TOPOLOGICAL SEO</span><span>MACHINE NOTE #11–#13</span></div>
+              <h4 class="prompt-card__title">Das Ende einzelner Webseiten — Die Zukunft gehört Such-Territorien</h4>
+              <p class="prompt-card__desc"><em>Machine Note #11:</em> „Wer einzelne Keywords jagt, hat bereits verloren. Eine einzelne Seite ist ein Asset — ein Such-Territorium ist eine Wirtschaft.“</p>
+              <pre class="prompt-code-box">Entwirf für mein Kernthema eine vollständige 'Territory Map' nach Promptgott Substack Kap. 4 (Topological SEO): Gliedere das Territorium in Hub → Cluster → Subcluster → Vergleichsseiten → Kostenrechner → Städte/Geo-Layer → FAQ-Layer → Gesetze/Normen und definiere die internen Link-Stromleitungen.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/das-ende-einzelner-webseiten" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 05 -->
+          <article class="prompt-card" data-pg-chapter="mindset">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #05 // COMPOUND LOOPS</span><span>MACHINE NOTE #14–#17</span></div>
+              <h4 class="prompt-card__title">Die Machine: Webseiten sind Projekte. Systeme sind Imperien.</h4>
+              <p class="prompt-card__desc"><em>Machine Note #14:</em> „Wenn Wachstum stoppt, existiert kein System. Nur Arbeit.“ Der geschlossene Verstärkungs-Loop aus Daten, Traffic und Automation.</p>
+              <pre class="prompt-code-box">Baue für mein digitales Projekt den geschlossenen Verstärkungs-Loop nach 'Die Machine' (Promptgott Substack Kap. 5): Definiere die 6 Kernmodule (Data Layer, Generation Layer, Semantic Layer, Internal Link Layer, Monetization Layer, Feedback/Refresh Loop), damit jeder neue Besucher das System automatisch vergrößert.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/die-machine" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 06 -->
+          <article class="prompt-card" data-pg-chapter="pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #06 // TECH STACK</span><span>MACHINE NOTE #18–#21</span></div>
+              <h4 class="prompt-card__title">Die Infrastruktur: Maschinen statt Webseiten bauen</h4>
+              <p class="prompt-card__desc"><em>Machine Note #20:</em> „Die Website ist nur das UI der eigentlichen Maschine.“ Der moderne Stack (Next.js ISR, Supabase, Firecrawl, n8n, Claude Code, Antigravity).</p>
+              <pre class="prompt-code-box">Konzipiere für mein Vorhaben die technische Infrastruktur-Pyramide nach Promptgott Substack Kap. 6 (Data Layer → Processing Layer → Generation Layer → Semantic Layer → Deployment Layer → Revenue Layer) und empfehle den schlanksten Tech-Stack für maximale Geschwindigkeit und 0 manuelle Engpässe.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/die-infrastruktur" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 07 -->
+          <article class="prompt-card" data-pg-chapter="revenue">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #07 // MONETIZATION</span><span>MACHINE NOTE #22–#25</span></div>
+              <h4 class="prompt-card__title">The Merchant Brain: <code>merchants.json</code> als zentrales Nervensystem</h4>
+              <p class="prompt-card__desc"><em>Machine Note #22:</em> „Der beste Affiliate-Link ist nicht der mit der höchsten Provision, sondern der mit dem höchsten EPC.“ Dynamisches Smart-Routing statt toter Links.</p>
+              <pre class="prompt-code-box">Erstelle für meine Nische eine produktionsreife 'merchants.json' Architektur nach Promptgott Substack Kap. 7 (The Merchant Brain): Definiere das JSON-Schema (merchant, network, epc, conversion_rate, commission_percent, countries, intent_level, priority_score) sowie die JavaScript Smart-Routing-Funktion nach Expected Value.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/the-merchant-brain" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 08 -->
+          <article class="prompt-card" data-pg-chapter="pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #08 // PSEO FORMULA</span><span>MACHINE NOTE #26–#30</span></div>
+              <h4 class="prompt-card__title">Programmatic SEO Architecture: Template × Datensatz = Dominanz</h4>
+              <p class="prompt-card__desc"><em>Machine Note #26:</em> „10 Seiten sind Arbeit. 100.000 Seiten sind Architektur.“ Die 5 Schichten jeder Programmatic Page (Data, Entity, Structural, Semantic, Revenue).</p>
+              <pre class="prompt-code-box">Wende die Programmatic-Formel aus Promptgott Substack Kap. 8 (Template + Datensatz + Entity Layer + Internal Links + Monetization = Revenue Infrastructure) auf mein Thema an: Entwirf das exakte Seiten-Template mit allen 5 Schichten und zeige an einem konkreten Datensatz, wie aus Rohdaten kontextgesättigte Seiten entstehen.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/programmatic-seo-architecture-093" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 09 -->
+          <article class="prompt-card" data-pg-chapter="pseo factory">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #09 // DATA MULTIPLIER</span><span>MACHINE NOTE #31–#35</span></div>
+              <h4 class="prompt-card__title">Datensätze sind die neue Währung — Das Internet als Datenbank</h4>
+              <p class="prompt-card__desc"><em>Machine Note #31:</em> „Wer die Daten kontrolliert, kontrolliert die Rankings.“ Wie 1 strukturierter Datensatz automatisch Vergleichs-, FAQ-, Geo- und Preis-Seiten speist.</p>
+              <pre class="prompt-code-box">Analysiere mein Thema mit dem 'Parser-Mindset' aus Promptgott Substack Kap. 9 (Datensätze sind die neue Währung): Welche öffentlich zugänglichen Datenquellen (APIs, PDFs, Behörden, Wikidata, SERPs, Reviews) kann ich kombinieren, wie sieht das normalisierte JSON-Objekt aus und welche 6 Seitentypen generiert dieser Datensatz?</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/datensatze-sind-die-neue-wahrung-a83" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 10 -->
+          <article class="prompt-card" data-pg-chapter="pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #10 // CRAWL ARCHITECTURE</span><span>MACHINE NOTE #36–#41</span></div>
+              <h4 class="prompt-card__title">The Index Swarm: Millionen URLs ohne Qualitätsverlust</h4>
+              <p class="prompt-card__desc"><em>Machine Note #37 &amp; #38:</em> „Indexierung ist kein Zufall, sie ist Architektur. Wichtige Seiten dürfen niemals mehr als 2–3 Klicks entfernt sein.“</p>
+              <pre class="prompt-code-box">Erstelle für meine Website eine 'Index Swarm' &amp; Crawl-Budget-Architektur nach Promptgott Substack Kap. 10: Definiere die flache URL-Taxonomie (max. Klicktiefe 2–3), das gesplittete Sitemap-Netzwerk, die internen Discovery-Pfade und die Qualitäts-Schwellenwerte gegen Thin Content.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/the-index-swarm" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 11 -->
+          <article class="prompt-card" data-pg-chapter="pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #11 // TRUST MATH</span><span>MACHINE NOTE #49–#56</span></div>
+              <h4 class="prompt-card__title">Der Authority Layer: Warum Trust hauptsächlich Mathematik ist</h4>
+              <p class="prompt-card__desc"><em>Machine Note #49 &amp; #51:</em> „Authority ist kein Gefühl, Authority ist ein Muster. Topical Authority ist semantische Vollständigkeit.“ Die 4 Schichten der Authority Gravity.</p>
+              <pre class="prompt-code-box">Baue für meine Domain den 4-schichtigen 'Authority Layer' nach Promptgott Substack Kap. 11 auf: (1) Semantic Authority (vollständige Themen- &amp; Entitätsabdeckung), (2) Structural Authority (interne Vertrauensströme), (3) External Authority (Link-Magnete &amp; Verzeichnisse), (4) Behavioral Authority (Rechner &amp; Dwell-Time-Tools).</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/der-authority-layer" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 12 -->
+          <article class="prompt-card" data-pg-chapter="factory">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #12 // 8-AGENT SWARM</span><span>MACHINE NOTE #57–#61</span></div>
+              <h4 class="prompt-card__title">Die Content Factory: Industrielle Informationsproduktion</h4>
+              <p class="prompt-card__desc"><em>Machine Note #57 &amp; #60:</em> „Content ist Rohmaterial — die Macht liegt in der Fabrik. Vergleichsseiten (A vs B) monetarisieren Entscheidungsmomente.“</p>
+              <pre class="prompt-code-box">Orchestriere für mein Thema den 8-Agenten 'Content Swarm' aus Promptgott Substack Kap. 12 (SERP Agent → Keyword Expansion Agent → Entity Agent → Outline Agent → Content Block Agent → Schema Agent → Internal Link Agent → Publishing Agent) und erstelle eine hochkonvertierende 'A vs. B' Vergleichs-Matrix.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/die-content-factory" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 13 -->
+          <article class="prompt-card" data-pg-chapter="revenue pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #13 // FRACTAL GEO-SEO</span><span>MACHINE NOTE #62–#67</span></div>
+              <h4 class="prompt-card__title">Die Lokalisierungs-Bombe: Jede Stadt wird ein Revenue-Node</h4>
+              <p class="prompt-card__desc"><em>Machine Note #62 &amp; #64:</em> „Jede Stadt ist ein eigener Markt. Lokale Relevanz entsteht durch echten regionalen Daten-Kontext, nicht durch bloße Stadtnamen.“</p>
+              <pre class="prompt-code-box">Zünde für mein Angebot die 'Lokalisierungs-Bombe' nach Promptgott Substack Kap. 13: Entwirf das kombinatorische Geo-Modell (Produkt × Stadt × Use Case × Problem × Vergleich) sowie den Local-Page-Stack mit echten regionalen Datenpunkten (Preise, Regeln, Besonderheiten, FAQs), damit jede Stadt zum eigenständigen Revenue-Node wird.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/die-lokalisierungs-bombe" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
+
+          <!-- Chapter 14 -->
+          <article class="prompt-card" data-pg-chapter="factory pseo">
+            <div>
+              <div class="prompt-card__meta"><span>KAPITEL #14 // INTENT MAPPING</span><span>MACHINE NOTE #68–#73</span></div>
+              <h4 class="prompt-card__title">Der FAQ-Reaktor: „People Also Ask“ als unendliches Inventar</h4>
+              <p class="prompt-card__desc"><em>Machine Note #68 &amp; #73:</em> „PAA ist Googles öffentliche Intent-Datenbank. Wer Fragen kontrolliert, kontrolliert Aufmerksamkeit und AI-Overviews.“</p>
+              <pre class="prompt-code-box">Starte den 'FAQ-Reaktor' nach Promptgott Substack Kap. 14 für mein Hauptthema: Extrahiere den 5-stufigen Question Graph (Main Topic → Kernfragen → Subfragen → Verwandte Intents → Kommerzielle Kauf-Varianten), clustere ähnliche Intents und schreibe AI-Overview-optimierte Kurzantworten inkl. FAQPage JSON-LD.</pre>
+            </div>
+            <div>
+              <div class="llm-btn-row" data-prompt-actions></div>
+              <a href="https://promptgott.substack.com/p/der-faq-reaktor" target="_blank" rel="noopener" class="jean-mini-link" style="margin-top:0.5rem;">📖 Original auf Substack lesen ↗</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>

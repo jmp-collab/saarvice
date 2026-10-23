@@ -41,10 +41,18 @@
   - **AIGeddon KI-Verzeichnisse (256+ Directories, Tools & Deals):** `https://jmp-collab.github.io/ai-directories/`
   - **Über Jean Maurice Port (CV & Zertifikate):** `https://jmp-collab.github.io/ai-directories/ueber-jean/`
   - **AIGeddon YouTube-Kanal (KI Case Studies & Tutorials):** `https://www.youtube.com/@AIGeddon`
-  - **Promptgott Newsletter:** Wöchentliche System-Prompts, SGE/GEO-Workflows & Agentic Engineering (`jean.html#promptgott`).
+  - **Promptgott Substack ("ABGEFAHRENSTE AI USE CASES & TRICKS" / "THE PROGRAMMATIC REVENUE MACHINE"):** `https://promptgott.substack.com/` sowie vollständig integriert in `jean.html#promptgott` (alle 14 Kapitel von *Der Greyhat-Eid* über *Index Swarm*, *Merchant Brain (`merchants.json`)*, *Lokalisierungs-Bombe* bis *Der FAQ-Reaktor*, inkl. Machine Notes #01–#73 und eingebettetem Substack-Lead-Formular).
   - **Open Source & High-SKU E-Commerce Engines:** `https://github.com/jmp-collab` (inkl. `moto-knowledge-engine`, `awesome-simson`, `twostroke`, `awesome-ai-tools`) & `https://huggingface.co/jmp1987`.
   - **Strategie & AI × SEO Systems:** `https://kannkind.ai`
-- **Interaktive KI-Tools auf `jean.html`:**
-  - 6 parametrisierbare Master-Prompts mit 1-Click-Send-Buttons für ChatGPT, Claude, Perplexity und Google Gemini
+- **Interaktive KI-Tools & 7 Rechner auf `jean.html`:**
+  - 6 parametrisierbare Master-Prompts + alle 14 Promptgott-Substack-Kapitel-Prompts mit 1-Click-Send-Buttons für ChatGPT, Claude, Perplexity und Google Gemini
+  - Interaktives Machine-Note-Orakel (Machine Notes #01 bis #73 aus *The Programmatic Revenue Machine*)
   - Live Prompt-Roaster & CO-STAR System-Prompt-Upgrader
-  - Prompt-Engineering ROI- & Zeitspar-Rechner, SGE/GEO Citability-Check (0–100 Punkte), Programmatic SEO High-SKU Simulator & KI-Verzeichnis DR-Boost-Rechner.
+  - **7 Interaktive KI- & Revenue-Machine-Rechner:**
+    1. Prompt-Engineering ROI- & Zeitspar-Rechner
+    2. SGE / AI-Overviews & GEO Citability-Check (0–100 Punkte)
+    3. Programmatic SEO (pSEO) High-SKU Traffic- & Revenue-Simulator
+    4. KI-Verzeichnis & Backlink DR-Boost-Rechner
+    5. The Merchant Brain (`merchants.json`) EPC & Smart-Routing Rechner (Kapitel 7)
+    6. Die Lokalisierungs-Bombe: Geo-Matrix Multiplikator (Kapitel 13)
+    7. Der FAQ-Reaktor & Question-Graph Generator (Kapitel 14)

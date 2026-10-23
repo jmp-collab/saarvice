@@ -1779,7 +1779,153 @@
       updateDirCalc();
     }
 
-    // 4. Ecosystem Filter Tabs
+    // Calculator 5: The Merchant Brain (merchants.json EPC & Smart-Routing)
+    var mbCommA = $('calc-mb-comm-a');
+    var mbCrA = $('calc-mb-cr-a');
+    var mbCommB = $('calc-mb-comm-b');
+    var mbCrB = $('calc-mb-cr-b');
+    var mbRes = $('calc-mb-result');
+    var mbAct = $('calc-mb-actions');
+    function updateMbCalc() {
+      if (!mbCommA || !mbRes) return;
+      var cA = Math.max(1, parseFloat(mbCommA.value || '45'));
+      var rA = Math.max(0.1, parseFloat(mbCrA.value || '1.6'));
+      var cB = Math.max(1, parseFloat(mbCommB.value || '28'));
+      var rB = Math.max(0.1, parseFloat(mbCrB.value || '4.8'));
+      var epcA = (cA * (rA / 100));
+      var epcB = (cB * (rB / 100));
+      var winner = epcB >= epcA ? 'Merchant B' : 'Merchant A';
+      var diff10k = Math.round(Math.abs(epcB - epcA) * 10000);
+      mbRes.innerHTML = '<div class="ai-calc-result__big">' + winner + ' gewinnt (EPC ' + epcB.toFixed(2).replace('.', ',') + ' € vs. ' + epcA.toFixed(2).replace('.', ',') + ' €)</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Bei 10.000 Klicks liefert ' + winner + ' <strong>+' + diff10k.toLocaleString('de-DE') + ' € mehr Profit</strong> nach der <code>merchants.json</code> Expected-Value-Logik!</div>';
+      if (mbAct) {
+        var p = 'Baue mir nach Promptgott Substack Kap. 7 (The Merchant Brain von Jean Maurice Port) eine dynamische merchants.json + Smart-Routing-Engine: Merchant A hat ' + cA + ' € Payout bei ' + rA + '% CR (EPC ' + epcA.toFixed(2) + ' €), Merchant B hat ' + cB + ' € Payout bei ' + rB + '% CR (EPC ' + epcB.toFixed(2) + ' €). Zeige mir das JSON-Schema und die Routing-Logik nach User-Intent.';
+        mbAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(mbAct);
+      }
+    }
+    if (mbCommA) {
+      [mbCommA, mbCrA, mbCommB, mbCrB].forEach(function (el) {
+        if (el) el.addEventListener('input', updateMbCalc);
+      });
+      updateMbCalc();
+    }
+
+    // Calculator 6: Die Lokalisierungs-Bombe (Geo-Matrix Multiplikator)
+    var geoProd = $('calc-geo-prod');
+    var geoCities = $('calc-geo-cities');
+    var geoIntents = $('calc-geo-intents');
+    var geoRes = $('calc-geo-result');
+    var geoAct = $('calc-geo-actions');
+    function updateGeoCalc() {
+      if (!geoProd || !geoRes) return;
+      var prod = Math.max(1, parseInt(geoProd.value || '6', 10));
+      var cities = Math.max(1, parseInt(geoCities.value || '80', 10));
+      var intents = Math.max(1, parseInt(geoIntents.value || '4', 10));
+      var nodes = prod * cities * intents;
+      var visits = nodes * 15;
+      geoRes.innerHTML = '<div class="ai-calc-result__big">' + nodes.toLocaleString('de-DE') + ' lokale Revenue-Nodes</div>' +
+        '<div style="font-size:0.84rem; margin-top:0.25rem;">Schon bei Ø 15 Besuchern/Node/Monat = <strong>' + visits.toLocaleString('de-DE') + ' hochkonvertierende Local-Intent-Besucher/Monat</strong>.</div>';
+      if (geoAct) {
+        var p = 'Entwirf mir nach Promptgott Substack Kap. 13 (Die Lokalisierungs-Bombe von Jean Maurice Port) eine geografisch fraktale pSEO-Matrix für ' + prod + ' Produkte/Services × ' + cities + ' Städte × ' + intents + ' Use-Cases (= ' + nodes + ' lokale Revenue-Nodes) inkl. Local-Data-Enrichment (Preise, Regeln, Bezirke, FAQs).';
+        geoAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(geoAct);
+      }
+    }
+    if (geoProd) {
+      [geoProd, geoCities, geoIntents].forEach(function (el) {
+        if (el) el.addEventListener('input', updateGeoCalc);
+      });
+      updateGeoCalc();
+    }
+
+    // Calculator 7: Der FAQ-Reaktor & Question-Graph Generator
+    var faqTopic = $('calc-faq-topic');
+    var faqBtn = $('calc-faq-btn');
+    var faqRes = $('calc-faq-result');
+    var faqAct = $('calc-faq-actions');
+    function updateFaqReactor() {
+      if (!faqTopic || !faqRes) return;
+      var t = faqTopic.value.trim() || 'E-Scooter Versicherung';
+      var graphText = [
+        '⚛️ QUESTION GRAPH FÜR: "' + t.toUpperCase() + '" (MACHINE NOTE #68–#73)',
+        '├─ 1. KERNFRAGEN (Direct PAA): Was kostet ' + t + '? Wann ist ' + t + ' Pflicht? Welcher Anbieter ist Testsieger?',
+        '├─ 2. SUBFRAGEN (Edge Intents): Welche Strafen/Risiken drohen ohne ' + t + '? Welche Ausnahmen gelten 2026?',
+        '├─ 3. VERGLEICHS-INTENTS (A vs B): ' + t + ' Vergleich — Premium vs. Günstig / Anbieter A vs. Anbieter B',
+        '├─ 4. LOKALE VARIANTEN (Geo-Nodes): ' + t + ' in Berlin, Hamburg, München, Saarbrücken (sofortige Verfügbarkeit)',
+        '└─ 5. AI-OVERVIEW EXTRACTION: 45-Wort-Definition + strukturierte HTML-Kostentabelle + FAQPage JSON-LD.'
+      ].join('\n');
+      faqRes.textContent = graphText;
+      if (faqAct) {
+        var p = 'Starte den FAQ-Reaktor nach Promptgott Substack Kap. 14 (Jean Maurice Port) für das Thema "' + t + '": Extrahiere die 25 profitabelsten People-Also-Ask-Fragen, gruppiere sie in 5 semantische Intent-Cluster, schreibe AI-Overview-fähige 45-Wort-Antworten und generiere das passende FAQPage JSON-LD.';
+        faqAct.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(faqAct);
+      }
+    }
+    if (faqTopic) {
+      updateFaqReactor();
+      if (faqBtn) faqBtn.addEventListener('click', function () { updateFaqReactor(); ViralAudio.sizzle(); });
+      faqTopic.addEventListener('input', updateFaqReactor);
+    }
+
+    // 4. Machine Note Oracle (#01–#73 from promptgott.substack.com)
+    var MACHINE_NOTES = [
+      { num: '#01', ch: 'THE PROGRAMMATIC REVENUE MACHINE', q: 'Google bestraft keine Automation. Google bestraft schlechte Struktur und leeren Spam. 10 Seiten sind Arbeit — 100.000 Seiten sind Architektur.' },
+      { num: '#05', ch: 'DER GREYHAT-EID', q: 'Die meisten SEO-Probleme sind Architekturprobleme. Keine Schreibprobleme. Eine Seite kann sterben — ein System verstärkt sich selbst.' },
+      { num: '#08', ch: 'GOOGLE IST KEIN SUCHSYSTEM', q: 'Wer nur für Rankings optimiert, optimiert für die Vergangenheit. Die Zukunft gehört Seiten, die von Maschinen leicht verdaut und extrahiert werden können.' },
+      { num: '#11', ch: 'DAS ENDE EINZELNER WEBSEITEN', q: 'Wer einzelne Keywords jagt, hat bereits verloren. Interne Links sind semantische Stromleitungen. Content ohne Netzwerk-Effekt ist digitales Wegwerfmaterial.' },
+      { num: '#14', ch: 'DIE MACHINE', q: 'Wenn Wachstum stoppt, existiert kein System. Nur Arbeit. Der größte Hebel im Internet ist geschlossene Selbstverstärkung.' },
+      { num: '#18', ch: 'DIE INFRASTRUKTUR', q: 'Schwache Websites optimieren Inhalte. Starke Systeme optimieren Infrastruktur. Die Website ist nur das UI der eigentlichen Maschine.' },
+      { num: '#22', ch: 'THE MERCHANT BRAIN', q: 'Der beste Affiliate-Link ist nicht der mit der höchsten Provision, sondern der mit dem höchsten erwarteten Profit (EPC). Traffic ohne Monetization-Logik ist nur teure Aufmerksamkeit.' },
+      { num: '#26', ch: 'PROGRAMMATIC SEO ARCHITECTURE', q: 'Templates sind komprimierte Skalierung. Daten erzeugen Skalierung — Semantik erzeugt Rankings. Das moderne Internet wird nicht geschrieben, es wird generiert.' },
+      { num: '#31', ch: 'DATENSÄTZE SIND DIE NEUE WÄHRUNG', q: 'Wer die Daten kontrolliert, kontrolliert die Rankings. Entitäten sind SEO-Lego. Originaldaten sind die stärkste SEO-Waffe der Welt.' },
+      { num: '#37', ch: 'THE INDEX SWARM', q: 'Indexierung ist kein Zufall, sie ist Architektur. Wenn Google etwas schwer erreicht (Klicktiefe 5+), behandelt das System es als unwichtig.' },
+      { num: '#49', ch: 'DER AUTHORITY LAYER', q: 'Authority ist kein Gefühl. Authority ist ein Muster. Topical Authority ist semantische Vollständigkeit. Google vertraut Gewinnern mehr als Herausforderern.' },
+      { num: '#57', ch: 'DIE CONTENT FACTORY', q: 'Content ist Rohmaterial — die eigentliche Macht liegt in der Fabrik. Vergleichsseiten (A vs B) monetarisieren komprimierte Entscheidungsmomente.' },
+      { num: '#62', ch: 'DIE LOKALISIERUNGS-BOMBE', q: 'Jede Stadt ist ein eigener Markt. Lokale Suchanfragen sind fast immer Transaktionssignale. Lokale Relevanz entsteht durch echten Daten-Kontext, nicht durch Stadtnamen.' },
+      { num: '#68', ch: 'DER FAQ-REAKTOR', q: 'People Also Ask ist Googles öffentliche Intent-Datenbank. AI-Overviews bevorzugen komprimierte Klarheit. Wer Fragen kontrolliert, kontrolliert Aufmerksamkeit.' }
+    ];
+    var mnIndex = 1;
+    var mnNumEl = $('mn-number');
+    var mnQuoteEl = $('mn-quote');
+    var mnNextBtn = $('mn-next-btn');
+    var mnActEl = $('mn-actions');
+    function renderMachineNote(idx) {
+      if (!mnNumEl || !mnQuoteEl) return;
+      var item = MACHINE_NOTES[idx % MACHINE_NOTES.length];
+      mnNumEl.textContent = '⚙️ MACHINE NOTE ' + item.num + ' // ' + item.ch;
+      mnQuoteEl.textContent = '„' + item.q + '“';
+      if (mnActEl) {
+        var p = 'Übersetze Machine Note ' + item.num + ' aus dem Promptgott Substack von Jean Maurice Port ("' + item.q + '") in einen konkreten 5-Schritte-Umsetzungsplan für meine Website.';
+        mnActEl.innerHTML = buildLlmActionButtonsHtml(p);
+        wireLlmButtonEvents(mnActEl);
+      }
+    }
+    if (mnNextBtn) {
+      renderMachineNote(1);
+      mnNextBtn.addEventListener('click', function () {
+        mnIndex = (mnIndex + 1) % MACHINE_NOTES.length;
+        renderMachineNote(mnIndex);
+        ViralAudio.sizzle();
+      });
+    }
+
+    // 5. Substack 14-Chapter Filter Tabs
+    var pgCatBtns = document.querySelectorAll('.pg-cat-btn');
+    var pgCards = document.querySelectorAll('#promptgott-chapters-grid [data-pg-chapter]');
+    pgCatBtns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        pgCatBtns.forEach(function (x) { x.classList.remove('viral-pill-btn--gold'); });
+        b.classList.add('viral-pill-btn--gold');
+        var cat = b.getAttribute('data-pg-cat') || 'all';
+        pgCards.forEach(function (c) {
+          var cCat = c.getAttribute('data-pg-chapter') || '';
+          c.style.display = (cat === 'all' || cCat.indexOf(cat) !== -1) ? '' : 'none';
+        });
+      });
+    });
+
+    // 6. Ecosystem Filter Tabs
     var ecoBtns = document.querySelectorAll('.eco-filter-btn');
     var ecoCards = document.querySelectorAll('#eco-hub-grid .eco-hub-card');
     ecoBtns.forEach(function (b) {
@@ -1794,13 +1940,17 @@
       });
     });
 
-    // 5. Promptgott Newsletter Form & Markdown Deck Download
+    // 7. Promptgott Substack Lead-Gen Form & 14-Chapter Operator Manual Download
     var pgForm = $('promptgott-form');
     var pgSuccess = $('promptgott-success');
     var pgDownload = $('pg-download-deck');
     if (pgForm && pgSuccess) {
       pgForm.addEventListener('submit', function (e) {
         e.preventDefault();
+        var emailEl = $('pg-email');
+        var emailVal = emailEl ? emailEl.value.trim() : '';
+        var subUrl = 'https://promptgott.substack.com/subscribe?utm_source=saarvice_jean_hub' + (emailVal ? '&email=' + encodeURIComponent(emailVal) : '');
+        window.open(subUrl, '_blank', 'noopener');
         pgSuccess.hidden = false;
         unlockStamp('pass');
         ViralAudio.maggi();
@@ -1809,23 +1959,30 @@
     if (pgDownload) {
       pgDownload.addEventListener('click', function () {
         var md = [
-          '# PROMPTGOTT STARTER-DECK // BY JEAN MAURICE PORT',
-          '> Web: https://jmp-collab.github.io/saarvice/jean.html | Directory: https://jmp-collab.github.io/ai-directories/ | YouTube: https://www.youtube.com/@AIGeddon',
+          '# PROMPTGOTT // THE PROGRAMMATIC REVENUE MACHINE (14-KAPITEL OPERATOR MANUAL)',
+          '> Offizieller Substack: https://promptgott.substack.com/ | Mastermind Hub: https://jmp-collab.github.io/saarvice/jean.html | Directories: https://jmp-collab.github.io/ai-directories/',
           '',
-          '## 1. Der Virale Kult-Brand-Architekt (SAARVICE-Methode)',
-          'Entwickle für mein Projekt eine polarisierende Kult-Positionierung mit 10 Insider-Codes, 3 interaktiven Share-Rechnern und einer vollständigen llms.txt.',
-          '',
-          '## 2. SGE & AI-Overviews Citability-Booster',
-          'Erstelle 3 zitierfähige 50-Wort-Antwortblöcke, eine semantische Entitäts-Vergleichstabelle und ein vernetztes Schema.org JSON-LD (Organization + Person + FAQPage).',
-          '',
-          '## 3. High-SKU Knowledge-Atomizer (Moto Engine Blueprint)',
-          'Zerlege unstrukturierte Produkt-PDFs in prüfbare JSON-Wissens-Atome mit Quelle, Modell-Kompatibilität und Anti-Thin-Content-Logik.'
+          '## DIE 14 ORIGINAL-KAPITEL & KERNFORMELN',
+          '1. **The Programmatic Revenue Machine**: Traffic → Data → Templates → Programmatic Pages → SERP → Revenue → More Data (Self-Compounding Infrastructure).',
+          '2. **Der Greyhat-Eid (Machine Note #05)**: Die meisten SEO-Probleme sind Architekturprobleme, keine Schreibprobleme. Der Operator baut Systeme statt einzelner Artikel.',
+          '3. **Google ist kein Suchsystem (Machine Note #08)**: Es ist eine Daten-Extraktionsmaschine (crawl → parse → classify → compress → rank → extract).',
+          '4. **Das Ende einzelner Webseiten (Machine Note #11)**: Eine einzelne Seite ist ein Asset. Ein Such-Territorium (Hub → Cluster → Vergleiche → Rechner → FAQs → Geo) ist eine Wirtschaft.',
+          '5. **Die Machine (Machine Note #14)**: Wenn Wachstum stoppt, existiert kein System, sondern nur Handarbeit.',
+          '6. **Die Infrastruktur (Machine Note #18–#20)**: Die Website ist nur das UI der eigentlichen Maschine (Next.js ISR, Supabase, Firecrawl, n8n, Claude Code, Antigravity).',
+          '7. **The Merchant Brain (Machine Note #22)**: `merchants.json` steuert Monetarisierung dynamisch nach höchstem EPC (Expected Value = Revenue-Wahrsch. × CR × Intent) statt nach bloßer Provision %.',
+          '8. **Programmatic SEO Architecture (Machine Note #26)**: Template + Datensatz + Entity Layer + Internal Links + Monetization = Revenue Infrastructure.',
+          '9. **Datensätze sind die neue Währung (Machine Note #31)**: Wer die Daten kontrolliert, kontrolliert die Rankings. 1 Datensatz speist automatisch tausende Vergleichs-, Geo- und FAQ-Varianten.',
+          '10. **The Index Swarm (Machine Note #36–#38)**: Maximale Query-Abdeckung bei minimaler Crawl-Reibung (Klicktiefe 1–2 = Priorität, 5+ = Gefahrzone).',
+          '11. **Der Authority Layer (Machine Note #49–#56)**: Authority ist Mathematik aus Semantic, Structural, External und Behavioral Authority.',
+          '12. **Die Content Factory (Machine Note #57–#61)**: Der 8-Agenten Content Swarm + hochkonvertierende A-vs-B Entscheidungs-Seiten.',
+          '13. **Die Lokalisierungs-Bombe (Machine Note #62–#67)**: Geografisch fraktale Expansion (Produkt × Stadt × Use Case × Problem × Vergleich) mit echten lokalen Daten.',
+          '14. **Der FAQ-Reaktor (Machine Note #68–#73)**: People Also Ask als öffentliche Intent-Datenbank und AI-Overview-Magnet.'
         ].join('\n');
         var blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
         var url = URL.createObjectURL(blob);
         var a = document.createElement('a');
         a.href = url;
-        a.download = 'promptgott-starter-deck-jean-maurice-port.md';
+        a.download = 'promptgott-programmatic-revenue-machine-playbook.md';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
