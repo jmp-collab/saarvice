@@ -15,7 +15,8 @@
   <link rel="icon" href="favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20261023v9">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/plus-jakarta-sans-latin.woff2" crossorigin>
   <script type="application/ld+json">
   [
     {
@@ -167,31 +168,31 @@
     </div>
   </aside>
 
-  <!-- Top Viral Utility Bar -->
-  <div class="viral-topbar" role="region" aria-label="Saarland &amp; Mastermind Steuerung">
-    <div class="viral-topbar__inner">
-      <div class="viral-topbar__left">
-        <span class="viral-badge-live">☢️ JEAN MAURICE PORT // MASTERMIND LAB</span>
-        <span id="greeting-banner" class="viral-greeting">Moien! Willkommen im Maschinenraum hinter SAARVICE, AIGEDDON &amp; Promptgott.</span>
-      </div>
-      <div class="viral-topbar__actions">
-        <button type="button" id="readability-toggle-btn" class="viral-pill-btn" title="Schriftgröße &amp; Kontrast für noch bessere Lesbarkeit umschalten">
-          Aa <span id="readability-label">Lesemodus: Standard</span>
-        </button>
-        <button type="button" id="dialect-toggle-btn" class="viral-pill-btn" aria-pressed="false">
-          🗣️ <span id="dialect-label">DE ↔ 100% Saarlännisch</span>
-        </button>
-        <button type="button" id="theme-cycle-btn" class="viral-pill-btn">
-          🎨 <span id="theme-label">Theme: Hüttenglut</span>
-        </button>
-        <button type="button" id="open-cockpit-btn" class="viral-pill-btn viral-pill-btn--gold">
-          🚀 200x VIRAL &amp; KI
-        </button>
+  <header id="header">
+    <!-- Top Viral Utility Bar -->
+    <div class="viral-topbar" role="region" aria-label="Saarland &amp; Mastermind Steuerung">
+      <div class="viral-topbar__inner">
+        <div class="viral-topbar__left">
+          <span class="viral-badge-live">☢️ JEAN MAURICE PORT // MASTERMIND LAB</span>
+          <span id="greeting-banner" class="viral-greeting">Moien! Willkommen im Maschinenraum hinter SAARVICE, AIGEDDON &amp; Promptgott.</span>
+        </div>
+        <div class="viral-topbar__actions">
+          <button type="button" id="readability-toggle-btn" class="viral-pill-btn" title="Schriftgröße &amp; Kontrast für noch bessere Lesbarkeit umschalten">
+            Aa <span id="readability-label">Lesemodus: Standard</span>
+          </button>
+          <button type="button" id="dialect-toggle-btn" class="viral-pill-btn" aria-pressed="false">
+            🗣️ <span id="dialect-label">DE ↔ 100% Saarlännisch</span>
+          </button>
+          <button type="button" id="theme-cycle-btn" class="viral-pill-btn">
+            🎨 <span id="theme-label">Theme: Hüttenglut</span>
+          </button>
+          <button type="button" id="open-cockpit-btn" class="viral-pill-btn viral-pill-btn--gold">
+            🚀 200x VIRAL &amp; KI
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <header id="header">
     <div class="nav-container">
       <a href="index.html" class="logo" aria-label="SAARVICE Startseite">
         <img src="assets/images/logo_stamp.png" alt="SAARVICE Stempel-Logo" class="logo-stamp" width="42" height="42">
@@ -201,14 +202,16 @@
         </div>
       </a>
 
-      <button class="mobile-nav-toggle" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="primary-nav">
-        <span class="hamburger"></span>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
       </button>
 
       <nav id="primary-nav" aria-label="Hauptnavigation">
         <ul class="nav-links">
           <li><a href="index.html">← Streetfood-Showroom</a></li>
-          <li><a href="#kontakt-leadgen" style="color: #6ee7b7; font-weight: 800;">🤝 Projekt-Anfrage</a></li>
+          <li><a href="#kontakt-leadgen" class="nav-highlight-emerald">🤝 Projekt-Anfrage</a></li>
           <li><a href="#prompt-lab">Prompt-Tresor ⚡</a></li>
           <li><a href="#ki-rechner">12 KI-Rechner 🧮</a></li>
           <li><a href="#promptgott">Promptgott ✉️</a></li>
@@ -219,9 +222,9 @@
     </div>
   </header>
 
-  <main id="main-content" style="padding-top: 7.5rem;">
+  <main id="main-content">
     <!-- HERO: JEAN MAURICE PORT AS LOVABLE MASCOT & AI/SEO MASTERMIND -->
-    <section class="container" style="padding: 3rem 1.5rem 4rem;">
+    <section class="container" style="padding: 2.25rem 1.5rem 3.5rem;">
       <div class="aigeddon-banner" style="margin-top: 0;">
         <div>
           <span class="jean-callout__badge"><span class="live-dot-green"></span> 🧔 Der Typ hinter SAARVICE, AIGEDDON ☢️ &amp; Promptgott ⚡</span>
@@ -1833,8 +1836,8 @@ CNAME www   jmp-collab.github.io.</pre>
     </div>
   </div>
 
-  <script src="js/config.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/viral.js"></script>
+  <script src="js/config.js?v=20261023v9"></script>
+  <script src="js/main.js?v=20261023v9"></script>
+  <script src="js/viral.js?v=20261023v9"></script>
 </body>
 </html>

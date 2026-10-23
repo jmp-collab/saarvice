@@ -1,4 +1,6 @@
-/* Typography — V4 High-Readability Upgrade */
+/* Typography — V9 Clean Editorial & High-Readability System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+
 @font-face {
   font-family: 'Plus Jakarta Sans';
   font-style: normal;
@@ -17,38 +19,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
-  font-family: 'Archivo Black';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/HTxqL289NzCGg4MzN6KJ7eW6CYyF_g.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Barlow Condensed';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/HTx3L3I-JCGChYJ8VI-L6OO_au7B6xHT2g.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Barlow Condensed';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../assets/fonts/HTxwL3I-JCGChYJ8VI-L6OO_au7B46r2z3bWuQ.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Barlow Condensed';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('../assets/fonts/HTxwL3I-JCGChYJ8VI-L6OO_au7B45L0z3bWuQ.woff2') format('woff2');
-}
-
 /* Design Tokens */
 :root {
   --c-bg: #0d0c0a;
@@ -59,13 +29,13 @@
   --c-border: rgba(246, 241, 230, 0.14);
   --c-border-focus: rgba(227, 178, 60, 0.5);
   
-  --f-display: 'Plus Jakarta Sans', 'Archivo Black', -apple-system, BlinkMacSystemFont, sans-serif;
-  --f-heavy: 'Archivo Black', 'Plus Jakarta Sans', sans-serif;
-  --f-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --f-condensed: 'Barlow Condensed', 'Plus Jakarta Sans', sans-serif;
+  --f-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-heavy: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-body: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --f-condensed: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
   --f-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
   
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: all 0.2s ease;
   
   --container-max: 1220px;
@@ -83,18 +53,18 @@ html {
   background-color: var(--c-bg);
   color: var(--c-text);
   font-family: var(--f-body);
-  font-size: 17.5px;
+  font-size: 16.5px;
   line-height: 1.65;
-  letter-spacing: 0.008em;
+  letter-spacing: -0.005em;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html[data-readability="xl"] {
-  font-size: 19.5px;
+  font-size: 18.5px;
   line-height: 1.75;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.005em;
 }
 
 html[data-readability="contrast"] {
@@ -103,20 +73,22 @@ html[data-readability="contrast"] {
   --c-text: #ffffff;
   --c-gold: #ffd447;
   --c-border: rgba(255, 255, 255, 0.28);
-  font-size: 18.5px;
+  font-size: 17.5px;
   line-height: 1.72;
 }
 
 body {
   overflow-x: hidden;
-  font-weight: 450;
+  font-weight: 400;
+  font-family: var(--f-body);
 }
 
 h1, h2, h3, h4, .section-title, .dish-title {
   font-family: var(--f-display);
-  font-weight: 800;
-  letter-spacing: -0.015em;
-  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.24;
+  text-transform: none;
 }
 
 p, li, dd, label {
@@ -4863,3 +4835,504 @@ body.is-zen-mode main li {
     padding: 0 !important;
   }
 }
+
+/* ==========================================================================
+   V9 CLEAN UI, HEADER ANTI-OVERLAP & HIGH-READABILITY TYPOGRAPHY OVERHAUL
+   ========================================================================== */
+
+/* 1. Clean, Modern Editorial Typography (Kill blocky uppercase / Archivo Black) */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.hero-content h1,
+.page-header h1,
+.dish-name,
+.side-name,
+.drink-name,
+.catering-card h3,
+.viral-card h3,
+.faq-question,
+.cockpit-title,
+.footer-brand,
+.jean-hub-card h3 {
+  font-family: var(--f-display) !important;
+  text-transform: none !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.24 !important;
+  font-weight: 700 !important;
+}
+
+.hero-content h1,
+.page-header h1 {
+  font-weight: 800 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.028em !important;
+}
+
+p, li, label, input, select, textarea, button {
+  font-family: var(--f-body);
+}
+
+/* 2. Core Layout Utilities (.container, .sr-only, .section-eyebrow, .btn) */
+.container {
+  max-width: var(--container-max, 1220px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  width: 100%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--f-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-gold);
+  background: rgba(227, 178, 60, 0.12);
+  border: 1px solid rgba(227, 178, 60, 0.32);
+  padding: 0.3rem 0.75rem;
+  border-radius: 99px;
+  margin-bottom: 0.85rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--f-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.72rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: none !important;
+  letter-spacing: -0.005em;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--c-gold), #d9822b);
+  color: #0d0c0a;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(227, 178, 60, 0.25);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #f0c24c, #e58e35);
+  box-shadow: 0 8px 24px rgba(227, 178, 60, 0.38);
+}
+
+.btn-outline {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--c-text);
+  border: 1px solid rgba(246, 241, 230, 0.25);
+}
+
+.btn-outline:hover {
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+  background: rgba(227, 178, 60, 0.08);
+}
+
+/* 3. Sticky Header & Zero-Overlap Menu System (index.html + jean.html + subpages) */
+header,
+#header {
+  position: sticky !important;
+  top: 0 !important;
+  left: 0;
+  width: 100%;
+  z-index: 500 !important;
+  background: rgba(13, 12, 10, 0.96) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 0 !important;
+  border-bottom: 1px solid rgba(227, 178, 60, 0.22) !important;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+header.scrolled,
+#header.scrolled {
+  padding: 0 !important;
+  background: rgba(10, 9, 8, 0.98) !important;
+}
+
+/* Top Utility Bar (.header-utility-bar on index & .viral-topbar on jean.html) */
+.header-utility-bar,
+.viral-topbar {
+  background: rgba(8, 8, 7, 0.96);
+  border-bottom: 1px solid rgba(227, 178, 60, 0.18);
+  padding: 0.38rem 1.25rem;
+  font-size: 0.78rem;
+  width: 100%;
+}
+
+.header-utility-inner,
+.viral-topbar__inner {
+  max-width: var(--container-max, 1220px);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.viral-topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.viral-badge-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(217, 79, 61, 0.16);
+  border: 1px solid rgba(217, 79, 61, 0.45);
+  color: #fca5a5;
+  padding: 0.18rem 0.55rem;
+  border-radius: 99px;
+  font-family: var(--f-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.viral-greeting {
+  color: rgba(246, 241, 230, 0.82);
+  font-size: 0.76rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 420px;
+}
+
+.header-utility-actions,
+.viral-topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.utility-pill,
+.viral-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(246, 241, 230, 0.18);
+  color: var(--c-text);
+  padding: 0.24rem 0.62rem;
+  border-radius: 99px;
+  font-family: var(--f-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.utility-pill:hover,
+.viral-pill-btn:hover {
+  border-color: var(--c-gold);
+  color: var(--c-gold);
+  background: rgba(227, 178, 60, 0.1);
+}
+
+.utility-pill--gold,
+.viral-pill-btn--gold {
+  background: rgba(227, 178, 60, 0.18);
+  border-color: rgba(227, 178, 60, 0.55);
+  color: var(--c-gold);
+  font-weight: 700;
+}
+
+/* Main Navigation Container */
+.nav-container {
+  max-width: var(--container-max, 1220px);
+  margin: 0 auto;
+  padding: 0.65rem 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  flex-wrap: nowrap !important;
+}
+
+/* Logo styling for both <div class="logo"><a> and <a class="logo"> */
+.logo,
+a.logo,
+.logo a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.65rem !important;
+  text-decoration: none !important;
+  color: var(--c-text) !important;
+  flex-shrink: 0 !important;
+}
+
+.logo-stamp,
+.logo-mark {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--c-gold);
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.logo-main {
+  font-family: var(--f-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--c-text);
+  white-space: nowrap;
+}
+
+.logo-sub {
+  font-family: var(--f-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--c-gold);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Nav Links — Crisp, Non-Overlapping Single Row on Desktop */
+#primary-nav {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+nav ul,
+.nav-links {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.25rem 0.65rem !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-wrap: nowrap !important;
+}
+
+nav ul li,
+.nav-links li {
+  flex-shrink: 0;
+}
+
+nav a,
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--f-body) !important;
+  font-size: 0.84rem !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  letter-spacing: -0.005em !important;
+  color: rgba(246, 241, 230, 0.9) !important;
+  text-decoration: none !important;
+  padding: 0.38rem 0.55rem !important;
+  border-radius: 8px;
+  white-space: nowrap !important;
+  transition: color 0.18s ease, background 0.18s ease;
+}
+
+nav a::after {
+  display: none !important;
+}
+
+nav a:hover,
+nav a.active,
+.nav-links a:hover {
+  color: var(--c-gold) !important;
+  background: rgba(227, 178, 60, 0.1);
+}
+
+.nav-highlight-emerald {
+  color: #6ee7b7 !important;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.nav-jean-pill {
+  background: rgba(227, 178, 60, 0.15) !important;
+  border: 1px solid rgba(227, 178, 60, 0.45) !important;
+  color: var(--c-gold) !important;
+  border-radius: 99px !important;
+  padding: 0.35rem 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+/* Mobile / Tablet Hamburger Menu below 1140px so links NEVER overlap */
+.mobile-nav-toggle {
+  display: none;
+}
+
+@media (max-width: 1140px) {
+  .viral-greeting {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex !important;
+  }
+
+  #primary-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(13, 12, 10, 0.98);
+    border-bottom: 2px solid var(--c-gold);
+    padding: 1rem 1.25rem;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.85);
+    z-index: 600;
+  }
+
+  #primary-nav.is-open,
+  header.nav-open #primary-nav {
+    display: block !important;
+  }
+
+  nav ul,
+  .nav-links {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.4rem !important;
+  }
+
+  nav a,
+  .nav-links a {
+    font-size: 0.95rem !important;
+    padding: 0.65rem 0.85rem !important;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-utility-bar,
+  .viral-topbar {
+    padding: 0.35rem 0.75rem;
+  }
+
+  .viral-badge-live {
+    font-size: 0.62rem;
+  }
+
+  .utility-pill,
+  .viral-pill-btn {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.48rem;
+  }
+
+  .nav-container {
+    padding: 0.55rem 0.85rem !important;
+  }
+}
+
+/* Hero & Page Header spacing adjustment now that header is sticky */
+.page-header {
+  padding-top: 4rem !important;
+}
+
+/* 4. Move Scroll Progress HUD out of the top-right header zone so it never overlaps buttons */
+.scroll-progress-hud {
+  top: auto !important;
+  right: auto !important;
+  bottom: 1.1rem !important;
+  left: 1.1rem !important;
+  z-index: 190 !important;
+  font-size: 0.68rem !important;
+  padding: 0.22rem 0.6rem !important;
+  opacity: 0.88;
+}
+
+@media (max-width: 900px) {
+  .scroll-progress-hud {
+    display: none !important;
+  }
+}
+
+/* 5. Footer Grid & Toast Notification Styling */
+.footer-grid {
+  max-width: var(--container-max, 1220px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  padding: 2.5rem 1.5rem;
+  text-align: left;
+}
+
+.footer-brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--c-gold);
+  margin-bottom: 0.5rem;
+}
+
+.saarvice-live-toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #141311;
+  color: #f6f1e6;
+  border: 1.5px solid var(--c-gold);
+  border-radius: 99px;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--f-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.saarvice-live-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+

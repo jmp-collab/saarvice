@@ -9,6 +9,67 @@
 
   function $(id) { return document.getElementById(id); }
 
+  function storeGet(key, fallback) {
+    try {
+      var v = localStorage.getItem(key);
+      return v !== null ? v : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function storeSet(key, val) {
+    try {
+      localStorage.setItem(key, String(val));
+    } catch (e) {}
+  }
+
+  var toastTimer = null;
+  function showViralToast(msg) {
+    var t = document.getElementById('saarvice-live-toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'saarvice-live-toast';
+      t.className = 'saarvice-live-toast';
+      t.setAttribute('role', 'status');
+      t.setAttribute('aria-live', 'polite');
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.classList.add('is-visible');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () {
+      t.classList.remove('is-visible');
+    }, 2600);
+  }
+
+  function copyTextWithFallback(text, btnEl) {
+    var str = String(text || '');
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(str).catch(function () {});
+    } else {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = str;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {}
+    }
+    if (btnEl && !btnEl.dataset.copyBusy) {
+      btnEl.dataset.copyBusy = '1';
+      var orig = btnEl.innerHTML;
+      btnEl.innerHTML = '✅ Kopiert!';
+      setTimeout(function () {
+        btnEl.innerHTML = orig;
+        delete btnEl.dataset.copyBusy;
+      }, 1600);
+    }
+  }
+
   /* ------------------------------------------------------------------ *
    * 1. SYNTHESIZED WEB-AUDIO SOUNDBOARD (#051, #060)
    * ------------------------------------------------------------------ */
@@ -239,14 +300,17 @@
 
     // Globaler Dialekt-Umschalter (#001, #009)
     var dialectBtn = $('dialect-toggle-btn');
-    var dialectLbl = $('dialect-mode-label');
+    var dialectLbl = $('dialect-mode-label') || $('dialect-label');
     var isPlatt = false;
     try { isPlatt = localStorage.getItem('saarvice_dialect') === 'platt'; } catch (e) {}
 
     function applyDialect(platt) {
       isPlatt = platt;
       try { localStorage.setItem('saarvice_dialect', platt ? 'platt' : 'de'); } catch (e) {}
-      if (dialectBtn) dialectBtn.classList.toggle('is-platt', platt);
+      if (dialectBtn) {
+        dialectBtn.classList.toggle('is-platt', platt);
+        dialectBtn.setAttribute('aria-pressed', String(platt));
+      }
       if (dialectLbl) dialectLbl.textContent = platt ? '100% Saarlännisch' : 'Hochdeutsch';
 
       document.querySelectorAll('[data-saar]').forEach(function (el) {
@@ -262,13 +326,14 @@
       dialectBtn.addEventListener('click', function () {
         ViralAudio.maggi();
         applyDialect(!isPlatt);
+        showViralToast(isPlatt ? '🗣️ 100% Saarlännisch aktiviert!' : '🗣️ Hochdeutsch aktiviert');
       });
       if (isPlatt) applyDialect(true);
     }
 
     // Cult Colorway Switcher (#054)
     var themeBtn = $('theme-cycle-btn');
-    var themeLbl = $('theme-mode-label');
+    var themeLbl = $('theme-mode-label') || $('theme-label');
     var themes = [
       { id: 'saarkohle', label: 'Saarkohle' },
       { id: 'hochofen', label: 'Hochofen-Glut' },
@@ -285,6 +350,7 @@
         else document.documentElement.setAttribute('data-theme', t.id);
         if (themeLbl) themeLbl.textContent = t.label;
         ViralAudio.stamp();
+        showViralToast('🎨 Theme: ' + t.label);
       });
     }
 
@@ -581,7 +647,9 @@
     }
     if (unitIn && unitSel) {
       unitIn.addEventListener('input', calcSaarFlaeche);
+      unitIn.addEventListener('change', calcSaarFlaeche);
       unitSel.addEventListener('change', calcSaarFlaeche);
+      calcSaarFlaeche();
     }
     if ($('share-flaeche-btn')) {
       $('share-flaeche-btn').addEventListener('click', function () {
@@ -916,6 +984,21 @@
 
     drawCert();
     drawGazette();
+
+    ['cert-name-input', 'cert-town-input', 'quiz-q1', 'quiz-q2'].forEach(function (id) {
+      var el = $(id);
+      if (el) {
+        el.addEventListener('input', drawCert);
+        el.addEventListener('change', drawCert);
+      }
+    });
+    ['gazette-name-input', 'gazette-town-input', 'gazette-tpl-select'].forEach(function (id) {
+      var el = $(id);
+      if (el) {
+        el.addEventListener('input', drawGazette);
+        el.addEventListener('change', drawGazette);
+      }
+    });
 
     if ($('generate-cert-btn')) {
       $('generate-cert-btn').addEventListener('click', function () {
@@ -1587,6 +1670,15 @@
   function initJeanMastermindLab() {
     refreshAllPromptActionRows();
 
+    function bindLiveInputs(els, fn) {
+      els.forEach(function (el) {
+        if (!el) return;
+        el.addEventListener('input', fn);
+        el.addEventListener('change', fn);
+        el.addEventListener('keyup', fn);
+      });
+    }
+
     // 1. Live Variable Customizer on jean.html
     var applyBtn = $('p-var-apply');
     var nicheIn = $('p-var-niche');
@@ -1612,10 +1704,9 @@
       applyBtn.addEventListener('click', function () {
         updateParameterizedPrompts();
         ViralAudio.maggi();
+        showViralToast('⚡ Alle 6 Master-Prompts live aktualisiert!');
       });
-      [nicheIn, regionIn, goalIn].forEach(function (el) {
-        if (el) el.addEventListener('input', updateParameterizedPrompts);
-      });
+      bindLiveInputs([nicheIn, regionIn, goalIn], updateParameterizedPrompts);
     }
 
     // 2. Live Prompt-Roaster & CO-STAR Upgrader
@@ -1686,9 +1777,7 @@
       }
     }
     if (roiTeam) {
-      [roiTeam, roiRate, roiTasks, roiSaved].forEach(function (el) {
-        if (el) el.addEventListener('input', updateRoiCalc);
-      });
+      bindLiveInputs([roiTeam, roiRate, roiTasks, roiSaved], updateRoiCalc);
       updateRoiCalc();
     }
 
@@ -1751,9 +1840,7 @@
       }
     }
     if (pseoPages) {
-      [pseoPages, pseoVisits, pseoAov].forEach(function (el) {
-        if (el) el.addEventListener('input', updatePseoCalc);
-      });
+      bindLiveInputs([pseoPages, pseoVisits, pseoAov], updatePseoCalc);
       updatePseoCalc();
     }
 
@@ -1773,9 +1860,7 @@
         '<div style="font-size:0.84rem; margin-top:0.25rem;">Geschätzter manueller Zeitaufwand für ' + cnt + ' Verzeichnisse: ~' + hours + ' Std. — oder 0 Std. mit unserem <a href="https://jmp-collab.github.io/ai-directories/werben/" target="_blank" rel="noopener" style="color:#ffe14d; text-decoration:underline;">Launch-Service</a>.</div>';
     }
     if (dirCur) {
-      [dirCur, dirCnt].forEach(function (el) {
-        if (el) el.addEventListener('input', updateDirCalc);
-      });
+      bindLiveInputs([dirCur, dirCnt], updateDirCalc);
       updateDirCalc();
     }
 
@@ -1805,9 +1890,7 @@
       }
     }
     if (mbCommA) {
-      [mbCommA, mbCrA, mbCommB, mbCrB].forEach(function (el) {
-        if (el) el.addEventListener('input', updateMbCalc);
-      });
+      bindLiveInputs([mbCommA, mbCrA, mbCommB, mbCrB], updateMbCalc);
       updateMbCalc();
     }
 
@@ -1833,9 +1916,7 @@
       }
     }
     if (geoProd) {
-      [geoProd, geoCities, geoIntents].forEach(function (el) {
-        if (el) el.addEventListener('input', updateGeoCalc);
-      });
+      bindLiveInputs([geoProd, geoCities, geoIntents], updateGeoCalc);
       updateGeoCalc();
     }
 
@@ -1895,10 +1976,7 @@
       }
     }
     if (tokPages) {
-      [tokPages, tokWords, tokModel].forEach(function (el) {
-        if (el) el.addEventListener('input', updateTokenCalc);
-        if (el) el.addEventListener('change', updateTokenCalc);
-      });
+      bindLiveInputs([tokPages, tokWords, tokModel], updateTokenCalc);
       updateTokenCalc();
     }
 
@@ -1926,9 +2004,7 @@
       }
     }
     if (idxUrls) {
-      [idxUrls, idxDepth, idxShards].forEach(function (el) {
-        if (el) el.addEventListener('input', updateIdxCalc);
-      });
+      bindLiveInputs([idxUrls, idxDepth, idxShards], updateIdxCalc);
       updateIdxCalc();
     }
 
@@ -1952,9 +2028,7 @@
       }
     }
     if (zcImpr) {
-      [zcImpr, zcTables].forEach(function (el) {
-        if (el) el.addEventListener('input', updateZcCalc);
-      });
+      bindLiveInputs([zcImpr, zcTables], updateZcCalc);
       updateZcCalc();
     }
 
@@ -1986,9 +2060,7 @@
       }
     }
     if (dynoNodes) {
-      [dynoNodes, dynoEpc].forEach(function (el) {
-        if (el) el.addEventListener('input', updateDynoCalc);
-      });
+      bindLiveInputs([dynoNodes, dynoEpc], updateDynoCalc);
       updateDynoCalc();
     }
 
@@ -2008,10 +2080,7 @@
         '<div style="font-size:0.84rem; margin-top:0.25rem;">Schon bei konservativen +16 % SEO/AI-Uplift (+' + upliftMonth.toLocaleString('de-DE') + ' €/Monat) ist dein Investment von ' + inv.toLocaleString('de-DE') + ' € im 1. Monat mehrfach eingespielt.</div>';
     }
     if (b2bInv) {
-      [b2bInv, b2bRev].forEach(function (el) {
-        if (el) el.addEventListener('input', updateB2bCalc);
-        if (el) el.addEventListener('change', updateB2bCalc);
-      });
+      bindLiveInputs([b2bInv, b2bRev], updateB2bCalc);
       updateB2bCalc();
       if (b2bTransfer) {
         b2bTransfer.addEventListener('click', function () {
@@ -2068,8 +2137,7 @@
     });
 
     if (leadTraffic && leadAov) {
-      leadTraffic.addEventListener('input', updateLeadConfigurator);
-      leadAov.addEventListener('input', updateLeadConfigurator);
+      bindLiveInputs([leadTraffic, leadAov], updateLeadConfigurator);
       updateLeadConfigurator();
     }
 
@@ -2147,8 +2215,7 @@
       hqRes.textContent = 'Potenzial: +' + rev.toLocaleString('de-DE') + ' € / Monat zusätzlicher pSEO-Umsatz';
     }
     if (hqPages && hqAov) {
-      hqPages.addEventListener('input', updateHomeQuickCalc);
-      hqAov.addEventListener('input', updateHomeQuickCalc);
+      bindLiveInputs([hqPages, hqAov], updateHomeQuickCalc);
       updateHomeQuickCalc();
     }
 
@@ -3182,21 +3249,29 @@
     }
   }
 
+  function safeRun(fn, name) {
+    try {
+      fn();
+    } catch (err) {
+      console.error('[SAARVICE Error in ' + name + ']:', err);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    renderStamps();
-    initHeaderControls();
-    initReadabilitySwitcher();
-    initSensoryAndMenuExtras();
-    initKulturLabor();
-    initLandkreisBattle();
-    initCanvasGenerators();
-    initPassAndLexikonExtras();
-    initSubpageTools();
-    initJeanMastermindLab();
-    injectJeanSubpageCalloutsAndFloatingDock();
-    initStickySidebarsAndScrollSpy();
-    initEditorialSuiteAnd24Elements();
-    initViralCockpitModal();
-    initServiceWorker();
+    safeRun(renderStamps, 'renderStamps');
+    safeRun(initHeaderControls, 'initHeaderControls');
+    safeRun(initReadabilitySwitcher, 'initReadabilitySwitcher');
+    safeRun(initSensoryAndMenuExtras, 'initSensoryAndMenuExtras');
+    safeRun(initKulturLabor, 'initKulturLabor');
+    safeRun(initLandkreisBattle, 'initLandkreisBattle');
+    safeRun(initCanvasGenerators, 'initCanvasGenerators');
+    safeRun(initPassAndLexikonExtras, 'initPassAndLexikonExtras');
+    safeRun(initSubpageTools, 'initSubpageTools');
+    safeRun(initJeanMastermindLab, 'initJeanMastermindLab');
+    safeRun(injectJeanSubpageCalloutsAndFloatingDock, 'injectJeanSubpageCalloutsAndFloatingDock');
+    safeRun(initStickySidebarsAndScrollSpy, 'initStickySidebarsAndScrollSpy');
+    safeRun(initEditorialSuiteAnd24Elements, 'initEditorialSuiteAnd24Elements');
+    safeRun(initViralCockpitModal, 'initViralCockpitModal');
+    safeRun(initServiceWorker, 'initServiceWorker');
   });
 })();
